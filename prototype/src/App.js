@@ -1,22 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import brown_bridge from "./images/brown_bridge.jpg";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <input type="text" placeholder="Destination" />
+        <input type="text" placeholder="Date" />
+        <input type="text" placeholder="Guests" />
+        <input type="text" placeholder="Search" />
+        <img src={brown_bridge} alt="Rectangle-1"/>
       </header>
     </div>
   );
