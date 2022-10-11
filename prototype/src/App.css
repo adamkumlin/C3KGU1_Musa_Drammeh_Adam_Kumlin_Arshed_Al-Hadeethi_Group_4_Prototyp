@@ -1,40 +1,85 @@
 .App {
-  background-color: #FFEDD8;
   min-height: 100vh;
 }
 
-  .App h1 {
-    display: inline;
-    margin-left: 5rem;
-    margin-top: 1rem;
-    position: absolute;
+  .NavBar {
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 5rem;
+    }
+  
+  .Header h1 {
+    padding: 0;
+    margin: 0;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:#F18608;
   }
 
-  .App ul {
+  .NavBar ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    margin-left: 50%;
-    margin-top: 1rem;
-    position: absolute;
+    margin-top: 3rem;
   }
 
-  .App li {
+  .NavBar li {
     display: inline;
     margin-right: 5rem;
   }
 
-    .App li a {
+    a {
       text-decoration: none;
       color: black;
     }
 
-    .App li .book {
-      background-color: #583101;
-      color: white;
-      padding: 7px;
+    .NavBar li .book, .IntroButton {
+      border: 2px solid #F18608;
+      color: #F18608;
+      padding: 10px;
       margin-right: 0;
     }
+
+  .Intro img {
+    width: 834px;
+    height: 699px;
+    position: absolute;
+    margin-right: 4rem;
+    border-radius: 30px;
+    right: 0;
+  }
+
+  .IntroContent {
+    text-align: center;
+    font-size: 20pt;
+    margin-left: 15rem;
+    display: inline-block;
+    margin-top: 10rem;
+    margin-bottom: 25rem;
+  }
+
+    .IntroSlogan {
+      color: #F18608;
+      font-size: 30pt;
+    }
+
+  .Search {
+    background-color:#F18608;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .Search label {
+    display: inline-block;
+    margin-left: 4rem;
+    text-align: center;
+  }
 
 @keyframes App-logo-spin {
   from {
