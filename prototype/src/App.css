@@ -66,7 +66,7 @@
       font-size: 30pt;
     }
 
-  .Search {
+  .SearchFilter {
     background-color:#F18608;
     border-radius: 15px;
     padding: 2rem;
@@ -75,10 +75,14 @@
     margin-left: auto;
   }
 
-  .Search label {
+  .SearchFilter label {
     display: inline-block;
     margin-left: 4rem;
     text-align: center;
+  }
+
+  .InformationCard {
+    border: 2px solid black;
   }
 
 @keyframes App-logo-spin {
