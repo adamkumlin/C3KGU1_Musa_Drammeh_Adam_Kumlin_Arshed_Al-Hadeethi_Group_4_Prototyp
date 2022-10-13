@@ -18,11 +18,11 @@ import hotelpool from "./images/hotel_pool.jpg";
 //import hotels from "./hotels.json";
 
 const hotels = [
-  {"hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "image":".png", "price":"199"},
-  {"hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "image":".png", "price":"599"},
-  {"hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "image":".png", "price":"399"},
-  {"hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "image":".png", "price":"99"},
-  {"hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "image":".png", "price":"999"},
+  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "image":".png", "price":"199"},
+  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "image":".png", "price":"599"},
+  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "image":".png", "price":"399"},
+  {"id": "3", "hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "image":".png", "price":"99"},
+  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "image":".png", "price":"999"},
 ];
 
 function App() {
@@ -31,6 +31,7 @@ function App() {
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [guests, setGuests] = useState(0);
+  const [chosenHotel, setChosenHotel] = useState(null);
 
   function searchHotels() {
 
@@ -48,6 +49,11 @@ function App() {
 
       }})}
 
+  function chooseHotel(id) {
+
+    setChosenHotel(hotels[id]);
+  }
+
   return (
     <div className="App">
       <NavBar/>
@@ -61,9 +67,10 @@ function App() {
         </div>
       </div>
 
-      <SearchFilter destination={destination} changeDestination={(e) => setDestination(e.target.value)} checkInDate={checkInDate} changeCheckInDate={(e) => setCheckInDate(e.target.value)}
+      <SearchFilter destination={destination} changeDestination={(e) => setDestination(e.target.value)} 
+                checkInDate={checkInDate} changeCheckInDate={(e) => setCheckInDate(e.target.value)}
                 checkOutDate={checkOutDate} changeCheckOutDate={(e) => setCheckOutDate(e.target.value)}
-                guests={guests} changeGuests={(e) => setGuests(e.target.value)} searchHotels={searchHotels}/>
+                guests={guests} changeGuests={(e) => setGuests(e.target.value)}/>
 
       {hotels.filter(function(results) {
               
@@ -75,11 +82,13 @@ function App() {
         
                return results;
         
-              }}).map(({hotelName, destination, description, image, price}) => (
+              }}).map(({id, hotelName, destination, description, image, price}) => (
 
-              <InformationCard hotelName={hotelName} destination={destination} description={description} image={image} price={price}/>
+              <InformationCard id={id} hotelName={hotelName} destination={destination} description={description} image={image} price={price} chooseHotel={chooseHotel}/>
               
             ))}
+
+            {    console.log(chosenHotel)}
       
     </div>
   );
