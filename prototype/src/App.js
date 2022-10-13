@@ -21,11 +21,11 @@ import hotelpool from "./images/hotel_pool.jpg";
 //import hotels from "./hotels.json";
 
 const hotels = [
-  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "image":"../images/hotel.jpg", "price":"199"},
-  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "image":"../images/hotel1.jpg", "price":"599"},
-  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "image":"../images/hotel2.jpg", "price":"399"},
-  {"id": "3", "hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "image":"../images/hotel3.jpg", "price":"99"},
-  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "image":"../images/hotel4.jpg", "price":"999"},
+  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "image":"../assets/hotel.jpg", "price":"199"},
+  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "image":"../assets/hotel1.jpg", "price":"599"},
+  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "image":"../assets/hotel2.jpg", "price":"399"},
+  {"id": "3", "hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "image":"../assets/hotel3.jpg", "price":"99"},
+  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "image":"../assets/hotel4.jpg", "price":"999"},
 ];
 
 function App() {
@@ -56,6 +56,11 @@ function App() {
   function chooseHotel(id) {
 
     setChosenHotel(hotels[id]);
+
+    for (let i = 0; i < hotels.length; i++) {
+
+    document.getElementsByClassName("InformationCard")[i].style.display = "none";
+    }
   }
 
   function confirmBooking() {
