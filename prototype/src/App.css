@@ -82,8 +82,25 @@
   }
 
   .InformationCard {
-    border: 2px solid black;
+    margin-top: 5rem;
+    border: 2px solid #F18608;
+    text-align: center;
+    border-radius: 25px;
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
   }
+
+    .InformationCard img {
+      width: 300px;
+      height: 300px;
+      border-radius: 25px;
+    }
+
+    .informationCardIcon {
+      width: 25px !important;
+      height: 25px !important;
+    }
 
 @keyframes App-logo-spin {
   from {
