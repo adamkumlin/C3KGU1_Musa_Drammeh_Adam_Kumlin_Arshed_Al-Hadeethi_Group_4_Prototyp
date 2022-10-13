@@ -15,6 +15,8 @@ import InformationCard from "./components/InformationCard.js";
 import DetailsBox from "./components/DetailsBox";
 // Importerar komponenten "DetailsBox".
 
+import Footer from "./components/Footer";
+
 import hotelpool from "./images/hotel_pool.jpg";
 // Importerar två bilder.
 
@@ -101,6 +103,8 @@ function App() {
             ))}
 
       <DetailsBox chosenHotel={chosenHotel}/>
+
+      <Footer/>
       
     </div>
   );

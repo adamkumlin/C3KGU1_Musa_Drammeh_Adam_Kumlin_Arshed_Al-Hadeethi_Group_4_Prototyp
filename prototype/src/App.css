@@ -121,3 +121,15 @@
       display: block;
       margin: auto;
     }
+  
+  .Footer {
+    background-color: #F18608;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+    .Footer img {
+      width: 30px;
+      height: 30px;
+    }
