@@ -6,7 +6,7 @@ function Footer() {
     return(
         <div className="Footer">
             <h1>HotelsNOW</h1>
-            <a href="mailto:hotelsnow@hotelsnow.com">hotelsnow@hotelsnow.com</a>
+            <a href="mailto:hotelsnow@hotelsnow.com">hotelsnow@hotelsnow.com</a><br></br>
             <img src={facebookicon}/>
             <img src={instagramicon}/>
             <img src={twittericon}/>

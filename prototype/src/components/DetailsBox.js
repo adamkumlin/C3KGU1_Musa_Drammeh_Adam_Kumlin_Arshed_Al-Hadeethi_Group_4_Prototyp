@@ -8,6 +8,7 @@ function DetailsBox(props) {
       
       return (
         <div className="DetailsBox">
+            <button onClick={props.backDetailsBox} className="backButton">Back</button>
             <h2>{props.chosenHotel.hotelName}</h2>       
             <label>Name<input type="text"/></label>
             <label>Phone number<input type="text"/></label>

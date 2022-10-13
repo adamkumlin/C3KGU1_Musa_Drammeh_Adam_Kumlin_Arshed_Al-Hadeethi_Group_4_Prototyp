@@ -37,23 +37,6 @@ function App() {
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [guests, setGuests] = useState(0);
   const [chosenHotel, setChosenHotel] = useState(null);
-  const [image, setImage] = useState("");
-
-  function searchHotels() {
-
-    const filteredHotels = [];
-
-    hotels.filter(function(results) {
-              
-      if (destination === "" || checkInDate === "" || checkOutDate === "" || guests === "") {
-
-        return null;
-
-      } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) {
-
-       return results;
-
-      }})}
 
   function chooseHotel(id) {
 
@@ -63,6 +46,17 @@ function App() {
 
     document.getElementsByClassName("InformationCard")[i].style.display = "none";
     }
+  }
+
+  function backDetailsBox() {
+      
+      setChosenHotel(null);
+  
+      for (let i = 0; i < hotels.length; i++) {
+  
+      document.getElementsByClassName("InformationCard")[i].style.display = "block";
+    }
+    console.log(chosenHotel);
   }
 
   function confirmBooking() {
@@ -102,7 +96,7 @@ function App() {
               
             ))}
 
-      <DetailsBox chosenHotel={chosenHotel}/>
+      <DetailsBox chosenHotel={chosenHotel} backDetailsBox={backDetailsBox}/>
 
       <Footer/>
       
