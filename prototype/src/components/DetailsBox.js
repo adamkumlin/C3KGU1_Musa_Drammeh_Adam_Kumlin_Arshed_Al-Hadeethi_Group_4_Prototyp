@@ -24,8 +24,8 @@ function handleChange(event) {
             <label>Phone number<input type="text" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} required placeholder="1234567890"/></label>
             <label>E-mail<input type="text" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} required placeholder="example@example.com"/></label>
             <label>Credit card number<input type="text" required placeholder="1234567890"/></label>
-            <input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/> Pay now with credit card
-            <input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/> Pay at the hotel
+            <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label><br></br>
+            <label>Pay at the hotel<input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/></label> 
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>

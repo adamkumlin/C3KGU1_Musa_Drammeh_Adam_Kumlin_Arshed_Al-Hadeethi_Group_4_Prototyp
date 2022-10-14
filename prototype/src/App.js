@@ -28,15 +28,11 @@ import hotelpool from "./images/hotel_pool.jpg";
 //import hotels from "./hotels.json";
 
 const hotels = [
-  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "image":"../assets/hotel.jpg", "price":"199", "rooms": []},
-  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "image":"../assets/hotel1.jpg", "price":"599", "rooms": []},
-  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "image":"../assets/hotel2.jpg", "price":"399", "rooms": []},
-  {"id": "3", "hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "image":"../assets/hotel3.jpg", "price":"99", "rooms": []},
-  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "image":"../assets/hotel4.jpg", "price":"999", "rooms": []},
-  "guests": "1", "roomName": Single room"
-  "guests": "2", "roomName": Small apartment"
-  "guests": "3", "roomName": Apartment"
-
+  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], "image":"../assets/hotel.jpg", "price":"199"},
+  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "facts": ["Expensive", "No free cancellation", "Free breakfast"], "image":"../assets/hotel1.jpg", "price":"599"},
+  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "facts": ["Good value", "No free cancellation", "Free breakfast"], "image":"../assets/hotel2.jpg", "price":"399"},
+  {"id": "3", "hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "facts": ["Cheap", "Free cancellation", "Child-friendly"],"image":"../assets/hotel3.jpg", "price":"99"},
+  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "facts": ["Expensive", "No free cancellation", "All-inclusive"], "image":"../assets/hotel4.jpg", "price":"999"},
 ];
 // Skapar en array med hotell.
 
@@ -127,10 +123,10 @@ function App() {
                return results;
                // Returnerar objektet.
         
-              }}).map(({id, hotelName, destination, description, image, price}) => (
+              }}).map(({id, hotelName, destination, description, facts, image, price}) => (
               // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje objekt.
 
-              <InformationCard id={id} hotelName={hotelName} destination={destination} description={description} image={image} price={price} chooseHotel={chooseHotel}/>
+              <InformationCard id={id} hotelName={hotelName} destination={destination} description={description} facts={facts} image={image} price={price} chooseHotel={chooseHotel}/>
               // Renderar "InformationCard"-komponenten. Den tar med sig samtliga state-variabler förutom deras "set"-variant förutom "chosenHotel".
               // Den tar även med sig funktionen "chooseHotel".
             ))}

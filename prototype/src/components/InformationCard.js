@@ -11,6 +11,11 @@ function InformationCard(props) {
         <h2>{props.hotelName}</h2>
         <p><img src={locationicon} className="informationCardIcon"/>{props.destination}</p>
         <p>{props.description}</p>
+        <ul>
+          <li>{props.facts[0]}</li>
+          <li>{props.facts[1]}</li>
+          <li>{props.facts[2]}</li>
+        </ul>
         <img src={`${props.image}`}/>
         <p>${props.price} per night</p>
         <button onClick={() => props.chooseHotel(props.id)}>Choose</button>
