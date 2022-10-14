@@ -52,15 +52,15 @@ function App() {
   const [guestAmount, setGuestAmount] = useState(0);
   const [chooseCheckInDate, setChooseCheckInDate] = useState("");
   const [chooseCheckOutDate, setChooseCheckOutDate] = useState("");
-  const [chosenHotel, setChosenHotel] = useState([]);
-  const [bookedHotel, setBookedHotel] = useState([]);
+  const [chosenHotel, setChosenHotel] = useState(null);
+  const [bookedHotel, setBookedHotel] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState();
   // Skapar sex state-variabler. En för destinationen, en för incheckningsdatum, en för utcheckningsdatum, en för antalet gäster, en för det valda hotellet och ett för det bokade hotellet.
 
   function chooseHotel(id) {
   // Skapar en funktion som tar emot ett id.
 
-    setChosenHotel(current => [...current, hotels[id]]);
+    setChosenHotel(hotels[id]);
     // Sätter state-variabeln "chosenHotel" till det hotell som har det id som funktionen tar emot.
 
     for (let i = 0; i < hotels.length; i++)
