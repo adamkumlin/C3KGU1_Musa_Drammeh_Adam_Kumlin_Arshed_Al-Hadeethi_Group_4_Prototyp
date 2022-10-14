@@ -148,7 +148,7 @@
     margin-top: 5rem;
     border: 2px solid #F18608;
     border-radius: 25px;
-    width: 40%;
+    width: 60%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -163,9 +163,13 @@
 
     .DetailsBox input {
       display: block;
-      margin: auto;
+      margin-left: auto;
+      margin-right: auto;
     }
     /* Ändrar till block display, lägger också till en margin som centrerar den. */
+      .DetailsBox input[type="radio"] {
+        display: inline;
+      }
 
     .backButton {
       display: block;
