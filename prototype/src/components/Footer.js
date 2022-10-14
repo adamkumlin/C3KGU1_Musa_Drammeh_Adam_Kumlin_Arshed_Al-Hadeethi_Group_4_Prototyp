@@ -1,6 +1,8 @@
 import facebookicon from '../images/facebook_icon.png';
 import instagramicon from '../images/instagram_icon.png';
 import twittericon from '../images/twitter_icon.png';
+// Importerar tre bilder.
+
 function Footer() {
 
     return(
@@ -10,6 +12,7 @@ function Footer() {
             <img src={facebookicon}/>
             <img src={instagramicon}/>
             <img src={twittericon}/>
+            {/* Renderar tre bilder, en länk och ett h1-element. */}
 
             <h2>About</h2>
             <p>Our Story</p>
@@ -21,6 +24,7 @@ function Footer() {
             <p>FAQs</p>
             <p>Careers</p>
             <p>Press</p>
+            {/* Renderar text och h2-element. */}
         </div>
     )
 }

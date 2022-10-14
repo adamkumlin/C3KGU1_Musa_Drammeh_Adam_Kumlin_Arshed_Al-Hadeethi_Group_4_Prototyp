@@ -1,8 +1,11 @@
 function DetailsBox(props) {
+// Komponenten tar emot props.
 
   if (!props.chosenHotel) {
+  // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
 
     return <div></div>;
+    // Returnerar en tom div.
 
   } else {
       
@@ -17,6 +20,8 @@ function DetailsBox(props) {
               <input type="radio" value="creditCard" name="creditCard"/> Pay now with credit card
               <input type="radio" value="atHotel" name="atHotel"/> Pay at the hotel
           <button onClick={() => props.confirmBooking(props.id)}>Choose</button>
+          {/* Annars renderas två knappar, ett h2-element, fyra etiketter och två radioknappar.
+          Elementen med information om hotellen förses med informationen med hjälp av props. */}
         </div>
       )
     }

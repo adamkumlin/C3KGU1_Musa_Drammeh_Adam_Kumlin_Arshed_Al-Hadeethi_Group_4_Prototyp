@@ -1,6 +1,7 @@
 .App {
   min-height: 100vh;
 }
+/* Sätter en minsta höjd på hela sidan. */
 
   .NavBar {
       display: flex;
@@ -9,6 +10,8 @@
       justify-content: space-between;
       margin-bottom: 5rem;
     }
+  /* Sätter en flexbox på navbar:en. Ändrar positionen till "relative" och "flex-direction" till "row". Fortsättningsvis ges elementen plats mellan varandra med
+  "justify-content". Slutligen ges navbar:en en margin längst ned. */
   
   .Header h1 {
     padding: 0;
@@ -18,6 +21,7 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:#F18608;
   }
+  /* Tar bort padding lägger till en margin längst upp och till vänster. Ändrar typsnittet till Gill Sans och ger den en färg. */
 
   .NavBar ul {
     list-style-type: none;
@@ -25,16 +29,19 @@
     margin: 0;
     margin-top: 3rem;
   }
+  /* Tar bort list-stylen och padding, ger den en margin längst upp. */
 
   .NavBar li {
     display: inline;
     margin-right: 5rem;
   }
+  /* Sätter en inline display och ger den en margin till höger. */
 
     a {
       text-decoration: none;
       color: black;
     }
+    /* Tar bort text-decoration och ger den en svart färg. */
 
     .NavBar li .book, .IntroButton {
       border: 2px solid #F18608;
@@ -42,6 +49,7 @@
       padding: 10px;
       margin-right: 0;
     }
+    /* Sätter en border på knapparna och ger den en färg. Lägger också till en padding och tar bort margin längst till höger. */
 
   .Intro img {
     width: 834px;
@@ -51,6 +59,7 @@
     border-radius: 30px;
     right: 0;
   }
+  /* Sätter en bredd och höjd på bilden. Ändrar positionen till "absolute" och ger den en margin till höger. Sätter en border-radius på bilden och flyttar den till höger. */
 
   .IntroContent {
     text-align: center;
@@ -60,11 +69,13 @@
     margin-top: 10rem;
     margin-bottom: 25rem;
   }
+  /* Centrerar texten, ändrar storleken på texten, ger den en margin till vänster. Sätter en inline-block display och ger den en margin längst upp och längst ned. */
 
     .IntroSlogan {
       color: #F18608;
       font-size: 30pt;
     }
+    /* Ger texten en färg och ändrar storleken på texten. */
 
   .SearchFilter {
     background-color:#F18608;
@@ -74,12 +85,40 @@
     margin-right: auto;
     margin-left: auto;
   }
+  /* Sätter en bakgrundsfärg, en border-radius, en padding och en bredd. Ger den en automatisk margin till höger och vänster vilket centrerar den. */
+
+    .SearchFilter h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    /* Ger texten en vit färg, centrerar texten och ger den en margin längst ned. */
+
+    .SearchFilter input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid white;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    /* Sätter en bredd, en padding, en border och en border-radius. Ger den en margin längst ned. */
+
+    .SearchFilter button {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid white;
+      border-radius: 5px;
+      background-color: white;
+      color: #F18608;
+    }
+    /* Sätter en bredd, en padding, en border, en border-radius, en bakgrundsfärg och en färg. */
 
   .SearchFilter label {
     display: inline-block;
     margin-left: 4rem;
     text-align: center;
   }
+  /* Sätter en inline-block display, ger den en margin till vänster och centrerar texten. */
 
   .InformationCard {
     margin-top: 5rem;
@@ -90,17 +129,20 @@
     margin-left: auto;
     margin-right: auto;
   }
+  /* Ger den en margin längst upp, en border, centrerar texten, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den. */
 
     .InformationCard img {
       width: 300px;
       height: 300px;
       border-radius: 25px;
     }
+    /* Sätter en bredd och höjd på bilden. Sätter en border-radius på bilden. */
 
     .informationCardIcon {
       width: 25px !important;
       height: 25px !important;
     }
+    /* Sätter en bredd och höjd på ikonen. Överskrider ändringarna från ".InformationCard img" med "!important". */
 
   .DetailsBox {
     margin-top: 5rem;
@@ -112,15 +154,18 @@
     margin-right: auto;
     margin-bottom: 5rem;
   }
+  /* Ger den en margin längst upp, en border, en border-radius, en bredd, centrerar texten, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
 
     .DetailsBox h1 {
       color: #F18608;
     }
+    /* Ger den en färg. */
 
     .DetailsBox input {
       display: block;
       margin: auto;
     }
+    /* Ändrar till block display, lägger också till en margin som centrerar den. */
 
     .backButton {
       display: block;
@@ -129,14 +174,17 @@
       margin-left: 1rem;
       margin-top: 1rem;
     }
+    /* Ändrar till block display, ändrar positionen till "absolute", positionerar knappen till vänster, ger den en margin till vänster och en margin längst upp. */
   
   .Footer {
     background-color: #F18608;
     bottom: 0;
   }
+  /* Sätter en bakgrundsfärg och positionerar den längst ner. */
 
     .Footer img {
       width: 30px;
       height: 30px;
       margin-top: 1rem;
     }
+    /* Sätter en bredd och höjd på bilden. Ger den en margin längst upp. */

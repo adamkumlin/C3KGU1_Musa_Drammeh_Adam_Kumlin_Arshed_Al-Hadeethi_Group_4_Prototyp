@@ -11,6 +11,7 @@ function NavBar() {
                 <li><a href="#">Contact us</a></li>
                 <li><a href="#" className="book">Book Now</a></li>
             </ul>
+            {/* Renderar ett h1-element och en lista med fem länkar. */}
         </div>
     )
 }

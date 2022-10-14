@@ -1,6 +1,8 @@
 import locationicon from '../images/location_icon.png';
+// Importerar en bild.
 
 function InformationCard(props) {
+// Komponenten tar emot props.
     
   return (
 
@@ -13,6 +15,8 @@ function InformationCard(props) {
         <p>${props.price} per night</p>
         <button onClick={() => props.chooseHotel(props.id)}>Choose</button>
       </div>
+      {/*Renderar ett h2-element, tre p-element, en bild och en knapp. Dessa element fylls med information om hotellen med props. En div omringar alla element så att det är
+      möjligt att skilja på hotellen. */}
     </div>
   )
 }

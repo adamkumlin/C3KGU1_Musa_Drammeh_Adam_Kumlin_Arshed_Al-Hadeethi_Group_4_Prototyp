@@ -2,6 +2,7 @@ import './App.css';
 // Importerar CSS.
 
 import { useState } from "react";
+// Importerar State.
 
 import NavBar from "./components/NavBar.js";
 // Importerar komponenten "NavBar".
@@ -16,9 +17,10 @@ import DetailsBox from "./components/DetailsBox";
 // Importerar komponenten "DetailsBox".
 
 import Footer from "./components/Footer";
+// Importerar komponenten "Footer".
 
 import hotelpool from "./images/hotel_pool.jpg";
-// Importerar två bilder.
+// Importerar en bild.
 
 //import hotels from "./hotels.json";
 
@@ -29,6 +31,7 @@ const hotels = [
   {"id": "3", "hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "image":"../assets/hotel3.jpg", "price":"99"},
   {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "image":"../assets/hotel4.jpg", "price":"999"},
 ];
+// Skapar en array med hotell.
 
 function App() {
 
@@ -37,26 +40,33 @@ function App() {
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [guests, setGuests] = useState(0);
   const [chosenHotel, setChosenHotel] = useState(null);
+  // Skapar fem state-variabler. En för destinationen, en för incheckningsdatum, en för utcheckningsdatum, en för antalet gäster och en för det valda hotellet.
 
   function chooseHotel(id) {
+  // Skapar en funktion som tar emot ett id.
 
     setChosenHotel(hotels[id]);
+    // Sätter state-variabeln "chosenHotel" till det hotell som har det id som funktionen tar emot.
 
-    for (let i = 0; i < hotels.length; i++) {
+    for (let i = 0; i < hotels.length; i++)
+    // Loopar igenom array:en "hotels".
 
     document.getElementsByClassName("InformationCard")[i].style.display = "none";
+    // Döljer alla "InformationCard"-komponenter.
     }
-  }
 
   function backDetailsBox() {
+  // Skapar en funktion som gör att användaren går tillbaka till "InformationCard"-komponenten.
       
       setChosenHotel(null);
+      // Sätter state-variabeln "chosenHotel" till null.
   
       for (let i = 0; i < hotels.length; i++) {
+      // Loopar igenom array:en "hotels".
   
       document.getElementsByClassName("InformationCard")[i].style.display = "block";
+      // Visar alla "InformationCard"-komponenter.
     }
-    console.log(chosenHotel);
   }
 
   function confirmBooking() {
@@ -64,7 +74,9 @@ function App() {
 
   return (
     <div className="App">
+
       <NavBar/>
+      {/*Renderar "NavBar"-komponenten.*/}
       
       <div className="Intro">
         <img src={hotelpool}/>
@@ -74,34 +86,46 @@ function App() {
           <a href="#" className="IntroButton">Explore now</a>
         </div>
       </div>
+      {/*Renderar "Intro"-komponenten.*/}
 
       <SearchFilter destination={destination} changeDestination={(e) => setDestination(e.target.value)} 
                 checkInDate={checkInDate} changeCheckInDate={(e) => setCheckInDate(e.target.value)}
                 checkOutDate={checkOutDate} changeCheckOutDate={(e) => setCheckOutDate(e.target.value)}
                 guests={guests} changeGuests={(e) => setGuests(e.target.value)}/>
+      {/*Renderar "SearchFilter"-komponenten. Den tar med sig samtliga state-variabler och deras "set"-variant förutom "chosenHotel". */}
 
       {hotels.filter(function(results) {
+      // Filterar array:en "hotels" med hjälp av en funktion som tar emot ett objekt.
               
               if (destination === "" || checkInDate === "" || checkOutDate === "" || guests === "") {
+              // Om någon av state-variablerna är tomma så returneras "null" (inget värde)
         
                 return null;
+                // Returnerar "null" (inget värde).
         
               } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) {
+              // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet så returneras objektet.
         
                return results;
+               // Returnerar objektet.
         
               }}).map(({id, hotelName, destination, description, image, price}) => (
+              // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje objekt.
 
               <InformationCard id={id} hotelName={hotelName} destination={destination} description={description} image={image} price={price} chooseHotel={chooseHotel}/>
-              
+              // Renderar "InformationCard"-komponenten. Den tar med sig samtliga state-variabler förutom deras "set"-variant förutom "chosenHotel".
+              // Den tar även med sig funktionen "chooseHotel".
             ))}
 
       <DetailsBox chosenHotel={chosenHotel} backDetailsBox={backDetailsBox}/>
+      {/* Renderar "DetailsBox"-komponenten. Den tar med sig state-variabeln "chosenHotel" och funktionen "backDetailsBox". */}
 
       <Footer/>
+      {/* Renderar "Footer"-komponenten. */}
       
     </div>
   );
 }
 
 export default App;
+// Exporterar "App"-komponenten som "App".
