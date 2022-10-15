@@ -1,9 +1,18 @@
 import locationicon from '../images/location_icon.png';
-import RoomInformationCard from "../RoomInformationCard";
+
+import RoomInformationCard from "./RoomInformationCard";
 // Importerar en bild.
 
 function InformationCard(props) {
 // Komponenten tar emot props.
+
+if (props.checkOutStatus) {
+  // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
+
+    return <div></div>;
+    // Returnerar en tom div.
+
+  } else {
     
   return (
 
@@ -18,14 +27,14 @@ function InformationCard(props) {
           <li>{props.facts[2]}</li>
         </ul>
         <img src={`${props.image}`}/>
-        <p>${props.price} per night</p>
-        <RoomInformationCard rooms={props.rooms} id={props.id} chooseHotel={props.chooseHotel} chooseRoom={props.chooseRoom} chosenRoom={props.chosenRoom} setChosenRoom={props.setChosenRoom}/>
+        <p>Starting at ${props.price} per night</p>
+        <RoomInformationCard rooms={props.rooms} id={props.id} checkOut={props.checkOut}/>
       </div>
       {/*Renderar ett h2-element, tre p-element, en bild och en knapp. Dessa element fylls med information om hotellen med props. En div omringar alla element så att det är
       möjligt att skilja på hotellen. */}
     </div>
   )
-}
+}}
 
 export default InformationCard;
 // Exporterar komponenten som "InformationCard".

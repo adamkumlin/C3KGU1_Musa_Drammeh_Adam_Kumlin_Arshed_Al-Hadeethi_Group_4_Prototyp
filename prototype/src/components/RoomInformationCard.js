@@ -5,18 +5,17 @@ function RoomInformationCard(props) {
 
 const [checkedRooms, setCheckedRooms] = useState([]);
 
+let updatedCheckedRooms = [...checkedRooms];
+
     function handleCheckedChange(e) {
     // Funktionen tar emot ett event.
-    
-      let updatedCheckedRooms = [...checkedRooms];
+
       if (e.target.checked) {
         updatedCheckedRooms = [...checkedRooms, e.target.value];
       } else {
         updatedCheckedRooms.splice(checkedRooms.indexOf(e.target.value), 1);
       }
-      props.setChosenRoom(updatedCheckedRooms);
-      props.chooseRooms(props.id, [props.rooms.roomID])
-      props.chooseHotel(props.id);
+      setCheckedRooms(updatedCheckedRooms);
     }
   return (
 
@@ -47,6 +46,7 @@ const [checkedRooms, setCheckedRooms] = useState([]);
                     </ul>
                 </li>
             </ol>
+            <button onClick={() => props.checkOut(props.id, updatedCheckedRooms)}>Check out</button>
         </div>
     </div>
   )
