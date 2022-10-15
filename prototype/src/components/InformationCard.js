@@ -1,4 +1,5 @@
 import locationicon from '../images/location_icon.png';
+import RoomInformationCard from "../RoomInformationCard";
 // Importerar en bild.
 
 function InformationCard(props) {
@@ -18,7 +19,7 @@ function InformationCard(props) {
         </ul>
         <img src={`${props.image}`}/>
         <p>${props.price} per night</p>
-        <button onClick={() => props.chooseHotel(props.id)}>Choose</button>
+        <RoomInformationCard rooms={props.rooms} id={props.id} chooseHotel={props.chooseHotel} chooseRoom={props.chooseRoom} chosenRoom={props.chosenRoom} setChosenRoom={props.setChosenRoom}/>
       </div>
       {/*Renderar ett h2-element, tre p-element, en bild och en knapp. Dessa element fylls med information om hotellen med props. En div omringar alla element så att det är
       möjligt att skilja på hotellen. */}

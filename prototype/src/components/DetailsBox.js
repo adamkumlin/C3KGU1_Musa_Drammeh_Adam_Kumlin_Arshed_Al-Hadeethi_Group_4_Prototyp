@@ -7,7 +7,7 @@ function handleChange(event) {
     props.setPaymentMethod(event.target.value);
   }
 
-  if (!props.chosenHotel) {
+  if (!props.checkOutStatus) {
   // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
 
     return <div></div>;
