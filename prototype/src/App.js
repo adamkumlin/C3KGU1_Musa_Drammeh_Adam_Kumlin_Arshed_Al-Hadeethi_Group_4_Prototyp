@@ -29,7 +29,7 @@ import hotelpool from "./images/hotel_pool.jpg";
 
 const hotels = [
   {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], "image":"../assets/hotel.jpg", "price":"79", 
-  "rooms": [{"guests": "5", "roomName": "Single room", "price": "79", "roomID": "0"}, {"guests": "2", "roomName": "Small apartment", "price": "149", "roomID": "1"}, {"guests": "3", "roomName": "Apartment", "price": "299", "roomID": "2"}]},
+  "rooms": [{"guests": "1", "roomName": "Single room", "price": "79", "roomID": "0"}, {"guests": "2", "roomName": "Small apartment", "price": "149", "roomID": "1"}, {"guests": "3", "roomName": "Apartment", "price": "299", "roomID": "2"}]},
 
   {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "facts": ["Expensive", "No free cancellation", "Free breakfast"], "image":"../assets/hotel1.jpg", "price":"199",
   "rooms": [{"guests": "1", "roomName": "Simple single room", "price": "199", "roomID": "0"}, {"guests": "2", "roomName": "Simple small apartment", "price": "349", "roomID": "1"}, {"guests": "3", "roomName": "Simple apartment", "price": "499", "roomID": "2"}]},
@@ -58,7 +58,8 @@ function App() {
   const [chooseCheckOutDate, setChooseCheckOutDate] = useState("");
   const [chosenHotel, setChosenHotel] = useState([]);
   const [chosenRooms, setChosenRooms] = useState([]);
-  const [chosenRoom, setChosenRoom] = useState([]);
+  const [chosenRoomAmount, setChosenRoomAmount] = useState(1);
+  const [chosenGuestAmount, setChosenGuestAmount] = useState(1);
   const [checkOutStatus, setCheckOutStatus] = useState(false);
   const [bookedHotel, setBookedHotel] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState();
@@ -75,17 +76,14 @@ function App() {
       setCheckOutStatus(false);
   }
 
-  function checkOut(id, updatedCheckedRooms) {
-
-    for (let i = 0; i < updatedCheckedRooms.length; i++) {
-    setChosenRooms(current => [...current, hotels[id].rooms[updatedCheckedRooms[i]]]);
+  function chooseRooms(id, roomID) {
+    setChosenRooms(hotels[id].rooms[roomID]);
+    setChosenHotel(hotels[id]);
   }
-  setChosenHotel(hotels[id]);
-  setCheckOutStatus(true);
-  }
-  console.log(chosenRooms);
-  console.log(chosenHotel);
 
+  function checkOut() {
+    setCheckOutStatus(true);
+  }
 
   function confirmBooking() {
   // Skapar en funktion som tar emot ett id.
@@ -133,7 +131,10 @@ function App() {
               }}).map(({id, hotelName, destination, description, facts, image, price, rooms}) => (
               // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje objekt.
 
-              <InformationCard id={id} hotelName={hotelName} destination={destination} description={description} facts={facts} image={image} price={price} rooms={rooms} chosenRoom={chosenRoom} setChosenRoom={setChosenRoom} checkOut={checkOut} checkOutStatus={checkOutStatus}/>
+              <InformationCard id={id} hotelName={hotelName} destination={destination} 
+              description={description} facts={facts} image={image} price={price} rooms={rooms} 
+              chosenRoomAmount={chosenRoomAmount} setChosenRoomAmount={setChosenRoomAmount} chosenGuestAmount={chosenGuestAmount} setChosenGuestAmount={setChosenGuestAmount}
+              checkOut={checkOut} checkOutStatus={checkOutStatus} chooseRooms={chooseRooms}/>
               // Renderar "InformationCard"-komponenten. Den tar med sig samtliga state-variabler förutom deras "set"-variant förutom "chosenHotel".
               // Den tar även med sig funktionen "chooseHotel".
             ))}
@@ -141,7 +142,7 @@ function App() {
       <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
       changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
       guestAmount={guestAmount} changeGuestAmount={(e) => setGuestAmount(e.target.value)} chooseCheckInDate={chooseCheckInDate} changeChooseCheckInDate={(e) => setChooseCheckInDate(e.target.value)} chooseCheckOutDate={chooseCheckOutDate} 
-      changeChooseCheckOutDate={(e) => setChooseCheckOutDate(e.target.value)} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking}/>
+      changeChooseCheckOutDate={(e) => setChooseCheckOutDate(e.target.value)} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} chosenGuestAmount={chosenGuestAmount} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking}/>
       {/* Renderar "DetailsBox"-komponenten. Den tar med sig state-variabeln "chosenHotel" och funktionen "backDetailsBox". */}
 
       <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} 

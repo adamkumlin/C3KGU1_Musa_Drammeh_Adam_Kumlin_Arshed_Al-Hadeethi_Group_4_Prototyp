@@ -28,7 +28,8 @@ if (props.checkOutStatus) {
         </ul>
         <img src={`${props.image}`}/>
         <p>Starting at ${props.price} per night</p>
-        <RoomInformationCard rooms={props.rooms} id={props.id} checkOut={props.checkOut}/>
+        <RoomInformationCard rooms={props.rooms} id={props.id} checkOut={props.checkOut} 
+        chosenRoomAmount={props.chosenRoomAmount} setChosenRoomAmount={props.setChosenRoomAmount} chooseRooms={props.chooseRooms} chosenGuestAmount={props.chosenGuestAmount} setChosenGuestAmount={props.setChosenGuestAmount}/>
       </div>
       {/*Renderar ett h2-element, tre p-element, en bild och en knapp. Dessa element fylls med information om hotellen med props. En div omringar alla element så att det är
       möjligt att skilja på hotellen. */}

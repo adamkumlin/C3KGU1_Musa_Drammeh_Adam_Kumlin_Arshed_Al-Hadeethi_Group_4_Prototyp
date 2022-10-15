@@ -7,6 +7,9 @@ function handleChange(event) {
     props.setPaymentMethod(event.target.value);
   }
 
+
+    let total = props.chosenRooms.price * props.chosenRoomAmount;
+
   if (!props.checkOutStatus) {
   // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
 
@@ -29,6 +32,9 @@ function handleChange(event) {
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>
+            <p>Room name: {props.chosenRooms.roomName}</p>
+            <p>Recommended guest amount: {props.chosenRooms.guests}</p>
+            <p>Total price: ${total} for {props.chosenRoomAmount} rooms for {props.chosenGuestAmount} guests</p>
             <label>Choose guests<input type="number" name="guestAmount" value={props.guestAmount} onChange={props.changeGuestAmount} required/></label>
             <label>Choose check-in date<input type="date" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={props.changeChooseCheckInDate} required/></label>
             <label>Choose check-out date<input type="date" name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={props.changeChooseCheckOutDate} required/></label>
