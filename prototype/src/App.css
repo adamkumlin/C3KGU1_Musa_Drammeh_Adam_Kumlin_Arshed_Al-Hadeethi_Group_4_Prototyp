@@ -150,17 +150,20 @@
       text-align: left;
       margin-bottom: 1rem;
     }
+    /* Centrerar listan, sätter display till "table", centrerar texten och ger den en margin längst ned. */
 
       .RoomInformationCard input {
         display: block;
         margin-left: auto;
         margin-right: auto;
       }
+      /* Sätter en display till "block", ger den en automatisk margin till höger och vänster vilket centrerar den. */
 
         .RoomInformationCard input[type="radio"] {
           margin: 0;
           display: inline;
         }
+        /* Sätter en margin till 0 och en display till "inline". */
 
   .DetailsBox {
     margin-top: 5rem;

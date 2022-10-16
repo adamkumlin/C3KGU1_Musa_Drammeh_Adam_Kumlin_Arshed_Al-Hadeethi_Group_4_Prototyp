@@ -1,15 +1,51 @@
 import { useState } from 'react';
+// Importerar State.
 
 function RoomInformationCard(props) {
 // Komponenten tar emot props.
 
     const [disabled, setDisabled] = useState(true);
+    // Skapar en state-variabel som heter "disabled" och som har värdet "true". State-variabeln används för att kontrollera om knappen ska vara inaktiverad eller inte.
+
+    const validRoomAndGuestAmount = new RegExp('^[1-9]+$');
+    // Skapar en variabel som innehåller ett regex-uttryck som kontrollerar om användaren har skrivit in ett giltigt antal rum och gäster.
 
     function handleChange(event) {
     // Skapar en funktion som tar emot ett event.
 
         props.chooseRooms(props.id, event.target.value);
+        // Anropar funktionen "chooseRooms" som finns i App.js och skickar med id:t på det hotell som användaren har valt och det rum som användaren har valt.
+
         setDisabled(false);
+        // Sätter state-variabeln "disabled" till "false" så att knappen blir aktiverad.
+    }
+
+    function validateRoomInformation() {
+    // Skapar en funktion som kontrollerar om användaren har valt ett giltigt antal rum, gäster och inchecknings-samt utcheckningsdatum.
+
+        if (!props.chosenGuestAmount || !props.chosenRoomAmount || !props.chooseCheckInDate || !props.chooseCheckOutDate) {
+        // Om någon av state-variablerna "chosenGuestAmount", "chosenRoomAmount", "chooseCheckInDate" eller "chooseCheckOutDate" inte har något värde.
+
+            alert("Please fill out all the fields.");
+            // Skriver ut ett felmeddelande.
+
+          } else if (!validRoomAndGuestAmount.test(props.chosenGuestAmount)) {
+            // Om användaren har skrivit in ett ett antal gäster som inte stämmer överens med regex-uttrycket "validRoomAndGuestAmount".
+
+            alert("The guest amount is invalid.");
+            // Skriver ut ett felmeddelande.
+
+          } else if (!validRoomAndGuestAmount.test(props.chosenRoomAmount)) {
+            // Om användaren har skrivit in ett ett antal rum som inte stämmer överens med regex-uttrycket "validRoomAndGuestAmount".
+
+            alert("The room amount is invalid.");
+            // Skriver ut ett felmeddelande.
+
+          } else {
+
+            props.checkOut();
+            // Annars anropas funktionen "checkOut" som finns i App.js.
+          }
     }
 
   return (
@@ -39,10 +75,11 @@ function RoomInformationCard(props) {
             </ul>
             <label>Choose guest amount <input type="number" name="guestAmount" className="roomAmount" min="1" value={props.chosenGuestAmount} onChange={(e) => props.setChosenGuestAmount(e.target.value)}/></label>
             <label>Choose room amount <input type="number" name="roomAmount" className="roomAmount" min="1" value={props.chosenRoomAmount} onChange={(e) => props.setChosenRoomAmount(e.target.value)}/></label>
-            <label>Choose check-in date<input type="date" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={(e) => props.setChooseCheckInDate(e.target.value)} required/></label>
-            <label>Choose check-out date<input type="date" name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={(e) => props.setChooseCheckOutDate(e.target.value)} required/></label>
-            <button disabled={disabled} onClick={() => props.checkOut()}>Check out</button>
+            <label>Choose check-in date<input type="date" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={(e) => props.setChooseCheckInDate(e.target.value)}/></label>
+            <label>Choose check-out date<input type="date" name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={(e) => props.setChooseCheckOutDate(e.target.value)}/></label>
+            <button disabled={disabled} onClick={validateRoomInformation}>Check out</button>
         </div>
+        {/* Skapar en div med information om rummen (med hjälp av props), en radioknapp för att välja rummet samt en knapp för att gå vidare till nästa steg. */}
     </div>
   )
 }

@@ -28,14 +28,15 @@ if (props.checkOutStatus) {
         </ul>
         <img src={`${props.image}`}/>
         <p>Starting at ${props.price} per night</p>
+        {/* Skapar en div med en h2-titel, en ul-lista, text och en bild. Dessa element fylls med information om hotellen med props. */}
+
         <RoomInformationCard rooms={props.rooms} id={props.id} checkOut={props.checkOut} 
         chosenRoomAmount={props.chosenRoomAmount} setChosenRoomAmount={props.setChosenRoomAmount} chooseRooms={props.chooseRooms} 
         chosenGuestAmount={props.chosenGuestAmount} setChosenGuestAmount={props.setChosenGuestAmount}
         chooseCheckInDate={props.chooseCheckInDate} setChooseCheckInDate={props.setChooseCheckInDate} chooseCheckOutDate={props.chooseCheckOutDate} 
         setChooseCheckOutDate={props.setChooseCheckOutDate}/>
+        {/* Renderar "RoomInformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter som ändrar, funktionerna chooseRooms() samt checkOut() tas också med .*/}
       </div>
-      {/*Renderar ett h2-element, tre p-element, en bild och en knapp. Dessa element fylls med information om hotellen med props. En div omringar alla element så att det är
-      möjligt att skilja på hotellen. */}
     </div>
   )
 }}

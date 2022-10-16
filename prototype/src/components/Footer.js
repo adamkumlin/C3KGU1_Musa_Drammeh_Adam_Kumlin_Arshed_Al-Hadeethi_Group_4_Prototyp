@@ -12,7 +12,7 @@ function Footer() {
             <img src={facebookicon}/>
             <img src={instagramicon}/>
             <img src={twittericon}/>
-            {/* Renderar tre bilder, en länk och ett h1-element. */}
+            {/* Placerar tre bilder, en länk och ett h1-element. */}
 
             <h2>About</h2>
             <p>Our Story</p>
@@ -24,7 +24,7 @@ function Footer() {
             <p>FAQs</p>
             <p>Careers</p>
             <p>Press</p>
-            {/* Renderar text och h2-element. */}
+            {/* Placerar text och två h2-element. */}
         </div>
     )
 }

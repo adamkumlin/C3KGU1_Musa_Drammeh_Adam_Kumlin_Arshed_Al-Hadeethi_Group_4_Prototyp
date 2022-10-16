@@ -1,17 +1,63 @@
 function DetailsBox(props) {
 // Komponenten tar emot props.
 
-function handleChange(event) {
+const validName = new RegExp("[a-zA-ZåäöÅÄÖ]+$");
+const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
+// Deklarerar variabler som innehåller regex-uttryck som kontrollerar om användaren har skrivit in ett giltigt namn, e-post, telefonnummer och kreditkortsnummer.
+
+  function handleChange(event) {
   // Skapar en funktion som tar emot ett event.
 
     props.setPaymentMethod(event.target.value);
+    // Anropar funktionen "setPaymentMethod" som finns i App.js och skickar med det betalningsmetod som användaren har valt.
   }
 
+  let total = props.chosenRooms.price * props.chosenRoomAmount;
+  // Deklarerar en variabel som räknar ut totalpriset för rummen som användaren har valt. Priset per rum (props.chosenRooms.price) multipliceras med antalet rum (props.chosenRoomAmount).
 
-    let total = props.chosenRooms.price * props.chosenRoomAmount;
+  function validateForm() {
+  // Skapar en funktion som kontrollerar om användaren har fyllt i alla fält samt om användaren har skrivit in giltiga värden i fälten.
+
+    if (!props.customerName || !props.customerPhone || !props.customerEmail || !props.customerCreditCard || !props.paymentMethod) {
+    // Om någon av state-variablerna "customerName", "customerPhone", "customerEmail", "customerCreditCard" eller "paymentMethod" inte har något värde.
+
+      alert("Please fill out all the fields.");
+      // Skriver ut ett felmeddelande.
+
+    } else if (!validName.test(props.customerName)) {
+    // Om användaren har skrivit in ett namn som inte stämmer överens med regex-uttrycket "validName".
+  
+      alert("The name is invalid.");
+      // Skriver ut ett felmeddelande.
+
+    } else if (!validEmail.test(props.customerEmail)) {
+    // Om användaren har skrivit in en e-post som inte stämmer överens med regex-uttrycket "validEmail".
+
+      alert("The email is invalid.");
+      // Skriver ut ett felmeddelande.
+
+
+    } else if (!validPhoneAndCreditCard.test(props.customerPhone)) {
+    // Om användaren har skrivit in ett telefonnummer som inte stämmer överens med regex-uttrycket "validPhoneAndCreditCard".
+
+      alert("The phone number is invalid.");
+      // Skriver ut ett felmeddelande.
+
+    } else if (!validPhoneAndCreditCard.test(props.customerCreditCard)) {
+    // Om användaren har skrivit in ett kreditkortsnummer som inte stämmer överens med regex-uttrycket "validPhoneAndCreditCard".
+
+      alert("The credit card number is invalid.");
+      // Skriver ut ett felmeddelande.
+
+    } else {
+      props.confirmBooking(props.id)
+      // Annars anropas funktionen "confirmBooking" som finns i App.js och skickar med id:t på det hotell som användaren har valt.
+    }
+  }
 
   if (!props.checkOutStatus) {
-  // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
+  // Om state-variabeln "checkOutStatus" är falskt, alltså om utcheckningsprocessen inte har påbörjats än.
 
     return <div></div>;
     // Returnerar en tom div.
@@ -23,12 +69,13 @@ function handleChange(event) {
             <button onClick={props.backDetailsBox} className="backButton">Back</button>
             <h2>Customer details</h2>
             <form>       
-            <label>Name<input type="text" name="userName" value={props.customerName} onChange={props.changeCustomerName} required placeholder="John Doe"/></label>
-            <label>Phone number<input type="text" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} required placeholder="1234567890"/></label>
-            <label>E-mail<input type="text" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} required placeholder="example@example.com"/></label>
-            <label>Credit card number<input type="text" required placeholder="1234567890"/></label>
+            <label>Name<input type="text" name="userName" value={props.customerName} onChange={props.changeCustomerName} placeholder="John Doe"/></label>
+            <label>Phone number<input type="number" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} placeholder="1234567890"/></label>
+            <label>E-mail<input type="email" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} placeholder="example@example.com"/></label>
+            <label>Credit card number<input type="number" name="creditCard" value={props.customerCreditCard} onChange={props.changeCustomerCreditCard} placeholder="1234567890"/></label>
             <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label><br></br>
             <label>Pay at the hotel<input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/></label> 
+
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>
@@ -36,10 +83,10 @@ function handleChange(event) {
             <p>Recommended guest amount: {props.chosenRooms.guests}</p>
             <p>Check-in date: {props.chooseCheckInDate}</p>
             <p>Check-out date: {props.chooseCheckOutDate}</p>
-            <p>Total price: ${total} for {props.chosenRoomAmount} rooms for {props.chosenGuestAmount} guests</p>
+            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guests</p>
             </form>
-          <button onClick={() => props.confirmBooking(props.id)}>Book</button>
-          {/* Annars renderas två knappar, ett h2-element, fyra etiketter och två radioknappar.
+          <button onClick={validateForm}>Book</button>
+          {/* Annars skapas en knapp, två h2-element, fyra sex etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
           Elementen med information om hotellen förses med informationen med hjälp av props. */}
         </div>
       )
