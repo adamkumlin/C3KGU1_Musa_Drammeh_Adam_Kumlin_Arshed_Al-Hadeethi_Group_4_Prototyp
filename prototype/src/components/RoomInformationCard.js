@@ -4,11 +4,38 @@ import { useState } from 'react';
 function RoomInformationCard(props) {
 // Komponenten tar emot props.
 
-    const [disabled, setDisabled] = useState(true);
-    // Skapar en state-variabel som heter "disabled" och som har värdet "true". State-variabeln används för att kontrollera om knappen ska vara inaktiverad eller inte.
+    const [buttonDisabled, setButtonDisabled] = useState(true);
+    // Skapar en state-variabel som heter "buttonDisabled" och som har värdet "true". State-variabeln används för att kontrollera om knappen ska vara inaktiverad eller inte.
+
+    const [checkOutDateDisabled, setCheckOutDateDisabled] = useState(true);
 
     const validRoomAndGuestAmount = new RegExp('^[1-9]+$');
     // Skapar en variabel som innehåller ett regex-uttryck som kontrollerar om användaren har skrivit in ett giltigt antal rum och gäster.
+
+    let todaysDate = new Date();
+    // Skapar en en variabel som innehåller ett datum.
+
+    let dd = String(todaysDate.getDate());
+    let mm = String(todaysDate.getMonth() + 1);
+    let yyyy = todaysDate.getFullYear();
+    // Skapar variabler som innehåller dagens datum, applicerar dem på det skapade datumet.
+
+    if (dd < 10) {
+    // Om dagens datum är mindre än 10.
+
+      dd = "0" + dd;
+      // Lägger till en nolla framför dagens datum.
+    }
+
+    if (mm < 10) {
+    // Om månadens datum är mindre än 10.
+
+      mm = "0" + mm;
+      // Lägger till en nolla framför månadens datum.
+    }
+
+    todaysDate = `${yyyy}-${mm}-${dd}`;
+    // Ändrar datumet så det blir i formatet "yyyy-mm-dd".
 
     function handleChange(event) {
     // Skapar en funktion som tar emot ett event.
@@ -16,8 +43,18 @@ function RoomInformationCard(props) {
         props.chooseRooms(props.id, event.target.value);
         // Anropar funktionen "chooseRooms" som finns i App.js och skickar med id:t på det hotell som användaren har valt och det rum som användaren har valt.
 
-        setDisabled(false);
+        setButtonDisabled(false);
         // Sätter state-variabeln "disabled" till "false" så att knappen blir aktiverad.
+    }
+
+    function handleCheckInDateChange(event) {
+    // Skapar en funktion som tar emot ett event.
+
+      props.setChooseCheckInDate(event.target.value)
+      // Anropar sätter "chooseCheckInDate" till det datum som användaren har valt.
+
+      setCheckOutDateDisabled(false);
+      // Sätter state-variabeln "disabled" till "false" så att input-elementet blir aktiverat.
     }
 
     function validateRoomInformation() {
@@ -75,11 +112,12 @@ function RoomInformationCard(props) {
             </ul>
             <label>Choose guest amount <input type="number" name="guestAmount" className="roomAmount" min="1" value={props.chosenGuestAmount} onChange={(e) => props.setChosenGuestAmount(e.target.value)}/></label>
             <label>Choose room amount <input type="number" name="roomAmount" className="roomAmount" min="1" value={props.chosenRoomAmount} onChange={(e) => props.setChosenRoomAmount(e.target.value)}/></label>
-            <label>Choose check-in date<input type="date" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={(e) => props.setChooseCheckInDate(e.target.value)}/></label>
-            <label>Choose check-out date<input type="date" name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={(e) => props.setChooseCheckOutDate(e.target.value)}/></label>
-            <button disabled={disabled} onClick={validateRoomInformation}>Check out</button>
+            <label>Choose check-in date<input type="date" min={todaysDate} className="chooseCheckInDate" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={handleCheckInDateChange}/></label>
+            <label>Choose check-out date<input type="date" min={props.chooseCheckInDate} className="chooseCheckOutDate" disabled={checkOutDateDisabled} name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={(e) => props.setChooseCheckOutDate(e.target.value)}/></label>
+            <button disabled={buttonDisabled} onClick={validateRoomInformation}>Check out</button>
         </div>
-        {/* Skapar en div med information om rummen (med hjälp av props), en radioknapp för att välja rummet samt en knapp för att gå vidare till nästa steg. */}
+        {/* Skapar en div med information om rummen (med hjälp av props), en radioknapp för att välja rummet samt en knapp för att gå vidare till nästa steg. "chooseCheckInDate"-elementet
+        ges variabeln "today" som min-attribut. "chooseCheckOutDate"-elementet ges värdet "chooseCheckOutDate" som min-attribut. Slutligen ges knappens min-attribut "buttonDisabled":s värde. */}
     </div>
   )
 }
