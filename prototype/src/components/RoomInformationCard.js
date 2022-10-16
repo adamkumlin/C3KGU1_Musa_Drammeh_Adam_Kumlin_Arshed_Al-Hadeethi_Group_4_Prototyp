@@ -39,6 +39,8 @@ function RoomInformationCard(props) {
             </ul>
             <label>Choose guest amount <input type="number" name="guestAmount" className="roomAmount" min="1" value={props.chosenGuestAmount} onChange={(e) => props.setChosenGuestAmount(e.target.value)}/></label>
             <label>Choose room amount <input type="number" name="roomAmount" className="roomAmount" min="1" value={props.chosenRoomAmount} onChange={(e) => props.setChosenRoomAmount(e.target.value)}/></label>
+            <label>Choose check-in date<input type="date" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={(e) => props.setChooseCheckInDate(e.target.value)} required/></label>
+            <label>Choose check-out date<input type="date" name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={(e) => props.setChooseCheckOutDate(e.target.value)} required/></label>
             <button disabled={disabled} onClick={() => props.checkOut()}>Check out</button>
         </div>
     </div>

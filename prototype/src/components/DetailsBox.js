@@ -34,10 +34,9 @@ function handleChange(event) {
             <p>Hotel destination: {props.chosenHotel.destination}</p>
             <p>Room name: {props.chosenRooms.roomName}</p>
             <p>Recommended guest amount: {props.chosenRooms.guests}</p>
+            <p>Check-in date: {props.chooseCheckInDate}</p>
+            <p>Check-out date: {props.chooseCheckOutDate}</p>
             <p>Total price: ${total} for {props.chosenRoomAmount} rooms for {props.chosenGuestAmount} guests</p>
-            <label>Choose guests<input type="number" name="guestAmount" value={props.guestAmount} onChange={props.changeGuestAmount} required/></label>
-            <label>Choose check-in date<input type="date" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={props.changeChooseCheckInDate} required/></label>
-            <label>Choose check-out date<input type="date" name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={props.changeChooseCheckOutDate} required/></label>
             </form>
           <button onClick={() => props.confirmBooking(props.id)}>Book</button>
           {/* Annars renderas två knappar, ett h2-element, fyra etiketter och två radioknappar.

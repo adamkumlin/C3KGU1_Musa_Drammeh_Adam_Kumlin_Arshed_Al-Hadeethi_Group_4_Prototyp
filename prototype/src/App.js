@@ -74,6 +74,13 @@ function App() {
       setChosenRooms([]);
 
       setCheckOutStatus(false);
+
+      setChooseCheckInDate("");
+
+      setChooseCheckOutDate("");
+
+      setChosenRoomAmount(1);
+      setChosenGuestAmount(1);
   }
 
   function chooseRooms(id, roomID) {
@@ -134,15 +141,17 @@ function App() {
               <InformationCard id={id} hotelName={hotelName} destination={destination} 
               description={description} facts={facts} image={image} price={price} rooms={rooms} 
               chosenRoomAmount={chosenRoomAmount} setChosenRoomAmount={setChosenRoomAmount} chosenGuestAmount={chosenGuestAmount} setChosenGuestAmount={setChosenGuestAmount}
-              checkOut={checkOut} checkOutStatus={checkOutStatus} chooseRooms={chooseRooms}/>
+              checkOut={checkOut} checkOutStatus={checkOutStatus} chooseRooms={chooseRooms} chooseCheckInDate={chooseCheckInDate} setChooseCheckInDate={setChooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} 
+              setChooseCheckOutDate={setChooseCheckOutDate}/>
               // Renderar "InformationCard"-komponenten. Den tar med sig samtliga state-variabler förutom deras "set"-variant förutom "chosenHotel".
               // Den tar även med sig funktionen "chooseHotel".
             ))}
 
       <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
       changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
-      guestAmount={guestAmount} changeGuestAmount={(e) => setGuestAmount(e.target.value)} chooseCheckInDate={chooseCheckInDate} changeChooseCheckInDate={(e) => setChooseCheckInDate(e.target.value)} chooseCheckOutDate={chooseCheckOutDate} 
-      changeChooseCheckOutDate={(e) => setChooseCheckOutDate(e.target.value)} paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} chosenGuestAmount={chosenGuestAmount} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking}/>
+      guestAmount={guestAmount} changeGuestAmount={(e) => setGuestAmount(e.target.value)} chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} 
+      paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} 
+      chosenGuestAmount={chosenGuestAmount} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking}/>
       {/* Renderar "DetailsBox"-komponenten. Den tar med sig state-variabeln "chosenHotel" och funktionen "backDetailsBox". */}
 
       <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} 
