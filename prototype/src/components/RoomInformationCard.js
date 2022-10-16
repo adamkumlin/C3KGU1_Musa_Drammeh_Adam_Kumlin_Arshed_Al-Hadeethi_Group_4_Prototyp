@@ -78,8 +78,13 @@ function RoomInformationCard(props) {
             alert("The room amount is invalid.");
             // Skriver ut ett felmeddelande.
 
-          } else {
+          } else if (props.chooseCheckInDate === props.chooseCheckOutDate){
+            // Om chooseCheckInDate är lika med chooseCheckOutDate. Alltså om användaren har valt samma datum för in- och utcheckning.
 
+            alert("The check in and check out date can't be the same.");
+            // Skriver ut ett felmeddelande.
+
+          } else {
             props.checkOut();
             // Annars anropas funktionen "checkOut" som finns i App.js.
           }

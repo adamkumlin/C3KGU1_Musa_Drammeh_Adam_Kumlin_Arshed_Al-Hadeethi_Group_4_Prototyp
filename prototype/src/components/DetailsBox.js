@@ -1,6 +1,17 @@
 function DetailsBox(props) {
 // Komponenten tar emot props.
 
+const checkInDateDays = new Date(props.chooseCheckInDate);
+const checkOutDateDays = new Date(props.chooseCheckOutDate);
+// Skapar två konstanter som innehåller de olika datumen för incheckning och utcheckning.
+
+const oneDay = 24 * 60 * 60 * 1000;
+// Skapar en konstant som innehåller antalet millisekunder som finns i en dag.
+
+const dayDifference = Math.round(Math.abs((checkInDateDays - checkOutDateDays) / oneDay));
+// Skapar en konstant som innehåller antalet dagar som finns mellan inchecknings- och utcheckningsdatumet. Funktionen "Math.round" 
+// avrundar till närmaste heltal och funktionen "Math.abs" returnerar absolutbeloppet av "checkInDateDays" minus "checkOutDays" dividerat med "oneDay".
+
 const validName = new RegExp("[a-zA-ZåäöÅÄÖ]+$");
 const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
 const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
@@ -13,7 +24,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
     // Anropar funktionen "setPaymentMethod" som finns i App.js och skickar med det betalningsmetod som användaren har valt.
   }
 
-  let total = props.chosenRooms.price * props.chosenRoomAmount;
+  let total = props.chosenRooms.price * props.chosenRoomAmount * dayDifference;
   // Deklarerar en variabel som räknar ut totalpriset för rummen som användaren har valt. Priset per rum (props.chosenRooms.price) multipliceras med antalet rum (props.chosenRoomAmount).
 
   function validateForm() {
@@ -83,7 +94,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <p>Recommended guest amount: {props.chosenRooms.guests}</p>
             <p>Check-in date: {props.chooseCheckInDate}</p>
             <p>Check-out date: {props.chooseCheckOutDate}</p>
-            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guests</p>
+            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s)</p>
             </form>
           <button onClick={validateForm}>Book</button>
           {/* Annars skapas en knapp, två h2-element, fyra sex etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
