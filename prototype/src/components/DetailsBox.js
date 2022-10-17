@@ -53,12 +53,6 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
     }
   }
 
-  if (travelPriceOne === 0 && travelPriceZero === 0) {
-    document.getElementsByClassName("travelMessage")[0].style.display = "none";
-  } else {
-    document.getElementsByClassName("travelMessage")[0].style.display = "inline";
-  }
-
   let total = props.chosenRooms.price * props.chosenRoomAmount * dayDifference + parseInt(travelPriceZero) + parseInt(travelPriceOne);
   // Deklarerar en variabel som räknar ut totalpriset för rummen som användaren har valt. Priset per rum (props.chosenRooms.price) multipliceras med antalet rum (props.chosenRoomAmount).
 
@@ -124,6 +118,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <p>Choose travel (optional)</p>
             <br></br><label>{props.chosenHotel.airports[0].airportName} ${props.chosenHotel.airports[0].price}<input type="checkbox" value={props.chosenHotel.airports[0].price} onChange={handleTravelCheckZero}/></label>
             <br></br><label>{props.chosenHotel.airports[1].airportName} ${props.chosenHotel.airports[1].price}<input type="checkbox" value={props.chosenHotel.airports[1].price} onChange={handleTravelCheckOne}/></label>
+            <label>Message (optional) <textarea name="paymentMethod" value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>

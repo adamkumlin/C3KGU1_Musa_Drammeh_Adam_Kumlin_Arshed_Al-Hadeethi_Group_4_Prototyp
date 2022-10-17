@@ -84,6 +84,7 @@ function App() {
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerCreditCard, setCustomerCreditCard] = useState("");
   const [paymentMethod, setPaymentMethod] = useState();
+  const [customerMessage, setCustomerMessage] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
   const [bookedHotel, setBookedHotel] = useState(null);
   // Skapar sex states för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, betalningsmetod och bokat hotell. Dessa konstanter används i komponenten "RoomInformationCard".
@@ -179,12 +180,12 @@ function App() {
             chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} totalPrice={totalPrice} setTotalPrice={setTotalPrice}
             customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)}
             paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} 
-            chosenGuestAmount={chosenGuestAmount} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking}/>
+            chosenGuestAmount={chosenGuestAmount} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking} customerMessage={customerMessage} changeCustomerMessage={(e) => setCustomerMessage(e.target.value)}/>
             {/* Renderar "DetailsBox"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in, 
             funktionen confirmBooking() tas också med.*/}
       
 
-      <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} 
+      <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} customerMessage={customerMessage}
       chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} chosenGuestAmount={chosenGuestAmount} paymentMethod={paymentMethod} totalPrice={totalPrice}/>
       {/* Renderar "ConfirmationMessage"-komponenten. Den tar med sig flera state-variabler. */}
 
