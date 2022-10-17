@@ -30,7 +30,7 @@ if (props.checkOutStatus) {
         <p>Starting at ${props.price} per night</p>
         {/* Skapar en div med en h2-titel, en ul-lista, text och en bild. Dessa element fylls med information om hotellen med props. */}
 
-        <RoomInformationCard rooms={props.rooms} id={props.id} checkOut={props.checkOut} 
+        <RoomInformationCard rooms={props.rooms} airports={props.airports} id={props.id} checkOut={props.checkOut} 
         chosenRoomAmount={props.chosenRoomAmount} setChosenRoomAmount={props.setChosenRoomAmount} chooseRooms={props.chooseRooms} 
         chosenGuestAmount={props.chosenGuestAmount} setChosenGuestAmount={props.setChosenGuestAmount}
         chooseCheckInDate={props.chooseCheckInDate} setChooseCheckInDate={props.setChooseCheckInDate} chooseCheckOutDate={props.chooseCheckOutDate} 

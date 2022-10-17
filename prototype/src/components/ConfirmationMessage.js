@@ -19,14 +19,14 @@ function ConfirmationMessage(props) {
                     <li>Phone number: {props.customerPhone}</li>
                     <li>E-mail: {props.customerEmail}</li>
                     <li>You have chosen: {props.paymentMethod}</li>
-                    <li>Price: ${props.bookedHotel.price} per night</li>
+                    <li>Amount paid: ${props.totalPrice}</li>
                 </ul>
 
                 <h2>Hotel details</h2>
                 <ul>
                     <li>Hotel name: {props.bookedHotel.hotelName}</li>
                     <li>Hotel destination: {props.bookedHotel.destination}</li>
-                    <li>Guests: {props.guestAmount}</li>
+                    <li>Guests: {props.chosenGuestAmount}</li>
                     <li>Check-in date: {props.chooseCheckInDate}</li>
                     <li>Check-out date: {props.chooseCheckOutDate}</li>
                 </ul>

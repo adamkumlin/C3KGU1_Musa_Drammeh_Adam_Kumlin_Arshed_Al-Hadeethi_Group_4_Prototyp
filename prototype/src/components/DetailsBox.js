@@ -1,5 +1,10 @@
+import { useState } from 'react';
+
 function DetailsBox(props) {
 // Komponenten tar emot props.
+
+const [travelPriceZero, setTravelPriceZero] = useState(0);
+const [travelPriceOne, setTravelPriceOne] = useState(0);
 
 const checkInDateDays = new Date(props.chooseCheckInDate);
 const checkOutDateDays = new Date(props.chooseCheckOutDate);
@@ -24,7 +29,37 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
     // Anropar funktionen "setPaymentMethod" som finns i App.js och skickar med det betalningsmetod som användaren har valt.
   }
 
-  let total = props.chosenRooms.price * props.chosenRoomAmount * dayDifference;
+  function handleTravelCheckZero(event) {
+    // Skapar en funktion som tar emot ett event.
+
+    if (event.target.checked) {
+      // Om användaren har kryssat i checkboxen.
+      setTravelPriceZero(travelPriceZero + parseInt(props.chosenHotel.airports[0].price));
+    } else {
+      // Om användaren har kryssat i checkboxen.
+      setTravelPriceZero(travelPriceZero - parseInt(props.chosenHotel.airports[0].price));
+    }
+  }
+
+  function handleTravelCheckOne(event) {
+    // Skapar en funktion som tar emot ett event.
+
+    if (event.target.checked) {
+      // Om användaren har kryssat i checkboxen.
+      setTravelPriceOne(travelPriceOne + parseInt(props.chosenHotel.airports[1].price));
+    } else {
+      // Om användaren har kryssat i checkboxen.
+      setTravelPriceOne(travelPriceOne - parseInt(props.chosenHotel.airports[1].price));
+    }
+  }
+
+  if (travelPriceOne === 0 && travelPriceZero === 0) {
+    document.getElementsByClassName("travelMessage")[0].style.display = "none";
+  } else {
+    document.getElementsByClassName("travelMessage")[0].style.display = "inline";
+  }
+
+  let total = props.chosenRooms.price * props.chosenRoomAmount * dayDifference + parseInt(travelPriceZero) + parseInt(travelPriceOne);
   // Deklarerar en variabel som räknar ut totalpriset för rummen som användaren har valt. Priset per rum (props.chosenRooms.price) multipliceras med antalet rum (props.chosenRoomAmount).
 
   function validateForm() {
@@ -62,6 +97,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
       // Skriver ut ett felmeddelande.
 
     } else {
+      props.setTotalPrice(total);
       props.confirmBooking(props.id)
       // Annars anropas funktionen "confirmBooking" som finns i App.js och skickar med id:t på det hotell som användaren har valt.
     }
@@ -78,15 +114,16 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
       return (
         <div className="DetailsBox">
             <button onClick={props.backDetailsBox} className="backButton">Back</button>
-            <h2>Customer details</h2>
-            <form>       
+            <h2>Customer details</h2>  
             <label>Name<input type="text" name="userName" value={props.customerName} onChange={props.changeCustomerName} placeholder="John Doe"/></label>
             <label>Phone number<input type="number" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} placeholder="1234567890"/></label>
             <label>E-mail<input type="email" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} placeholder="example@example.com"/></label>
             <label>Credit card number<input type="number" name="creditCard" value={props.customerCreditCard} onChange={props.changeCustomerCreditCard} placeholder="1234567890"/></label>
             <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label><br></br>
             <label>Pay at the hotel<input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/></label> 
-
+            <p>Choose travel (optional)</p>
+            <br></br><label>{props.chosenHotel.airports[0].airportName} ${props.chosenHotel.airports[0].price}<input type="checkbox" value={props.chosenHotel.airports[0].price} onChange={handleTravelCheckZero}/></label>
+            <br></br><label>{props.chosenHotel.airports[1].airportName} ${props.chosenHotel.airports[1].price}<input type="checkbox" value={props.chosenHotel.airports[1].price} onChange={handleTravelCheckOne}/></label>
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>
@@ -94,8 +131,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <p>Recommended guest amount: {props.chosenRooms.guests}</p>
             <p>Check-in date: {props.chooseCheckInDate}</p>
             <p>Check-out date: {props.chooseCheckOutDate}</p>
-            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s)</p>
-            </form>
+            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) <span className="travelMessage">and travel</span></p>
           <button onClick={validateForm}>Book</button>
           {/* Annars skapas en knapp, två h2-element, fyra sex etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
           Elementen med information om hotellen förses med informationen med hjälp av props. */}

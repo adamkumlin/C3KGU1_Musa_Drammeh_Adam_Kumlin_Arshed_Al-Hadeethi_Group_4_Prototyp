@@ -152,14 +152,20 @@
     }
     /* Centrerar listan, sätter display till "table", centrerar texten och ger den en margin längst ned. */
 
-      .RoomInformationCard input {
+      .RoomInformationCard ul {
+        text-align: center;
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .RoomInformationCard input, .RoomInformationCard button {
         display: block;
         margin-left: auto;
         margin-right: auto;
       }
       /* Sätter en display till "block", ger den en automatisk margin till höger och vänster vilket centrerar den. */
 
-        .RoomInformationCard input[type="radio"] {
+        .RoomInformationCard input[type="radio"], .RoomInformationCard input[type="checkbox"] {
           margin: 0;
           display: inline;
         }

@@ -28,20 +28,37 @@ import hotelpool from "./images/hotel_pool.jpg";
 //import hotels from "./hotels.json";
 
 const hotels = [
-  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], "image":"../assets/hotel.jpg", "price":"79", 
-  "rooms": [{"guests": "1", "roomName": "Single room", "price": "79", "roomID": "0"}, {"guests": "2", "roomName": "Small apartment", "price": "149", "roomID": "1"}, {"guests": "3", "roomName": "Apartment", "price": "299", "roomID": "2"}]},
+  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], 
+  "image":"../assets/hotel.jpg", 
+  "airports": [{"airportName": "LaGuardia Airport", "price": "39", "airportID": "0"}, {"airportName": "John F. Kennedy International Airport", "price": "49", "airportID": "1"}], "price": "79",
+  "rooms": [{"guests": "1", "roomName": "Single room", "image": "../assets/hotel_room.jpeg", "price": "79", "roomID": "0"}, {"guests": "2", "roomName": "Small apartment", 
+  "image": "../assets/hotel_room1.jpeg", "price": "149", "roomID": "1"}, {"guests": "3", "roomName": "Apartment", "image": "../assets/hotel_room2.jpeg", "price": "299", "roomID": "2"}]},
 
-  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "facts": ["Expensive", "No free cancellation", "Free breakfast"], "image":"../assets/hotel1.jpg", "price":"199",
-  "rooms": [{"guests": "1", "roomName": "Simple single room", "price": "199", "roomID": "0"}, {"guests": "2", "roomName": "Simple small apartment", "price": "349", "roomID": "1"}, {"guests": "3", "roomName": "Simple apartment", "price": "499", "roomID": "2"}]},
+  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "facts": ["Expensive", "No free cancellation", "Free breakfast"],
+  "image":"../assets/hotel1.jpg", "airports": [{"airportName": "Orly Airport", "price": "49", "airportID": "0"}, {"airportName": "Charles de Gaulle Airport", "price": "29", "airportID": "1"}], "price":"199",
+  "rooms": [{"guests": "1", "roomName": "Simple single room", "image": "../assets/hotel_room.jpeg", "price": "199", "roomID": "0"}, {"guests": "2", "roomName": "Simple small apartment", "image": "../assets/hotel_room1.jpeg", "price": "349", "roomID": "1"}, {"guests": "3", "roomName": "Simple apartment", "image": "../assets/hotel_room2.jpeg", "price": "499", "roomID": "2"}]},
 
-  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "facts": ["Good value", "No free cancellation", "Free breakfast"], "image":"../assets/hotel2.jpg", "price":"99",
-  "rooms": [{"guests": "1", "roomName": "Cozy single room", "price": "99", "roomID": "0"}, {"guests": "2", "roomName": "Cozy small apartment", "price": "199", "roomID": "1"}, {"guests": "3", "roomName": "Cozy apartment", "price": "349", "roomID": "2"}]},
+  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", 
+  "facts": ["Good value", "No free cancellation", "Free breakfast"], "image":"../assets/hotel2.jpg", 
+  "airports": [{"airportName": "Heathrow Airport", "price": "59", "airportID": "0"}, {"airportName": "Gatwick Airport", "price": "49", "airportID": "1"}],"price":"99",
+  "rooms": [{"guests": "1", "roomName": "Cozy single room", "image": "../assets/hotel_room.jpeg", "price": "99", "roomID": "0"}, 
+  {"guests": "2", "roomName": "Cozy small apartment", "image": "../assets/hotel_room1.jpeg", "price": "199", "roomID": "1"}, 
+  {"guests": "3", "roomName": "Cozy apartment", "image": "../assets/hotel_room2.jpeg", "price": "349", "roomID": "2"}]},
 
-  {"id": "3", "hotelName": "SimpleHotels", "destination": "Manchester", "description": "Very cheap, we are nice to your wallet.", "facts": ["Cheap", "Free cancellation", "Child-friendly"],"image":"../assets/hotel3.jpg", "price":"29",
-  "rooms": [{"guests": "1", "roomName": "Cheap single room", "price": "29", "roomID": "0"}, {"guests": "2", "roomName": "Cheap small apartment", "price": "59", "roomID": "1"}, {"guests": "3", "roomName": "Cheap apartment", "price": "99", "roomID": "2"}]},
+  {"id": "3", "hotelName": "SimpleHotels", "destination": "Boston", "description": "Very cheap, we are nice to your wallet.", "facts": ["Cheap", "Free cancellation", "Child-friendly"],
+  "image":"../assets/hotel3.jpg", 
+  "airports": [{"airportName": "Boston Logan International Airport", "price": "19", "airportID": "0"}, {"airportName": "Manchester-Boston Regional Airport", "price": "29", "airportID": "1"}], 
+  "price":"29",
+  "rooms": [{"guests": "1", "roomName": "Cheap single room", "image": "../assets/hotel_room.jpeg", "price": "29", "roomID": "0"}, {"guests": "2", "roomName": "Cheap small apartment", 
+  "image": "../assets/hotel_room1.jpeg", "price": "59", "roomID": "1"}, {"guests": "3", "roomName": "Cheap apartment", "image": "../assets/hotel_room2.jpeg", "price": "99", "roomID": "2"}]},
 
-  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "facts": ["Expensive", "No free cancellation", "All-inclusive"], "image":"../assets/hotel4.jpg", "price":"499",
-  "rooms": [{"guests": "1", "roomName": "Beautiful single room", "price": "499", "roomID": "0"}, {"guests": "2", "roomName": "Beautiful small apartment", "price": "999", "roomID": "1"}, {"guests": "3", "roomName": "Beautiful apartment", "price": "1799", "roomID": "2"}]},
+  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", 
+  "facts": ["Expensive", "No free cancellation", "All-inclusive"], "image":"../assets/hotel4.jpg", 
+  "airports": [{"airportName": "Los Angeles International Airport", "price": "99", "airportID": "0"}, {"airportName": "Hollywood Burbank Airport", "price": "79", "airportID": "1"}],
+  "price":"499",
+  "rooms": [{"guests": "1", "roomName": "Beautiful single room", "image": "../assets/hotel_room.jpeg", "price": "499", "roomID": "0"}, 
+  {"guests": "2", "roomName": "Beautiful small apartment", "image": "../assets/hotel_room1.jpeg", "price": "999", "roomID": "1"}, 
+  {"guests": "3", "roomName": "Beautiful apartment", "image": "../assets/hotel_room2.jpeg", "price": "1799", "roomID": "2"}]},
 ];
 // Skapar en array med fem hotell. Varje hotell har ett id, ett namn, en destination, en beskrivning, tre snabba fakta, en bild, ett pris och tre rum. Varje rum har ett rekommenderat antal gäster, ett namn, ett pris och ett id.
 
@@ -53,7 +70,7 @@ function App() {
   const [guests, setGuests] = useState(1);
   // Skapar fyra states för destination, check-in datum, check-out datum och antal gäster. Dessa konstanter används i komponenten "SearchFilter".
   
-  const [chosenHotel, setChosenHotel] = useState([]);
+  const [chosenHotel, setChosenHotel] = useState(null);
   const [chosenRooms, setChosenRooms] = useState([]);
   const [chosenGuestAmount, setChosenGuestAmount] = useState(1);
   const [chosenRoomAmount, setChosenRoomAmount] = useState(1);
@@ -67,6 +84,7 @@ function App() {
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerCreditCard, setCustomerCreditCard] = useState("");
   const [paymentMethod, setPaymentMethod] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
   const [bookedHotel, setBookedHotel] = useState(null);
   // Skapar sex states för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, betalningsmetod och bokat hotell. Dessa konstanter används i komponenten "RoomInformationCard".
 
@@ -92,7 +110,7 @@ function App() {
     setChosenHotel(hotels[id]);
     // Sätter state:en "chosenHotel" till hotellet som användaren valt.
   }
-
+  
   function checkOut() {
   // Skapar en funktion som gör att användaren kan gå vidare till utcheckningen.
 
@@ -144,27 +162,30 @@ function App() {
                return results;
                // Returnerar objektet.
         
-              }}).map(({id, hotelName, destination, description, facts, image, price, rooms}) => (
+              }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports}) => (
               // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje objekt.
 
               <InformationCard id={id} hotelName={hotelName} destination={destination} 
-              description={description} facts={facts} image={image} price={price} rooms={rooms} 
+              description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports}
               chosenRoomAmount={chosenRoomAmount} setChosenRoomAmount={setChosenRoomAmount} chosenGuestAmount={chosenGuestAmount} setChosenGuestAmount={setChosenGuestAmount}
               checkOut={checkOut} checkOutStatus={checkOutStatus} chooseRooms={chooseRooms} chooseCheckInDate={chooseCheckInDate} setChooseCheckInDate={setChooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} 
               setChooseCheckOutDate={setChooseCheckOutDate}/>
-              // Renderar "InformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter, funktionen checkOut() tas också med.
             ))}
+            {/*Renderar "InformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter, funktionen checkOut() tas också med.*/}
+  
 
-      <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
-      changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
-      chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} 
-      customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)}
-      paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} 
-      chosenGuestAmount={chosenGuestAmount} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking}/>
-      {/* Renderar "DetailsBox"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in, funktionen confirmBooking() tas också med.*/}
+            <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
+            changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
+            chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} totalPrice={totalPrice} setTotalPrice={setTotalPrice}
+            customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)}
+            paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} 
+            chosenGuestAmount={chosenGuestAmount} backDetailsBox={backDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking}/>
+            {/* Renderar "DetailsBox"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in, 
+            funktionen confirmBooking() tas också med.*/}
+      
 
       <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} 
-      chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} paymentMethod={paymentMethod}/>
+      chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} chosenGuestAmount={chosenGuestAmount} paymentMethod={paymentMethod} totalPrice={totalPrice}/>
       {/* Renderar "ConfirmationMessage"-komponenten. Den tar med sig flera state-variabler. */}
 
       <Footer/>
