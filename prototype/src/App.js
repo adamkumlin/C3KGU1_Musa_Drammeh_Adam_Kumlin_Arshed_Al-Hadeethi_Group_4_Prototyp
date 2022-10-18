@@ -170,7 +170,7 @@ function App() {
               description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports}
               chosenRoomAmount={chosenRoomAmount} setChosenRoomAmount={setChosenRoomAmount} chosenGuestAmount={chosenGuestAmount} setChosenGuestAmount={setChosenGuestAmount}
               checkOut={checkOut} checkOutStatus={checkOutStatus} chooseRooms={chooseRooms} chooseCheckInDate={chooseCheckInDate} setChooseCheckInDate={setChooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} 
-              setChooseCheckOutDate={setChooseCheckOutDate}/>
+              setChooseCheckOutDate={setChooseCheckOutDate} chosenRooms={chosenRooms}/>
             ))}
             {/*Renderar "InformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter, funktionen checkOut() tas också med.*/}
   

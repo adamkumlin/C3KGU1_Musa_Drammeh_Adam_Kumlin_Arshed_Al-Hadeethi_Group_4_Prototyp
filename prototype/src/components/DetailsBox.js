@@ -118,15 +118,14 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <p>Choose travel (optional)</p>
             <br></br><label>{props.chosenHotel.airports[0].airportName} ${props.chosenHotel.airports[0].price}<input type="checkbox" value={props.chosenHotel.airports[0].price} onChange={handleTravelCheckZero}/></label>
             <br></br><label>{props.chosenHotel.airports[1].airportName} ${props.chosenHotel.airports[1].price}<input type="checkbox" value={props.chosenHotel.airports[1].price} onChange={handleTravelCheckOne}/></label>
-            <label>Message (optional) <textarea name="paymentMethod" value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
+            <label>Message (optional) <textarea name="paymentMethod" placeholder="Dietary requirements, estimated time of arrival..."value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>
             <p>Room name: {props.chosenRooms.roomName}</p>
-            <p>Recommended guest amount: {props.chosenRooms.guests}</p>
             <p>Check-in date: {props.chooseCheckInDate}</p>
             <p>Check-out date: {props.chooseCheckOutDate}</p>
-            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) <span className="travelMessage">and travel</span></p>
+            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) {travelPriceZero + travelPriceOne > 0 && <span>and travel</span>}</p> 
           <button onClick={validateForm}>Book</button>
           {/* Annars skapas en knapp, två h2-element, fyra sex etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
           Elementen med information om hotellen förses med informationen med hjälp av props. */}

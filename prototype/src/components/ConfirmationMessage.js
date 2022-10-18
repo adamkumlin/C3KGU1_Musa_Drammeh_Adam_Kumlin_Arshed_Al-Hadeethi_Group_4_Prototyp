@@ -29,7 +29,7 @@ function ConfirmationMessage(props) {
                     <li>Guests: {props.chosenGuestAmount}</li>
                     <li>Check-in date: {props.chooseCheckInDate}</li>
                     <li>Check-out date: {props.chooseCheckOutDate}</li>
-                    <li>Message: {props.customerMessage}</li>
+                    {props.customerMessage.length > 0 && <li>Message: {props.customerMessage}</li>}
                 </ul>
             </div>
             // Renderar en div med en h1-titel, en h2-titel, en ul-lista och en knapp. Dessa element fylls med information om hotellen med props.

@@ -66,6 +66,16 @@ function RoomInformationCard(props) {
             alert("Please fill out all the fields.");
             // Skriver ut ett felmeddelande.
 
+          } else if (props.chosenGuestAmount > 9) {
+          // Om användaren har valt fler än 9 gäster.
+
+            alert("You can only book a maximum of 9 guests.");
+            // Skriver ut ett felmeddelande.
+
+          } else if (props.chosenRoomAmount > 9) {
+          // Om användaren har valt fler än 9 rum.
+            alert("You can only book a maximum of 9 rooms.");
+
           } else if (!validRoomAndGuestAmount.test(props.chosenGuestAmount)) {
             // Om användaren har skrivit in ett ett antal gäster som inte stämmer överens med regex-uttrycket "validRoomAndGuestAmount".
 
@@ -84,10 +94,17 @@ function RoomInformationCard(props) {
             alert("The check in and check out date can't be the same.");
             // Skriver ut ett felmeddelande.
 
+          } else if (props.chosenGuestAmount > props.chosenRooms.guests * props.chosenRoomAmount) {
+            // Om användaren har valt fler gäster än vad som finns plats för i rummet.
+
+            alert("There are enough guests for this room.");
+            // Skriver ut ett felmeddelande.
+
           } else {
+        
             props.checkOut();
             // Annars anropas funktionen "checkOut" som finns i App.js.
-          }
+          }    
     }
 
   return (
@@ -118,8 +135,8 @@ function RoomInformationCard(props) {
                 <img src={props.rooms[2].image}/>
                 <br></br><label>Choose room <input type="radio" name="chooseRooms" value={props.rooms[2].roomID} onChange={handleRoomChange}/></label>
             </ul>
-            <label>Choose guest amount <input type="number" name="guestAmount" className="roomAmount" min="1" value={props.chosenGuestAmount} onChange={(e) => props.setChosenGuestAmount(e.target.value)}/></label>
-            <label>Choose room amount <input type="number" name="roomAmount" className="roomAmount" min="1" value={props.chosenRoomAmount} onChange={(e) => props.setChosenRoomAmount(e.target.value)}/></label>
+            <label>Choose guest amount <input type="number" name="guestAmount" className="roomAmount" min="1" max="9" value={props.chosenGuestAmount} onChange={(e) => props.setChosenGuestAmount(e.target.value)}/></label>
+            <label>Choose room amount <input type="number" name="roomAmount" className="roomAmount" min="1" max="9" value={props.chosenRoomAmount} onChange={(e) => props.setChosenRoomAmount(e.target.value)}/></label>
             <label>Choose check-in date<input type="date" min={todaysDate} className="chooseCheckInDate" name="chooseCheckInDate" value={props.chooseCheckInDate} onChange={handleCheckInDateChange}/></label>
             <label>Choose check-out date<input type="date" min={props.chooseCheckInDate} className="chooseCheckOutDate" disabled={checkOutDateDisabled} name="chooseCheckOutDate" value={props.chooseCheckOutDate} onChange={(e) => props.setChooseCheckOutDate(e.target.value)}/></label>
             <button disabled={buttonDisabled} onClick={validateRoomInformation}>Check out</button>

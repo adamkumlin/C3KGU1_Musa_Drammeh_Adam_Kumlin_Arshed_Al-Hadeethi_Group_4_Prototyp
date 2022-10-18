@@ -34,7 +34,7 @@ if (props.checkOutStatus) {
         chosenRoomAmount={props.chosenRoomAmount} setChosenRoomAmount={props.setChosenRoomAmount} chooseRooms={props.chooseRooms} 
         chosenGuestAmount={props.chosenGuestAmount} setChosenGuestAmount={props.setChosenGuestAmount}
         chooseCheckInDate={props.chooseCheckInDate} setChooseCheckInDate={props.setChooseCheckInDate} chooseCheckOutDate={props.chooseCheckOutDate} 
-        setChooseCheckOutDate={props.setChooseCheckOutDate}/>
+        setChooseCheckOutDate={props.setChooseCheckOutDate} chosenRooms={props.chosenRooms}/>
         {/* Renderar "RoomInformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter som ändrar, funktionerna chooseRooms() samt checkOut() tas också med .*/}
       </div>
     </div>
