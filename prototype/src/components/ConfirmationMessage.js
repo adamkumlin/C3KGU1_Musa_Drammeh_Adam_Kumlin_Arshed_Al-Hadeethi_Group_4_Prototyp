@@ -2,7 +2,7 @@ function ConfirmationMessage(props) {
     // Komponenten tar emot props.
     
       if (!props.bookedHotel) {
-      // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
+      // Om state-variabeln "bookedHotel" är falsk, alltså om användaren inte har bokat ett hotell.
     
         return <div></div>;
         // Returnerar en tom div.
@@ -20,7 +20,8 @@ function ConfirmationMessage(props) {
                     <li>E-mail: {props.customerEmail}</li>
                     <li>You have chosen: {props.paymentMethod}</li>
                     <li>Amount paid: ${props.totalPrice}</li>
-                    {props.customerMessage.length > 0 && <li>Message: {props.customerMessage}</li>}
+                    {props.customerMessage.length > 0 && <li>Message: {props.customerMessage}</li>} {/* Om användarens skrivna meddelande har en längd som
+                    är längre än 0 skrivs det ut. */}
                 </ul>
 
                 <h3>Hotel details</h3>

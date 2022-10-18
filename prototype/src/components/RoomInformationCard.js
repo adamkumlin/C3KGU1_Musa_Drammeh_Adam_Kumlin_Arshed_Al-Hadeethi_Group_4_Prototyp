@@ -40,7 +40,7 @@ function RoomInformationCard(props) {
     function handleRoomChange(event) {
     // Skapar en funktion som tar emot ett event.
 
-        props.chooseRooms(props.id, event.target.value);
+        props.chooseRooms(props.chosenHotel.id, event.target.value);
         // Anropar funktionen "chooseRooms" som finns i App.js och skickar med id:t på det hotell som användaren har valt och det rum som användaren har valt.
 
         setButtonDisabled(false);
@@ -101,39 +101,50 @@ function RoomInformationCard(props) {
             // Skriver ut ett felmeddelande.
 
           } else {
-        
+            
+            setButtonDisabled(true);
+            setCheckOutDateDisabled(true);
             props.checkOut();
             // Annars anropas funktionen "checkOut" som finns i App.js.
           }    
     }
 
+  if (!props.chosenHotel || props.checkOutStatus || props.bookedStatus) {
+    // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
+
+      return <div></div>;
+      // Returnerar en tom div.
+  
+    } else {
+
   return (
 
     <div className="RoomInformationCard">
-        <div key={props.id}>
+        <div key={props.chosenHotel.id}>
+        <button onClick={props.goBackRoomInformationCard}>Back</button>
 
-            <ul key={props.rooms[0].roomID}>
-                <li>{props.rooms[0].roomName}</li>
-                <li>Room for {props.rooms[0].guests} guest(s)</li>
-                <li>Price: ${props.rooms[0].price} per night</li>
-                <img src={props.rooms[0].image}/>
-                <br></br><label>Choose room <input type="radio" name="chooseRooms" value={props.rooms[0].roomID} onChange={handleRoomChange}/></label>
+            <ul key={props.chosenHotel.rooms[0].roomID}>
+                <li>{props.chosenHotel.rooms[0].roomName}</li>
+                <li>Room for {props.chosenHotel.rooms[0].guests} guest(s)</li>
+                <li>Price: ${props.chosenHotel.rooms[0].price} per night</li>
+                <img src={props.chosenHotel.rooms[0].image}/>
+                <br></br><label>Choose room <input type="radio" name="chooseRooms" value={props.chosenHotel.rooms[0].roomID} onChange={handleRoomChange}/></label>
             </ul>
 
-            <ul key={props.rooms[1].roomID}>
-                <li>{props.rooms[1].roomName}</li>
-                <li>Room for {props.rooms[1].guests} guests</li>
-                <li>Price: ${props.rooms[1].price} per night</li>
-                <img src={props.rooms[1].image}/>
-                <br></br><label>Choose room <input type="radio" name="chooseRooms" value={props.rooms[1].roomID} onChange={handleRoomChange}/></label>
+            <ul key={props.chosenHotel.rooms[1].roomID}>
+                <li>{props.chosenHotel.rooms[1].roomName}</li>
+                <li>Room for {props.chosenHotel.rooms[1].guests} guests</li>
+                <li>Price: ${props.chosenHotel.rooms[1].price} per night</li>
+                <img src={props.chosenHotel.rooms[1].image}/>
+                <br></br><label>Choose room <input type="radio" name="chooseRooms" value={props.chosenHotel.rooms[1].roomID} onChange={handleRoomChange}/></label>
             </ul>
 
-            <ul key={props.rooms[2].roomID}>
-                <li>{props.rooms[2].roomName}</li>
-                <li>Room for {props.rooms[2].guests} guests</li>
-                <li>Price: ${props.rooms[2].price} per night</li>
-                <img src={props.rooms[2].image}/>
-                <br></br><label>Choose room <input type="radio" name="chooseRooms" value={props.rooms[2].roomID} onChange={handleRoomChange}/></label>
+            <ul key={props.chosenHotel.rooms[2].roomID}>
+                <li>{props.chosenHotel.rooms[2].roomName}</li>
+                <li>Room for {props.chosenHotel.rooms[2].guests} guests</li>
+                <li>Price: ${props.chosenHotel.rooms[2].price} per night</li>
+                <img src={props.chosenHotel.rooms[2].image}/>
+                <br></br><label>Choose room <input type="radio" name="chooseRooms" value={props.chosenHotel.rooms[2].roomID} onChange={handleRoomChange}/></label>
             </ul>
             <label>Choose guest amount <input type="number" name="guestAmount" className="roomAmount" min="1" max="9" value={props.chosenGuestAmount} onChange={(e) => props.setChosenGuestAmount(e.target.value)}/></label>
             <label>Choose room amount <input type="number" name="roomAmount" className="roomAmount" min="1" max="9" value={props.chosenRoomAmount} onChange={(e) => props.setChosenRoomAmount(e.target.value)}/></label>
@@ -146,6 +157,6 @@ function RoomInformationCard(props) {
     </div>
   )
 }
-
+}
 export default RoomInformationCard;
 // Exporterar komponenten som "RoomInformationCard".

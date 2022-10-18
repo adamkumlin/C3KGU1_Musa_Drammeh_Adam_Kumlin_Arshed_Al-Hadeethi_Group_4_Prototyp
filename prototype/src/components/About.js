@@ -1,4 +1,5 @@
 import Footer from "./Footer";
+// Importerar komponenten "Footer".
 
 function About() {
 
@@ -11,8 +12,9 @@ function About() {
 
             <Footer/>
         </div>
+        // Renderar en div med ett h1-element, en paragraf och en Footer-komponent.
     )
 }
 
 export default About;
-// Exporterar komponenten som "Footer".
+// Exporterar komponenten som "About".

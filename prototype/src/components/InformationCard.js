@@ -1,13 +1,18 @@
 import locationicon from '../images/location_icon.png';
-
-import RoomInformationCard from "./RoomInformationCard";
 // Importerar en bild.
 
 function InformationCard(props) {
 // Komponenten tar emot props.
 
-if (props.checkOutStatus || props.bookedStatus) {
-  // Om state-variabeln "checkOutStatus" är sant, alltså om användaren har checkat ut eller om "bookedStatus" är sant, alltså om användaren har bokat ett rum.
+function handleClick() {
+// Funktionen "handleClick" körs när användaren klickar på en knapp.
+
+  props.chooseHotel(props.id)
+  // Anropar funktionen "chooseHotel" som finns i App.js och skickar med id:t på det hotell som användaren har valt.
+}
+
+if (!props.chosenHotel === "null" || props.chosenHotel) {
+  // Om state-variabeln "chosenHotel" har ett värde som ej är "null" eller ett annat värde, alltså om användaren har valt ett hotell.
 
     return <div></div>;
     // Returnerar en tom div.
@@ -27,15 +32,9 @@ if (props.checkOutStatus || props.bookedStatus) {
           <li>{props.facts[2]}</li>
         </ul>
         <img src={`${props.image}`}/>
+        <button onClick={handleClick}>Choose hotel</button>
         <p>Starting at ${props.price} per night</p>
         {/* Skapar en div med en h2-titel, en ul-lista, text och en bild. Dessa element fylls med information om hotellen med props. */}
-
-        <RoomInformationCard rooms={props.rooms} airports={props.airports} id={props.id} checkOut={props.checkOut} 
-        chosenRoomAmount={props.chosenRoomAmount} setChosenRoomAmount={props.setChosenRoomAmount} chooseRooms={props.chooseRooms} 
-        chosenGuestAmount={props.chosenGuestAmount} setChosenGuestAmount={props.setChosenGuestAmount}
-        chooseCheckInDate={props.chooseCheckInDate} setChooseCheckInDate={props.setChooseCheckInDate} chooseCheckOutDate={props.chooseCheckOutDate} 
-        setChooseCheckOutDate={props.setChooseCheckOutDate} chosenRooms={props.chosenRooms}/>
-        {/* Renderar "RoomInformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter som ändrar, funktionerna chooseRooms() samt checkOut() tas också med .*/}
       </div>
     </div>
   )

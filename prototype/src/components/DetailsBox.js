@@ -112,8 +112,9 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
     }
   }
 
-  if (!props.checkOutStatus) {
-  // Om state-variabeln "checkOutStatus" är falskt, alltså om utcheckningsprocessen inte har påbörjats än.
+  if (!props.checkOutStatus || props.bookingStatus) {
+  // Om state-variabeln "checkOutStatus" är falskt, alltså om utcheckningsprocessen inte har påbörjats än. Eller om state-variabeln "bookingStatus" är
+  // sann, alltså om bokningen har genomförts.
 
     return <div></div>;
     // Returnerar en tom div.
@@ -122,7 +123,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
       
       return (
         <div className="DetailsBox">
-            <button onClick={props.backDetailsBox} className="backButton">Back</button>
+            <button onClick={props.goBackDetailsBox} className="backButton">Back</button>
             <h2>Customer details</h2>  
             <label>Name<input type="text" name="userName" value={props.customerName} onChange={props.changeCustomerName} placeholder="John Doe"/></label>
             <label>Phone number<input type="number" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} placeholder="1234567890"/></label>

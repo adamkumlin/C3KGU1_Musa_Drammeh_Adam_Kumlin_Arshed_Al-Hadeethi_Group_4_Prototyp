@@ -8,11 +8,11 @@ function Footer() {
     return(
         <div className="Footer">
             <h2>HotelsNOW</h2>
-            <a href="mailto:hotelsnow@hotelsnow.com">hotelsnow@hotelsnow.com</a><br></br>
+            <p>hotelsnow@hotelsnow.com</p>
             <img src={facebookicon}/>
             <img src={instagramicon}/>
             <img src={twittericon}/>
-            {/* Placerar tre bilder, en länk och ett h1-element. */}
+            {/* Placerar tre bilder, en paragraf och ett h1-element. */}
         </div>
     )
 }
