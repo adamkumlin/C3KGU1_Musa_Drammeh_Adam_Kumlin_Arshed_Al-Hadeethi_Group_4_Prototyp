@@ -11,9 +11,9 @@ function ConfirmationMessage(props) {
           
           return (
             <div className="ConfirmationMessage">
-                <h1> Thank you for your booking!</h1>
+                <h2> Thank you for your booking!</h2>
 
-                <h2>Booking details</h2>
+                <h3>Booking details</h3>
                 <ul>
                     <li>Name: {props.customerName}</li>
                     <li>Phone number: {props.customerPhone}</li>
@@ -23,7 +23,7 @@ function ConfirmationMessage(props) {
                     {props.customerMessage.length > 0 && <li>Message: {props.customerMessage}</li>}
                 </ul>
 
-                <h2>Hotel details</h2>
+                <h3>Hotel details</h3>
                 <ul>
                     <li>Hotel name: {props.bookedHotel.hotelName}</li>
                     <li>Hotel destination: {props.bookedHotel.destination}</li>
@@ -33,7 +33,7 @@ function ConfirmationMessage(props) {
                     <li>Check-out date: {props.chooseCheckOutDate}</li>
                 </ul>
             </div>
-            // Renderar en div med en h1-titel, två h2-titel, och två ul-listor. Dessa element fylls med information om hotellen med props.
+            // Renderar en div med en h2-titel, två h3-titlar och två ul-listor. Dessa element fylls med information om hotellen med props.
           )
         }
       }

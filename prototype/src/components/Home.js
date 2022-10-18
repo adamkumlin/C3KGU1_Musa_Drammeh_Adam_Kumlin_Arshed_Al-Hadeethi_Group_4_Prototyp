@@ -1,28 +1,22 @@
-import './App.css';
-// Importerar CSS.
-
 import { useState } from "react";
 // Importerar State.
 
-import NavBar from "./components/NavBar.js";
-// Importerar komponenten "NavBar".
-
-import SearchFilter from "./components/SearchFilter";
+import SearchFilter from "./SearchFilter";
 // Importerar komponenten "SearchFilter".
 
-import InformationCard from "./components/InformationCard.js";
+import InformationCard from "./InformationCard.js";
 // Importerar komponenten "InformationCard".
 
-import DetailsBox from "./components/DetailsBox";
+import DetailsBox from "./DetailsBox";
 // Importerar komponenten "DetailsBox".
 
-import ConfirmationMessage from "./components/ConfirmationMessage";
+import ConfirmationMessage from "./ConfirmationMessage";
 // Importerar komponenten "ConfirmationMessage".
 
-import Footer from "./components/Footer";
+import Footer from "./Footer";
 // Importerar komponenten "Footer".
 
-import hotelpool from "./images/hotel_pool.jpg";
+import hotelpool from "../images/hotel_pool.jpg";
 // Importerar en bild.
 
 //import hotels from "./hotels.json";
@@ -62,7 +56,7 @@ const hotels = [
 ];
 // Skapar en array med fem hotell. Varje hotell har ett id, ett namn, en destination, en beskrivning, tre snabba fakta, en bild, ett pris och tre rum. Varje rum har ett rekommenderat antal gäster, ett namn, ett pris och ett id.
 
-function App() {
+function Home() {
 
   const [destination, setDestination] = useState("");
   const [checkInDate, setCheckInDate] = useState(new Date());
@@ -135,17 +129,13 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="Home">
 
-      <NavBar/>
-      {/*Renderar "NavBar"-komponenten.*/}
-      
       <div className="Intro">
         <img src={hotelpool}/>
         <div className="IntroContent">
           <p>Your home away from home</p>
           <p className="IntroSlogan">Where Comfort and Affordability meet</p>
-          <a href="#" className="IntroButton">Explore now</a>
         </div>
       </div>
       {/*Renderar "Intro"-komponenten.*/}
@@ -203,5 +193,5 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
 // Exporterar "App"-komponenten som "App".

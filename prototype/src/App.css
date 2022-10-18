@@ -1,19 +1,40 @@
-.App {
+.navBarList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+/* Tar bort list-stylen och padding, ger den en margin längst upp. */
+
+.navBarListItems {
+  display: inline;
+  margin-right: 5rem;
+}
+/* Sätter en inline display och ger den en margin till höger. */
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  /* Tar bort text-decoration och ger den en svart färg. */
+
+  .NavBar li {
+    padding: 10px;
+  }
+  /* Sätter en border på knapparna och ger den en färg. Lägger också till en padding och tar bort margin längst till höger. */
+
+.Home, .About {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 /* Sätter en minsta höjd på hela sidan. */
 
-  .NavBar {
-      display: flex;
-      position: relative;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 5rem;
-    }
-  /* Sätter en flexbox på navbar:en. Ändrar positionen till "relative" och "flex-direction" till "row". Fortsättningsvis ges elementen plats mellan varandra med
-  "justify-content". Slutligen ges navbar:en en margin längst ned. */
+  .About {
+    text-align: center;
+  }
   
-  .Header h1 {
+  .navBarHeading {
     padding: 0;
     margin: 0;
     margin-top: 2rem;
@@ -23,59 +44,34 @@
   }
   /* Tar bort padding lägger till en margin längst upp och till vänster. Ändrar typsnittet till Gill Sans och ger den en färg. */
 
-  .NavBar ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    margin-top: 3rem;
-  }
-  /* Tar bort list-stylen och padding, ger den en margin längst upp. */
-
-  .NavBar li {
-    display: inline;
-    margin-right: 5rem;
-  }
-  /* Sätter en inline display och ger den en margin till höger. */
-
-    a {
-      text-decoration: none;
-      color: black;
-    }
-    /* Tar bort text-decoration och ger den en svart färg. */
-
-    .NavBar li .book, .IntroButton {
-      border: 2px solid #F18608;
-      color: #F18608;
-      padding: 10px;
-      margin-right: 0;
-    }
-    /* Sätter en border på knapparna och ger den en färg. Lägger också till en padding och tar bort margin längst till höger. */
-
-  .Intro img {
-    width: 834px;
-    height: 699px;
-    position: absolute;
-    margin-right: 4rem;
-    border-radius: 30px;
-    right: 0;
-  }
-  /* Sätter en bredd och höjd på bilden. Ändrar positionen till "absolute" och ger den en margin till höger. Sätter en border-radius på bilden och flyttar den till höger. */
-
-  .IntroContent {
-    text-align: center;
-    font-size: 20pt;
-    margin-left: 15rem;
-    display: inline-block;
+  .Intro {
     margin-top: 10rem;
-    margin-bottom: 25rem;
   }
-  /* Centrerar texten, ändrar storleken på texten, ger den en margin till vänster. Sätter en inline-block display och ger den en margin längst upp och längst ned. */
-
-    .IntroSlogan {
-      color: #F18608;
-      font-size: 30pt;
+    .Intro img {
+      width: 834px;
+      height: 699px;
+      position: absolute;
+      margin-right: 6rem;
+      border-radius: 30px;
+      right: 0;
     }
-    /* Ger texten en färg och ändrar storleken på texten. */
+    /* Sätter en bredd och höjd på bilden. Ändrar positionen till "absolute" och ger den en margin till höger. Sätter en border-radius på bilden och flyttar den till höger. */
+
+    .IntroContent {
+      text-align: center;
+      font-size: 20pt;
+      margin-left: 15rem;
+      display: inline-block;
+      margin-top: 10rem;
+      margin-bottom: 25rem;
+    }
+    /* Centrerar texten, ändrar storleken på texten, ger den en margin till vänster. Sätter en inline-block display och ger den en margin längst upp och längst ned. */
+
+      .IntroSlogan {
+        color: #F18608;
+        font-size: 30pt;
+      }
+      /* Ger texten en färg och ändrar storleken på texten. */
 
   .SearchFilter {
     background-color:#F18608;
@@ -84,6 +80,7 @@
     width: 70%;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 7rem;
   }
   /* Sätter en bakgrundsfärg, en border-radius, en padding och en bredd. Ger den en automatisk margin till höger och vänster vilket centrerar den. */
 
@@ -128,6 +125,7 @@
     width: 40%;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 7rem;
   }
   /* Ger den en margin längst upp, en border, centrerar texten, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den. */
 
@@ -179,7 +177,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 5rem;
+    margin-bottom: 7rem;
   }
   /* Ger den en margin längst upp, en border, en border-radius, en bredd, centrerar texten, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
 
@@ -215,7 +213,7 @@
       text-align: center;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 5rem;
+      margin-bottom: 7rem;
     }
     /* Ger den en margin längst upp, en border, en border-radius, en bredd, centrerar texten, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
 
@@ -227,7 +225,7 @@
       
   .Footer {
     background-color: #F18608;
-    bottom: 0;
+    margin-top: auto;
   }
   /* Sätter en bakgrundsfärg och positionerar den längst ner. */
 

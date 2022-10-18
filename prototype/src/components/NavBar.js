@@ -1,17 +1,18 @@
-function NavBar() {
+import { Outlet, Link } from 'react-router-dom';
 
+function NavBar() {
     return(
         <div className="NavBar">
-            <h1>HotelsNOW</h1>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#" className="book">Book Now</a></li>
-            </ul>
-            {/* Renderar ett h1-element och en lista med fem länkar. */}
+            <nav>
+                <ul className="navBarList">
+                    <li className="navBarListItems"><Link to="/">Home</Link></li>
+                    <li className="navBarListItems"><Link to="/about">About us</Link></li>
+                </ul>
+                {/* Renderar ett h1-element och en lista med fem länkar. */}
+            </nav>
+            <h1 className="navBarHeading">HotelsNOW</h1>
+
+            <Outlet/>
         </div>
     )
 }

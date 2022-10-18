@@ -7,24 +7,12 @@ function Footer() {
 
     return(
         <div className="Footer">
-            <h1>HotelsNOW</h1>
+            <h2>HotelsNOW</h2>
             <a href="mailto:hotelsnow@hotelsnow.com">hotelsnow@hotelsnow.com</a><br></br>
             <img src={facebookicon}/>
             <img src={instagramicon}/>
             <img src={twittericon}/>
             {/* Placerar tre bilder, en länk och ett h1-element. */}
-
-            <h2>About</h2>
-            <p>Our Story</p>
-            <p>Why us?</p>
-            <p>How it works</p>
-
-            <h2>Contacts</h2>
-            <p>Help center</p>
-            <p>FAQs</p>
-            <p>Careers</p>
-            <p>Press</p>
-            {/* Placerar text och två h2-element. */}
         </div>
     )
 }
