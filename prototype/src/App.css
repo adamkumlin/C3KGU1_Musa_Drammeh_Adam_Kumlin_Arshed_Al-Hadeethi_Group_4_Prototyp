@@ -207,6 +207,24 @@
     }
     /* Ändrar till block display, ändrar positionen till "absolute", positionerar knappen till vänster, ger den en margin till vänster och en margin längst upp. */
   
+    .ConfirmationMessage {
+      margin-top: 5rem;
+      border: 2px solid #F18608;
+      border-radius: 25px;
+      width: 60%;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 5rem;
+    }
+    /* Ger den en margin längst upp, en border, en border-radius, en bredd, centrerar texten, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
+
+      .ConfirmationMessage ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      /* Tar bort liststilen och paddingen. */
+      
   .Footer {
     background-color: #F18608;
     bottom: 0;

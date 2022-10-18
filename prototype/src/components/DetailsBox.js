@@ -5,6 +5,8 @@ function DetailsBox(props) {
 
 const [travelPriceZero, setTravelPriceZero] = useState(0);
 const [travelPriceOne, setTravelPriceOne] = useState(0);
+// Skapar två state-variabler som heter "travelPriceZero" och "travelPriceOne" och som har värdet "0". 
+// State-variablerna används för räkna ut slutpriset för eventuella resor.
 
 const checkInDateDays = new Date(props.chooseCheckInDate);
 const checkOutDateDays = new Date(props.chooseCheckOutDate);
@@ -34,10 +36,15 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
 
     if (event.target.checked) {
       // Om användaren har kryssat i checkboxen.
+
       setTravelPriceZero(travelPriceZero + parseInt(props.chosenHotel.airports[0].price));
+      // Adderar på det första priset för resan till "travelPriceZero". "parseInt" används för att konvertera strängen till ett heltal.
+
     } else {
-      // Om användaren har kryssat i checkboxen.
+
       setTravelPriceZero(travelPriceZero - parseInt(props.chosenHotel.airports[0].price));
+      // Annars om användaren har avmarkerat checkboxen, subtraheras det första priset för resan från "travelPriceZero". 
+      // "parseInt" används för att konvertera strängen till ett heltal.
     }
   }
 
@@ -46,15 +53,22 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
 
     if (event.target.checked) {
       // Om användaren har kryssat i checkboxen.
+
       setTravelPriceOne(travelPriceOne + parseInt(props.chosenHotel.airports[1].price));
+      // Adderar på det andra priset för resan till "travelPriceOne". "parseInt" används för att konvertera strängen till ett heltal.
+
     } else {
-      // Om användaren har kryssat i checkboxen.
+
       setTravelPriceOne(travelPriceOne - parseInt(props.chosenHotel.airports[1].price));
+      // Annars om användaren har avmarkerat checkboxen, subtraheras det andra priset för resan från "travelPriceOne". 
+      // "parseInt" används för att konvertera strängen till ett heltal.
     }
   }
 
   let total = props.chosenRooms.price * props.chosenRoomAmount * dayDifference + parseInt(travelPriceZero) + parseInt(travelPriceOne);
-  // Deklarerar en variabel som räknar ut totalpriset för rummen som användaren har valt. Priset per rum (props.chosenRooms.price) multipliceras med antalet rum (props.chosenRoomAmount).
+  // Deklarerar en variabel som räknar ut totalpriset för rummen som användaren har valt. 
+  // Priset per rum (props.chosenRooms.price) multipliceras med antalet rum (props.chosenRoomAmount) som sedan adderas med "travelPriceZero" och "travelPriceOne".
+  // Om en resa inte är vald är värdet på "travelPriceZero" och "travelPriceOne" 0 och därför påverkas inte totalpriset.
 
   function validateForm() {
   // Skapar en funktion som kontrollerar om användaren har fyllt i alla fält samt om användaren har skrivit in giltiga värden i fälten.
@@ -93,7 +107,8 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
     } else {
       props.setTotalPrice(total);
       props.confirmBooking(props.id)
-      // Annars anropas funktionen "confirmBooking" som finns i App.js och skickar med id:t på det hotell som användaren har valt.
+      // Annars anropas funktionen "confirmBooking" som finns i App.js och skickar med id:t på det hotell som användaren har valt. State-variabeln 
+      // "totalPrice" uppdateras med värdet på "total".
     }
   }
 

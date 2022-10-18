@@ -20,19 +20,20 @@ function ConfirmationMessage(props) {
                     <li>E-mail: {props.customerEmail}</li>
                     <li>You have chosen: {props.paymentMethod}</li>
                     <li>Amount paid: ${props.totalPrice}</li>
+                    {props.customerMessage.length > 0 && <li>Message: {props.customerMessage}</li>}
                 </ul>
 
                 <h2>Hotel details</h2>
                 <ul>
                     <li>Hotel name: {props.bookedHotel.hotelName}</li>
                     <li>Hotel destination: {props.bookedHotel.destination}</li>
+                    <li>Room name: {props.chosenRooms.roomName}</li>
                     <li>Guests: {props.chosenGuestAmount}</li>
                     <li>Check-in date: {props.chooseCheckInDate}</li>
                     <li>Check-out date: {props.chooseCheckOutDate}</li>
-                    {props.customerMessage.length > 0 && <li>Message: {props.customerMessage}</li>}
                 </ul>
             </div>
-            // Renderar en div med en h1-titel, en h2-titel, en ul-lista och en knapp. Dessa element fylls med information om hotellen med props.
+            // Renderar en div med en h1-titel, två h2-titel, och två ul-listor. Dessa element fylls med information om hotellen med props.
           )
         }
       }

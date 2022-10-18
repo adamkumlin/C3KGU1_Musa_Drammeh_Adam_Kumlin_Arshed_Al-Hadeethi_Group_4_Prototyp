@@ -6,8 +6,8 @@ import RoomInformationCard from "./RoomInformationCard";
 function InformationCard(props) {
 // Komponenten tar emot props.
 
-if (props.checkOutStatus) {
-  // Om state-variabeln "chosenHotel" inte har något värde, alltså om något hotell inte har valts än.
+if (props.checkOutStatus || props.bookedStatus) {
+  // Om state-variabeln "checkOutStatus" är sant, alltså om användaren har checkat ut eller om "bookedStatus" är sant, alltså om användaren har bokat ett rum.
 
     return <div></div>;
     // Returnerar en tom div.
