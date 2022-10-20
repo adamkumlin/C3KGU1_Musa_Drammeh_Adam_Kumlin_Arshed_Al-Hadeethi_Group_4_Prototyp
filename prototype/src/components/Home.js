@@ -60,12 +60,12 @@ const hotels = [
 // Skapar en array med fem hotell. Varje hotell har ett id, ett namn, en destination, en beskrivning, tre snabba fakta, en bild, ett pris och tre rum. Varje rum har ett rekommenderat antal gäster, ett namn, ett pris och ett id.
 
 function Home() {
-
+  const [searchTerm, setSearchTerm] = useState("");
   const [destination, setDestination] = useState("");
   const [checkInDate, setCheckInDate] = useState(new Date());
   const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [guests, setGuests] = useState(1);
-  // Skapar fyra states för destination, check-in datum, check-out datum och antal gäster. Dessa konstanter används i komponenten "SearchFilter".
+  // Skapar fem states för sökterm, destination, check-in datum, check-out datum och antal gäster. Dessa konstanter används i komponenten "SearchFilter".
   
   const [chosenHotel, setChosenHotel] = useState(null);
   const [chosenRooms, setChosenRooms] = useState([]);
@@ -145,7 +145,7 @@ function Home() {
     <div className="Home">
 
       <div className="Intro">
-        <img src={hotelpool}/>
+        <img src={hotelpool} alt="Bild på en pool"/>
         <div className="IntroContent">
           <p>Your home away from home</p>
           <p className="IntroSlogan">Where Comfort and Affordability meet</p>
@@ -153,23 +153,23 @@ function Home() {
       </div>
       {/* Lägger till en bild och text. */}
 
-      <SearchFilter destination={destination} changeDestination={(e) => setDestination(e.target.value)} 
+      <SearchFilter destination={destination} setDestination={setDestination} 
                 checkInDate={checkInDate} changeCheckInDate={(e) => setCheckInDate(e.target.value)}
                 checkOutDate={checkOutDate} changeCheckOutDate={(e) => setCheckOutDate(e.target.value)}
-                guests={guests} changeGuests={(e) => setGuests(e.target.value)}/>
+                guests={guests} changeGuests={(e) => setGuests(e.target.value)} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       {/* Renderar "SearchFilter"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in. */}
 
       {hotels.filter(function(results) {
       // Filterar array:en "hotels" med hjälp av en funktion som tar emot ett objekt.
+
+              if (destination === "") {
+              // Om state-variabeln är tom så returneras "null" (inget värde)
               
-              if (destination === "" || checkInDate === "" || checkOutDate === "" || guests === "") {
-              // Om någon av state-variablerna är tomma så returneras "null" (inget värde)
-        
                 return null;
                 // Returnerar "null" (inget värde).
         
               } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) {
-              // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet så returneras objektet.
+              // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet och sedan sökt på (state-variabeln "destination") så returneras objektet.
         
                return results;
                // Returnerar objektet.
@@ -177,7 +177,7 @@ function Home() {
               }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports}) => (
               // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje objekt.
 
-              <InformationCard id={id} hotelName={hotelName} destination={destination} 
+              <InformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
               description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports}
               chooseHotel={chooseHotel} chosenHotel={chosenHotel}/>
             ))}

@@ -31,7 +31,7 @@ if (!props.chosenHotel === "null" || props.chosenHotel) {
           <li>{props.facts[1]}</li>
           <li>{props.facts[2]}</li>
         </ul>
-        <img src={`${props.image}`}/>
+        <img src={`${props.image}`} alt="Bild på ett hotellrum"/>
         <button onClick={handleClick}>Choose hotel</button>
         <p>Starting at ${props.price} per night</p>
         {/* Skapar en div med en h2-titel, en ul-lista, text och en bild. Dessa element fylls med information om hotellen med props. */}
