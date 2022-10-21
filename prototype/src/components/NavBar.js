@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     return(
@@ -11,8 +11,6 @@ function NavBar() {
                 {/* Renderar ett h1-element och en lista med fem länkar. */}
             </nav>
             <h1 className="navBarHeading">HotelsNOW</h1>
-
-            <Outlet/>
         </div>
     )
 }
