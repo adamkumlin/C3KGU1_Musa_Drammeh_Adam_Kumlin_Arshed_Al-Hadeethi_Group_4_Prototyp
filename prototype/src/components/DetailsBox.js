@@ -1,4 +1,8 @@
 import { useState } from 'react';
+// Importerar "useState" från "react".
+
+import staricon from '../images/star_icon.png';
+// Importerar en bild.
 
 function DetailsBox(props) {
 // Komponenten tar emot props.
@@ -137,6 +141,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <label className="textareaLabel">Message (optional) <textarea placeholder="Dietary requirements, estimated time of arrival..."value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
+            <p>{props.chosenHotel.stars} <img src={staricon} className="icon" alt="Star icon"/></p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>
             <p>Room name: {props.chosenRooms.roomName}</p>
             <p>Check-in date: {props.chooseCheckInDate}</p>

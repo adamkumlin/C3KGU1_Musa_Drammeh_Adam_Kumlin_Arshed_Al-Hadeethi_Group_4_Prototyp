@@ -137,7 +137,7 @@
     }
     /* Sätter en bredd och höjd på bilden. Sätter en border-radius på bilden. */
 
-    .informationCardIcon {
+    .icon {
       width: 25px !important;
       height: 25px !important;
     }

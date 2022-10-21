@@ -8,6 +8,7 @@ function RoomInformationCard(props) {
     // Skapar en state-variabel som heter "buttonDisabled" och som har värdet "true". State-variabeln används för att kontrollera om knappen ska vara inaktiverad eller inte.
 
     const [checkOutDateDisabled, setCheckOutDateDisabled] = useState(true);
+    // Skapar en state-variabel "checkOutDateDisabled" som är satt till "true".
 
     const validRoomAndGuestAmount = new RegExp('^[1-9]+$');
     // Skapar en variabel som innehåller ett regex-uttryck som kontrollerar om användaren har skrivit in ett giltigt antal rum och gäster.
@@ -129,7 +130,7 @@ function RoomInformationCard(props) {
                 <li>{props.chosenHotel.rooms[0].roomName}</li>
                 <li>Room for {props.chosenHotel.rooms[0].guests} guest(s)</li>
                 <li>Price: ${props.chosenHotel.rooms[0].price} per night</li>
-                <img src={props.chosenHotel.rooms[0].image} alt="Bild på ett hotellrum"/>
+                <img src={props.chosenHotel.rooms[0].image} alt="Hotel room"/>
                 <label className="chooseRoomLabel">Choose room <input type="radio" name="chooseRooms" value={props.chosenHotel.rooms[0].roomID} onChange={handleRoomChange}/></label>
             </ul>
 
@@ -137,7 +138,7 @@ function RoomInformationCard(props) {
                 <li>{props.chosenHotel.rooms[1].roomName}</li>
                 <li>Room for {props.chosenHotel.rooms[1].guests} guests</li>
                 <li>Price: ${props.chosenHotel.rooms[1].price} per night</li>
-                <img src={props.chosenHotel.rooms[1].image} alt="Bild på en liten lägenhet"/>
+                <img src={props.chosenHotel.rooms[1].image} alt="Small apartment"/>
                 <label className="chooseRoomLabel">Choose room <input type="radio" name="chooseRooms" value={props.chosenHotel.rooms[1].roomID} onChange={handleRoomChange}/></label>
             </ul>
 
@@ -145,7 +146,7 @@ function RoomInformationCard(props) {
                 <li>{props.chosenHotel.rooms[2].roomName}</li>
                 <li>Room for {props.chosenHotel.rooms[2].guests} guests</li>
                 <li>Price: ${props.chosenHotel.rooms[2].price} per night</li>
-                <img src={props.chosenHotel.rooms[2].image} alt="Bild på en stor lägenhet"/>
+                <img src={props.chosenHotel.rooms[2].image} alt="Large apartment"/>
                 <label className="chooseRoomLabel">Choose room <input type="radio" name="chooseRooms" value={props.chosenHotel.rooms[2].roomID} onChange={handleRoomChange}/></label>
             </ul>
             <label>Choose guest amount <input type="number" name="guestAmount" className="roomAmount" min="1" max="9" value={props.chosenGuestAmount} onChange={(e) => props.setChosenGuestAmount(e.target.value)}/></label>

@@ -25,31 +25,31 @@ import hotelpool from "../images/hotel_pool.jpg";
 //import hotels from "./hotels.json";
 
 const hotels = [
-  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], 
+  {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], "stars": "2",
   "image":"../assets/hotel.jpg", 
   "airports": [{"airportName": "LaGuardia Airport", "price": "39", "airportID": "0"}, {"airportName": "John F. Kennedy International Airport", "price": "49", "airportID": "1"}], "price": "79",
   "rooms": [{"guests": "1", "roomName": "Single room", "image": "../assets/hotel_room.jpeg", "price": "79", "roomID": "0"}, {"guests": "2", "roomName": "Small apartment", 
   "image": "../assets/hotel_room1.jpeg", "price": "149", "roomID": "1"}, {"guests": "3", "roomName": "Apartment", "image": "../assets/hotel_room2.jpeg", "price": "299", "roomID": "2"}]},
 
-  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "facts": ["Expensive", "No free cancellation", "Free breakfast"],
+  {"id": "1", "hotelName": "Abby's Hotel", "destination": "Paris", "description": "Luxorious with delicious food and drink.", "facts": ["Expensive", "No free cancellation", "Free breakfast"], "stars": "4",
   "image":"../assets/hotel1.jpg", "airports": [{"airportName": "Orly Airport", "price": "49", "airportID": "0"}, {"airportName": "Charles de Gaulle Airport", "price": "29", "airportID": "1"}], "price":"199",
   "rooms": [{"guests": "1", "roomName": "Simple single room", "image": "../assets/hotel_room.jpeg", "price": "199", "roomID": "0"}, {"guests": "2", "roomName": "Simple small apartment", "image": "../assets/hotel_room1.jpeg", "price": "349", "roomID": "1"}, {"guests": "3", "roomName": "Simple apartment", "image": "../assets/hotel_room2.jpeg", "price": "499", "roomID": "2"}]},
 
-  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", 
+  {"id": "2", "hotelName": "The Cozy Stay", "destination": "London", "description": "We are located in the centre of beautiful London.", "stars": "3",
   "facts": ["Good value", "No free cancellation", "Free breakfast"], "image":"../assets/hotel2.jpg", 
   "airports": [{"airportName": "Heathrow Airport", "price": "59", "airportID": "0"}, {"airportName": "Gatwick Airport", "price": "49", "airportID": "1"}],"price":"99",
   "rooms": [{"guests": "1", "roomName": "Cozy single room", "image": "../assets/hotel_room.jpeg", "price": "99", "roomID": "0"}, 
   {"guests": "2", "roomName": "Cozy small apartment", "image": "../assets/hotel_room1.jpeg", "price": "199", "roomID": "1"}, 
   {"guests": "3", "roomName": "Cozy apartment", "image": "../assets/hotel_room2.jpeg", "price": "349", "roomID": "2"}]},
 
-  {"id": "3", "hotelName": "SimpleHotels", "destination": "Boston", "description": "Very cheap, we are nice to your wallet.", "facts": ["Cheap", "Free cancellation", "Child-friendly"],
+  {"id": "3", "hotelName": "SimpleHotels", "destination": "Boston", "description": "Very cheap, we are nice to your wallet.", "facts": ["Cheap", "Free cancellation", "Child-friendly"], "stars": "1",
   "image":"../assets/hotel3.jpg", 
   "airports": [{"airportName": "Boston Logan International Airport", "price": "19", "airportID": "0"}, {"airportName": "Manchester-Boston Regional Airport", "price": "29", "airportID": "1"}], 
   "price":"29",
   "rooms": [{"guests": "1", "roomName": "Cheap single room", "image": "../assets/hotel_room.jpeg", "price": "29", "roomID": "0"}, {"guests": "2", "roomName": "Cheap small apartment", 
   "image": "../assets/hotel_room1.jpeg", "price": "59", "roomID": "1"}, {"guests": "3", "roomName": "Cheap apartment", "image": "../assets/hotel_room2.jpeg", "price": "99", "roomID": "2"}]},
 
-  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", 
+  {"id": "4", "hotelName": "The Perfect Palace", "destination": "Los Angeles", "description": "An unforgettable experience, we are the nicest hotel around.", "stars": "5",
   "facts": ["Expensive", "No free cancellation", "All-inclusive"], "image":"../assets/hotel4.jpg", 
   "airports": [{"airportName": "Los Angeles International Airport", "price": "99", "airportID": "0"}, {"airportName": "Hollywood Burbank Airport", "price": "79", "airportID": "1"}],
   "price":"499",
@@ -64,6 +64,8 @@ function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [destination, setDestination] = useState("");
   const [guests, setGuests] = useState(1);
+  const [checkInDate, setCheckInDate] = useState("");
+  const [checkOutDate, setCheckOutDate] = useState("");
   // Skapar fem states för sökterm, destination, check-in datum, check-out datum och antal gäster. Dessa konstanter används i komponenten "SearchFilter".
   
   const [chosenHotel, setChosenHotel] = useState(null);
@@ -144,7 +146,7 @@ function Home() {
     <div className="Home">
 
       <div className="Intro">
-        <img src={hotelpool} alt="Bild på en pool"/>
+        <img src={hotelpool} alt="Pool"/>
         <div className="IntroContent">
           <p>Your home away from home</p>
           <p className="IntroSlogan">Where Comfort and Affordability meet</p>
@@ -152,14 +154,15 @@ function Home() {
       </div>
       {/* Lägger till en bild och text. */}
 
-      <SearchFilter destination={destination} setDestination={setDestination} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      <SearchFilter destination={destination} setDestination={setDestination} searchTerm={searchTerm} setSearchTerm={setSearchTerm} guests={guests} setGuests={setGuests} 
+      checkInDate={checkInDate} setCheckInDate={setCheckInDate} checkOutDate={checkOutDate} setCheckOutDate={setCheckOutDate}/>
       {/* Renderar "SearchFilter"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in. */}
 
       {hotels.filter(function(results) {
       // Filterar array:en "hotels" med hjälp av en funktion som tar emot ett objekt.
 
-              if (destination === "") {
-              // Om state-variabeln är tom så returneras "null" (inget värde)
+              if (destination === "" || guests > 3) {
+              // Om state-variabeln är tom eller om antalet gäster är större än tre så returneras "null" (inget värde).
               
                 return null;
                 // Returnerar "null" (inget värde).
@@ -170,11 +173,11 @@ function Home() {
                return results;
                // Returnerar objektet.
         
-              }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports}) => (
+              }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports, stars}) => (
               // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje objekt.
 
               <InformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
-              description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports}
+              description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports} stars={stars}
               chooseHotel={chooseHotel} chosenHotel={chosenHotel}/>
             ))}
             {/*Renderar "InformationCard"-komponenten. Den tar med sig all information om det hotellen och en state-variabel, funktionen chooseHotel tas också med.*/}

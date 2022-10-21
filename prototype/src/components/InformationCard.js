@@ -1,5 +1,6 @@
 import locationicon from '../images/location_icon.png';
-// Importerar en bild.
+import staricon from '../images/star_icon.png';
+// Importerar två bilder.
 
 function InformationCard(props) {
 // Komponenten tar emot props.
@@ -24,14 +25,15 @@ if (!props.chosenHotel === "null" || props.chosenHotel) {
     <div className="InformationCard">
       <div key={props.id}>
         <h2>{props.hotelName}</h2>
-        <p><img src={locationicon} className="informationCardIcon"/>{props.destination}</p>
+        <p><img src={locationicon} className="icon" alt="Location icon"/>{props.destination}</p>
         <p>{props.description}</p>
+        <p>{props.stars} <img src={staricon} className="icon" alt="Star icon"/></p>
         <ul>
           <li>{props.facts[0]}</li>
           <li>{props.facts[1]}</li>
           <li>{props.facts[2]}</li>
         </ul>
-        <img src={`${props.image}`} alt="Bild på ett hotellrum"/>
+        <img src={`${props.image}`} alt="Hotel room"/>
         <button onClick={handleClick}>Choose hotel</button>
         <p>Starting at ${props.price} per night</p>
         {/* Skapar en div med en h2-titel, en ul-lista, text och en bild. Dessa element fylls med information om hotellen med props. */}

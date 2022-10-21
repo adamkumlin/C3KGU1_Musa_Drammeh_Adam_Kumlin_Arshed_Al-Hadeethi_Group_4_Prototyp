@@ -1,3 +1,6 @@
+import staricon from '../images/star_icon.png';
+// Importerar en bild.
+
 function ConfirmationMessage(props) {
     // Komponenten tar emot props.
     
@@ -28,6 +31,7 @@ function ConfirmationMessage(props) {
                 <ul>
                     <li>Hotel name: {props.bookedHotel.hotelName}</li>
                     <li>Hotel destination: {props.bookedHotel.destination}</li>
+                    <li>{props.bookedHotel.stars} <img src={staricon} className="icon" alt="Star icon"/></li>
                     <li>Room name: {props.chosenRooms.roomName}</li>
                     <li>Guests: {props.chosenGuestAmount}</li>
                     <li>Check-in date: {props.chooseCheckInDate}</li>
