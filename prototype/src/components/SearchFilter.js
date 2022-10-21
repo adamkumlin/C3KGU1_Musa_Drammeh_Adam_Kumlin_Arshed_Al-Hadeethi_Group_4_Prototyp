@@ -22,11 +22,11 @@ function SearchFilter(props) {
     return(
         <div className="SearchFilter">
             <img src={calendaricon} alt="Bild på en kalenderikon"/>
-            <label>Destination<br></br> <input type="text" name="destination" value={props.searchTerm} onChange={handleChange} placeholder="New York"/></label>
-            <label>Check in<br></br> <input type="date" name="checkInDate" value={props.checkInDate} onChange={props.changeCheckInDate}/></label>
-            <label>Check out<br></br> <input type="date" name="checkOutDate" value={props.checkOutDate} onChange={props.changeCheckOutDate}/></label>
-            <label>Guests<br></br> <input type="number" name="guests" value={props.guests} onChange={props.changeGuests}/></label>
-            <label>Check availability<br></br> <button onClick={handleClick}>Search</button></label>
+            <label>Destination<input type="text" name="destination" value={props.searchTerm} onChange={handleChange} placeholder="New York"/></label>
+            <label>Check in<input type="date" name="checkInDate" value={props.checkInDate} onChange={props.changeCheckInDate}/></label>
+            <label>Check out<input type="date" name="checkOutDate" value={props.checkOutDate} onChange={props.changeCheckOutDate}/></label>
+            <label>Guests<input type="number" name="guests" value={props.guests} onChange={props.changeGuests}  placeholder="1"/></label>
+            <label>Check availability<button onClick={handleClick}>Search</button></label>
             {/* Skapar fem input-element, fem etiketter och en knapp. */}
         </div>
     )

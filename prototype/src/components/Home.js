@@ -60,10 +60,9 @@ const hotels = [
 // Skapar en array med fem hotell. Varje hotell har ett id, ett namn, en destination, en beskrivning, tre snabba fakta, en bild, ett pris och tre rum. Varje rum har ett rekommenderat antal gäster, ett namn, ett pris och ett id.
 
 function Home() {
+  
   const [searchTerm, setSearchTerm] = useState("");
   const [destination, setDestination] = useState("");
-  const [checkInDate, setCheckInDate] = useState(new Date());
-  const [checkOutDate, setCheckOutDate] = useState(new Date());
   const [guests, setGuests] = useState(1);
   // Skapar fem states för sökterm, destination, check-in datum, check-out datum och antal gäster. Dessa konstanter används i komponenten "SearchFilter".
   
@@ -153,10 +152,7 @@ function Home() {
       </div>
       {/* Lägger till en bild och text. */}
 
-      <SearchFilter destination={destination} setDestination={setDestination} 
-                checkInDate={checkInDate} changeCheckInDate={(e) => setCheckInDate(e.target.value)}
-                checkOutDate={checkOutDate} changeCheckOutDate={(e) => setCheckOutDate(e.target.value)}
-                guests={guests} changeGuests={(e) => setGuests(e.target.value)} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+      <SearchFilter destination={destination} setDestination={setDestination} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
       {/* Renderar "SearchFilter"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in. */}
 
       {hotels.filter(function(results) {

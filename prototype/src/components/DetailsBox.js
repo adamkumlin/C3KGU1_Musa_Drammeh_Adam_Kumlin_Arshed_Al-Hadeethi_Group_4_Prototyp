@@ -129,12 +129,12 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <label>Phone number<input type="number" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} placeholder="1234567890"/></label>
             <label>E-mail<input type="email" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} placeholder="example@example.com"/></label>
             <label>Credit card number<input type="number" name="creditCard" value={props.customerCreditCard} onChange={props.changeCustomerCreditCard} placeholder="1234567890"/></label>
-            <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label><br></br>
+            <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label>
             <label>Pay at the hotel<input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/></label> 
             <p>Choose travel (optional)</p>
-            <br></br><label>{props.chosenHotel.airports[0].airportName} ${props.chosenHotel.airports[0].price}<input type="checkbox" value={props.chosenHotel.airports[0].price} onChange={handleTravelCheckZero}/></label>
-            <br></br><label>{props.chosenHotel.airports[1].airportName} ${props.chosenHotel.airports[1].price}<input type="checkbox" value={props.chosenHotel.airports[1].price} onChange={handleTravelCheckOne}/></label>
-            <label>Message (optional) <textarea name="paymentMethod" placeholder="Dietary requirements, estimated time of arrival..."value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
+            <label>{props.chosenHotel.airports[0].airportName} ${props.chosenHotel.airports[0].price}<input type="checkbox" value={props.chosenHotel.airports[0].price} onChange={handleTravelCheckZero}/></label>
+            <label>{props.chosenHotel.airports[1].airportName} ${props.chosenHotel.airports[1].price}<input type="checkbox" value={props.chosenHotel.airports[1].price} onChange={handleTravelCheckOne}/></label>
+            <label className="textareaLabel">Message (optional) <textarea placeholder="Dietary requirements, estimated time of arrival..."value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
             <h2>Hotel details</h2>
             <p>Hotel name: {props.chosenHotel.hotelName}</p>
             <p>Hotel destination: {props.chosenHotel.destination}</p>

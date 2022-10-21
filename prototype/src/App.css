@@ -170,6 +170,11 @@
         }
         /* Sätter en margin till 0 och en display till "inline". */
 
+        .chooseRoomLabel {
+          display: block;
+        }
+        /* Sätter en display till "block". */
+
   .DetailsBox {
     margin-top: 5rem;
     border: 2px solid #F18608;
@@ -187,15 +192,18 @@
     }
     /* Ger den en färg. */
 
-    .DetailsBox input {
+    .DetailsBox input, .DetailsBox textarea, .DetailsBox label {
       display: block;
       margin-left: auto;
       margin-right: auto;
+      margin-bottom: 1rem;
     }
-    /* Ändrar till block display, lägger också till en margin som centrerar den. */
-      .DetailsBox input[type="radio"] {
+    /* Ändrar till block display, lägger också till en margin som centrerar dem. */
+
+      .DetailsBox input[type="radio"], .DetailsBox input[type="checkbox"] {
         display: inline;
       }
+      /* Ändrar till inline display. */
 
     .backButton {
       display: block;
