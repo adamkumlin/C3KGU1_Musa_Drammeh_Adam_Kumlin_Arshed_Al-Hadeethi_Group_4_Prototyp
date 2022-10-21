@@ -147,7 +147,6 @@
       margin: 0 auto;
       display: table;
       text-align: left;
-      margin-bottom: 1rem;
     }
     /* Centrerar listan, sätter display till "table", centrerar texten och ger den en margin längst ned. */
 
@@ -155,7 +154,9 @@
         text-align: center;
         list-style-type: none;
         padding: 0;
+        margin-bottom: 5rem;
       }
+      /* Centrerar texten, tar bort list-stil och tar bort padding. Ger den en margin längst ned. */
 
       .RoomInformationCard input, .InformationCard button, .RoomInformationCard button {
         display: block;
@@ -164,8 +165,7 @@
       }
       /* Sätter en display till "block", ger den en automatisk margin till höger och vänster vilket centrerar den. */
 
-        .RoomInformationCard input[type="radio"], .RoomInformationCard input[type="checkbox"] {
-          margin: 0;
+        .RoomInformationCard input[type="radio"] {
           display: inline;
         }
         /* Sätter en margin till 0 och en display till "inline". */
@@ -201,8 +201,6 @@
       display: block;
       position: absolute;
       text-align: left;
-      margin-left: 1rem;
-      margin-top: 1rem;
     }
     /* Ändrar till block display, ändrar positionen till "absolute", positionerar knappen till vänster, ger den en margin till vänster och en margin längst upp. */
   

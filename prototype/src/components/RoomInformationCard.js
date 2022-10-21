@@ -121,7 +121,9 @@ function RoomInformationCard(props) {
 
     <div className="RoomInformationCard">
         <div key={props.chosenHotel.id}>
-        <button onClick={props.goBackRoomInformationCard}>Back</button>
+        <button onClick={props.goBackRoomInformationCard} className="backButton">Back</button>
+
+        <h2>{props.chosenHotel.hotelName} rooms</h2>
 
             <ul key={props.chosenHotel.rooms[0].roomID}>
                 <li>{props.chosenHotel.rooms[0].roomName}</li>
