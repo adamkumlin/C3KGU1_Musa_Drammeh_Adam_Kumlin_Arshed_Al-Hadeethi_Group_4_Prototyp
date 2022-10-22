@@ -1,3 +1,7 @@
+
+.NavBar h1 {
+  color:#F18608;
+}
 .navBarList {
   list-style-type: none;
   padding: 0;
@@ -77,37 +81,27 @@
     background-color:#F18608;
     border-radius: 15px;
     padding: 2rem;
-    width: 70%;
+    width: 80%;
     margin-right: auto;
     margin-left: auto;
     margin-bottom: 7rem;
   }
   /* Sätter en bakgrundsfärg, en border-radius, en padding och en bredd. Ger den en automatisk margin till höger och vänster vilket centrerar den. */
 
-    .SearchFilter h2 {
-      color: white;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    /* Ger texten en vit färg, centrerar texten och ger den en margin längst ned. */
-
     .SearchFilter input {
       width: 100%;
-      padding: 10px;
+      padding: 5px;
       border: 2px solid white;
       border-radius: 5px;
-      margin-bottom: 1rem;
     }
     /* Sätter en bredd, en padding, en border och en border-radius. Ger den en margin längst ned. */
 
     .SearchFilter button {
       cursor: pointer;
       width: 100%;
-      padding: 10px;
+      padding: 5px;
       border: 2px solid white;
       border-radius: 5px;
-      background-color: white;
-      color: #F18608;
     }
     /* Ändrar muspekaren, sätter en bredd, en padding, en border, en border-radius, en bakgrundsfärg och en färg. */
 
