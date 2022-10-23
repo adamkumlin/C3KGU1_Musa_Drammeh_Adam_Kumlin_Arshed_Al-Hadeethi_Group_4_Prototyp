@@ -3,17 +3,41 @@
 }
 /* Sätter en minsta höjd på hela sidan. */
 
+  .HotelsNow{
+  color: black;
+  }
+
   .NavBar {
       display: flex;
-      position: relative;
+      position: right;
       flex-direction: row;
-      justify-content: space-between;
-      margin-bottom: 5rem;
+      background-color: #F18608;
+      text-align: center;
+      font-size: larger;
+      justify-content: space-around;
+      margin-bottom: 0rem;
+      padding-bottom: 4%;
+      
+      
+      
+      
     }
-  /* Sätter en flexbox på navbar:en. Ändrar positionen till "relative" och "flex-direction" till "row". Fortsättningsvis ges elementen plats mellan varandra med
-  "justify-content". Slutligen ges navbar:en en margin längst ned. */
+     /* Sätter en flexbox på navbar:en. Ändrar positionen till "relative" och "flex-direction" till "row". Fortsättningsvis ges elementen plats mellan varandra med
+  "justify-content". Slutligen ges navbar:en en margin längst ned. Byter bakgrund på navbaren  */
+  
+
+    .book{
+      background-color:white;
+      text-emphasis-color: black;
+      border-radius: 2px;
+    }
+    /* Byter färg på knappen och ger den rundade kanter*/
   
   .Header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
     padding: 0;
     margin: 0;
     margin-top: 2rem;
@@ -44,46 +68,75 @@
     /* Tar bort text-decoration och ger den en svart färg. */
 
     .NavBar li .book, .IntroButton {
-      border: 2px solid #F18608;
+      border: 0px solid black;
       color: #F18608;
       padding: 10px;
+      font-weight: bold;
       margin-right: 0;
+      max-width: fit-content;
+      
     }
     /* Sätter en border på knapparna och ger den en färg. Lägger också till en padding och tar bort margin längst till höger. */
 
+    .IntroButton{
+      border: 0px solid black;
+      color: #F18608;
+      background-color: white;
+      padding: 10px;
+      font-weight: bold;
+      margin-right: 0;
+      padding: 10px;
+      border-radius: 2px;
+    }
+
   .Intro img {
-    width: 834px;
-    height: 699px;
+    max-width: 100%;
+    max-height: auto;
     position: absolute;
-    margin-right: 4rem;
-    border-radius: 30px;
-    right: 0;
+    
+    
+    
+  
+    
+    
   }
-  /* Sätter en bredd och höjd på bilden. Ändrar positionen till "absolute" och ger den en margin till höger. Sätter en border-radius på bilden och flyttar den till höger. */
+  /* Sätter en bredd och höjd på bilden.  */
 
   .IntroContent {
     text-align: center;
-    font-size: 20pt;
-    margin-left: 15rem;
-    display: inline-block;
-    margin-top: 10rem;
-    margin-bottom: 25rem;
+    font-size:15pt;
+    margin: auto;
+    font-weight: 700;
+    max-width: auto;
+    max-height: auto;
+    contain: layout;
+    padding: 2rem;
+    
+    
+    
   }
   /* Centrerar texten, ändrar storleken på texten, ger den en margin till vänster. Sätter en inline-block display och ger den en margin längst upp och längst ned. */
 
     .IntroSlogan {
       color: #F18608;
-      font-size: 30pt;
+      font-size:xx-large
+      
+
     }
     /* Ger texten en färg och ändrar storleken på texten. */
 
-  .SearchFilter {
+  .SearchFilter  {
     background-color:#F18608;
-    border-radius: 15px;
-    padding: 2rem;
-    width: 70%;
-    margin-right: auto;
-    margin-left: auto;
+    border-radius: 5px;
+    margin-bottom: 5rem;
+    margin-top: 5%;
+    position: relative;
+    padding: 1rem;
+    width: 80%;
+    align-content: center;
+    margin-left: 10%;
+    flex-direction: row;
+    
   }
   /* Sätter en bakgrundsfärg, en border-radius, en padding och en bredd. Ger den en automatisk margin till höger och vänster vilket centrerar den. */
 
@@ -128,6 +181,7 @@
     width: 40%;
     margin-left: auto;
     margin-right: auto;
+    
   }
   /* Ger den en margin längst upp, en border, centrerar texten, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den. */
 
@@ -160,6 +214,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 5rem;
+    
   }
   /* Ger den en margin längst upp, en border, en border-radius, en bredd, centrerar texten, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
 
@@ -190,6 +245,11 @@
   .Footer {
     background-color: #F18608;
     bottom: 0;
+    outline-width: 100%;
+    contain: layout;
+    
+    
+    
   }
   /* Sätter en bakgrundsfärg och positionerar den längst ner. */
 
@@ -197,5 +257,7 @@
       width: 30px;
       height: 30px;
       margin-top: 1rem;
+      
     }
     /* Sätter en bredd och höjd på bilden. Ger den en margin längst upp. */
+

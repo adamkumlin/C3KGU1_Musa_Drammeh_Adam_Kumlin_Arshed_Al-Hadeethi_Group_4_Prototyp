@@ -2,7 +2,7 @@ function NavBar() {
 
     return(
         <div className="NavBar">
-            <h1>HotelsNOW</h1>
+            <h1 className="HotelsNow">HotelsNOW</h1>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Our Services</a></li>

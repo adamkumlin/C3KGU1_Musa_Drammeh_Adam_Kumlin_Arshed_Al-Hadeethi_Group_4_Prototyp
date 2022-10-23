@@ -25,6 +25,7 @@ import Footer from "./components/Footer";
 import hotelpool from "./images/hotel_pool.jpg";
 // Importerar en bild.
 
+
 //import hotels from "./hotels.json";
 
 const hotels = [
@@ -87,18 +88,20 @@ function App() {
   }
 
   return (
+    
     <div className="App">
+      
 
       <NavBar/>
       {/*Renderar "NavBar"-komponenten.*/}
-      
       <div className="Intro">
-        <img src={hotelpool}/>
+      <img src={hotelpool}/>
         <div className="IntroContent">
-          <p>Your home away from home</p>
-          <p className="IntroSlogan">Where Comfort and Affordability meet</p>
-          <a href="#" className="IntroButton">Explore now</a>
+          <h2>Your Home Away From Home</h2>
+          <p className="IntroSlogan">Where Comfort and Affordability Meet</p>
+          <a href="#" className="IntroButton">Explore now</a> 
         </div>
+        
       </div>
       {/*Renderar "Intro"-komponenten.*/}
 
