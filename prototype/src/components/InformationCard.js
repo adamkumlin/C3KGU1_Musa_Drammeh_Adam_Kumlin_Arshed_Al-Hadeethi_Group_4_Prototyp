@@ -1,5 +1,5 @@
-import locationicon from '/images/location_icon.png';
-import staricon from '/images/star_icon.png';
+import locationicon from '../images/location_icon.png';
+import staricon from '../images/star_icon.png';
 // Importerar två bilder.
 
 function InformationCard(props) {
