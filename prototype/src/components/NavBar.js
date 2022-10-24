@@ -12,7 +12,7 @@ function NavBar() {
             </nav>
             <h1 className="navBarHeading">HotelsNOW</h1>
         </div>
-    )// Renderar ett h1-element och två Link-komponenter från React Router. Link-komponenterna tar användaren till olika sidor med "path"-attributet.
+    )// Renderar ett h1-element och två Link-komponenter från React Router. Med hjälp av attributet "to" tar Link-komponenterna användaren till olika sidor.
 }
 
 export default NavBar;
