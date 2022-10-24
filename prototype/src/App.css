@@ -17,15 +17,7 @@
   margin: 0;
   float: right;
 }
-<<<<<<< Updated upstream
 /* Tar bort list-stylen, padding och margin, ger den en float till höger. */
-=======
-<<<<<<< Updated upstream
-/* Tar bort list-stylen och padding, ger den en margin längst upp. */
-=======
-/* Tar bort list-style, padding och margin, ger den en float till höger. */
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
 .navBarListItems {
   display: inline;
@@ -115,15 +107,7 @@
       border: 2px solid white;
       border-radius: 5px;
     }
-<<<<<<< Updated upstream
-    /* Ändrar muspekaren, sätter en bredd, en padding, en border, en border-radius, en bakgrundsfärg och en färg. */
-=======
-<<<<<<< Updated upstream
-    /* Sätter en bredd, en padding, en border, en border-radius, en bakgrundsfärg och en färg. */
-=======
     /* Ändrar muspekaren, sätter en bredd, en padding, en border och en border-radius. */
->>>>>>> Stashed changes
->>>>>>> Stashed changes
 
   .SearchFilter label {
     display: inline-block;
@@ -155,18 +139,9 @@
     }
     /* Sätter en bredd och höjd på ikonen. Överskrider ändringarna från ".InformationCard img" med "!important". */
 
-<<<<<<< Updated upstream
-    .InformationCard ul, .RoomInformationCard ul {
-=======
-<<<<<<< Updated upstream
-    .InformationCard ul {
->>>>>>> Stashed changes
-      margin: 0 auto;
-=======
     .InformationCard ul, .RoomInformationCard ul {
       margin-left: auto;
       margin-right: auto;
->>>>>>> Stashed changes
       display: table;
       text-align: left;
     }
@@ -214,20 +189,9 @@
       margin-right: auto;
       margin-bottom: 1rem;
     }
-<<<<<<< Updated upstream
-    /* Ändrar till block display, lägger också till en margin som centrerar dem. */
+    /* Ändrar till block display, lägger också till en automatisk margin till höger och till vänster som centrerar dem. Lägger slutligen till en margin längst ned. */
 
       .DetailsBox input[type="radio"], .DetailsBox input[type="checkbox"] {
-=======
-<<<<<<< Updated upstream
-    /* Ändrar till block display, lägger också till en margin som centrerar den. */
-      .DetailsBox input[type="radio"] {
-=======
-    /* Ändrar till block display, lägger också till en automatisk margin till höger och till vänster vilket centrerar dem. */
-
-      .DetailsBox input[type="radio"], .DetailsBox input[type="checkbox"] {
->>>>>>> Stashed changes
->>>>>>> Stashed changes
         display: inline;
       }
       /* Ändrar till inline display. */
