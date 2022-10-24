@@ -17,7 +17,15 @@
   margin: 0;
   float: right;
 }
+<<<<<<< Updated upstream
 /* Tar bort list-stylen, padding och margin, ger den en float till höger. */
+=======
+<<<<<<< Updated upstream
+/* Tar bort list-stylen och padding, ger den en margin längst upp. */
+=======
+/* Tar bort list-style, padding och margin, ger den en float till höger. */
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
 .navBarListItems {
   display: inline;
@@ -29,12 +37,12 @@
     text-decoration: none;
     color: black;
   }
-  /* Tar bort text-decoration och ger den en svart färg. */
+  /* Tar bort text-decoration och gör den svart. */
 
   .NavBar li {
     padding: 10px;
   }
-  /* Sätter en border på knapparna och ger den en färg. Lägger också till en padding och tar bort margin längst till höger. */
+  /* Lägger till en padding. */
 
 .Home, .About {
   min-height: 100vh;
@@ -67,14 +75,13 @@
     /* Sätter en maxbredd på bilden. Ger den en margin till höger. Sätter en float till höger och ger den en border-radius. */
 
     .IntroContent {
-      text-align: center;
       font-size: 20pt;
       margin-left: 12rem;
       display: inline-block;
       margin-top: 10rem;
       margin-bottom: 25rem;
     }
-    /* Centrerar texten, ändrar storleken på texten, ger den en margin till vänster. Sätter en inline-block display och ger den en margin längst upp och längst ned. */
+    /* Ändrar storleken på texten, ger den en margin till vänster. Sätter en inline-block display (vilket gör de lättare att centrera) och ger den en margin längst upp och längst ned. */
 
       .IntroSlogan {
         color: #F18608;
@@ -91,7 +98,7 @@
     margin-left: auto;
     margin-bottom: 7rem;
   }
-  /* Sätter en bakgrundsfärg, en border-radius, en padding och en bredd. Ger den en automatisk margin till höger och vänster vilket centrerar den. */
+  /* Sätter en bakgrundsfärg, en border-radius, en padding och en bredd. Ger den en automatisk margin till höger och vänster vilket centrerar den. Lägger också till en margin längst ned. */
 
     .SearchFilter input {
       width: 100%;
@@ -99,7 +106,7 @@
       border: 2px solid white;
       border-radius: 5px;
     }
-    /* Sätter en bredd, en padding, en border och en border-radius. Ger den en margin längst ned. */
+    /* Sätter en bredd, en padding, en border och en border-radius. */
 
     .SearchFilter button {
       cursor: pointer;
@@ -108,33 +115,39 @@
       border: 2px solid white;
       border-radius: 5px;
     }
+<<<<<<< Updated upstream
     /* Ändrar muspekaren, sätter en bredd, en padding, en border, en border-radius, en bakgrundsfärg och en färg. */
+=======
+<<<<<<< Updated upstream
+    /* Sätter en bredd, en padding, en border, en border-radius, en bakgrundsfärg och en färg. */
+=======
+    /* Ändrar muspekaren, sätter en bredd, en padding, en border och en border-radius. */
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 
   .SearchFilter label {
     display: inline-block;
     margin-left: 4rem;
-    text-align: center;
   }
-  /* Sätter en inline-block display, ger den en margin till vänster och centrerar texten. */
+  /* Sätter en inline-block display (vilket gör de lättare att gruppera med input-elementen), ger den en margin till vänster. */
 
   .InformationCard, .RoomInformationCard {
     margin-top: 5rem;
     border: 2px solid #F18608;
-    text-align: center;
     border-radius: 25px;
     width: 40%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 7rem;
   }
-  /* Ger den en margin längst upp, en border, centrerar texten, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den. */
+  /* Ger den en margin längst upp, en border, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den samt en margin längst ned. */
 
     .InformationCard img, .RoomInformationCard img {
       width: 300px;
       height: 300px;
       border-radius: 25px;
     }
-    /* Sätter en bredd och höjd på bilden. Sätter en border-radius på bilden. */
+    /* Sätter en bredd och höjd samt en border-radius på bilden. */
 
     .icon {
       width: 25px !important;
@@ -142,12 +155,22 @@
     }
     /* Sätter en bredd och höjd på ikonen. Överskrider ändringarna från ".InformationCard img" med "!important". */
 
+<<<<<<< Updated upstream
     .InformationCard ul, .RoomInformationCard ul {
+=======
+<<<<<<< Updated upstream
+    .InformationCard ul {
+>>>>>>> Stashed changes
       margin: 0 auto;
+=======
+    .InformationCard ul, .RoomInformationCard ul {
+      margin-left: auto;
+      margin-right: auto;
+>>>>>>> Stashed changes
       display: table;
       text-align: left;
     }
-    /* Centrerar listan, sätter display till "table", centrerar texten och ger den en margin längst ned. */
+    /* Sätter en automatisk margin till höger och till vänster vilket centrerar den, sätter display till "table" vilket också centrerar den, ger texten en vänster-align så prickarna inte är utspridda. */
 
       .RoomInformationCard ul {
         text-align: center;
@@ -179,17 +202,11 @@
     border: 2px solid #F18608;
     border-radius: 25px;
     width: 60%;
-    text-align: center;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 7rem;
   }
-  /* Ger den en margin längst upp, en border, en border-radius, en bredd, centrerar texten, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
-
-    .DetailsBox h1 {
-      color: #F18608;
-    }
-    /* Ger den en färg. */
+  /* Ger den en margin längst upp, en border, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
 
     .DetailsBox input, .DetailsBox textarea, .DetailsBox label {
       display: block;
@@ -197,9 +214,20 @@
       margin-right: auto;
       margin-bottom: 1rem;
     }
+<<<<<<< Updated upstream
     /* Ändrar till block display, lägger också till en margin som centrerar dem. */
 
       .DetailsBox input[type="radio"], .DetailsBox input[type="checkbox"] {
+=======
+<<<<<<< Updated upstream
+    /* Ändrar till block display, lägger också till en margin som centrerar den. */
+      .DetailsBox input[type="radio"] {
+=======
+    /* Ändrar till block display, lägger också till en automatisk margin till höger och till vänster vilket centrerar dem. */
+
+      .DetailsBox input[type="radio"], .DetailsBox input[type="checkbox"] {
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         display: inline;
       }
       /* Ändrar till inline display. */
@@ -209,19 +237,18 @@
       position: absolute;
       text-align: left;
     }
-    /* Ändrar till block display, ändrar positionen till "absolute", positionerar knappen till vänster, ger den en margin till vänster och en margin längst upp. */
+    /* Ändrar till block display, ändrar positionen till "absolute" (vilket gör den möjlig att flytta lättare), positionerar knappen till vänster. */
   
     .ConfirmationMessage {
       margin-top: 5rem;
       border: 2px solid #F18608;
       border-radius: 25px;
       width: 60%;
-      text-align: center;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 7rem;
     }
-    /* Ger den en margin längst upp, en border, en border-radius, en bredd, centrerar texten, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
+    /* Ger den en margin längst upp, en border, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den och en margin längst ned. */
 
       .ConfirmationMessage ul {
         list-style-type: none;

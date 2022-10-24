@@ -2,6 +2,7 @@ import Footer from "./Footer";
 // Importerar komponenten "Footer".
 
 function About() {
+// Skapar komponenten "About".
 
     return (
         <div className="About">

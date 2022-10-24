@@ -1,4 +1,5 @@
 function Footer() {
+// Skapar komponenten "Footer".
 
     return(
         <div className="Footer">

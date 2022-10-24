@@ -19,10 +19,8 @@ import ConfirmationMessage from "./ConfirmationMessage";
 import Footer from "./Footer";
 // Importerar komponenten "Footer".
 
-import hotelpool from "../images/hotel_pool.jpg";
+import hotelpool from "images/hotelpool.jpg";
 // Importerar en bild.
-
-//import hotels from "./hotels.json";
 
 const hotels = [
   {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], "stars": "2",
@@ -60,8 +58,18 @@ const hotels = [
 // Skapar en array med fem hotell. Varje hotell har ett id, ett namn, en destination, en beskrivning, tre snabba fakta, en bild, ett pris och tre rum. Varje rum har ett rekommenderat antal gäster, ett namn, ett pris och ett id.
 
 function Home() {
+<<<<<<< Updated upstream
   
   const [searchTerm, setSearchTerm] = useState("");
+=======
+<<<<<<< Updated upstream
+
+=======
+// Skapar komponenten "Home".
+  
+  const [searchTerm, setSearchTerm] = useState("");
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   const [destination, setDestination] = useState("");
   const [guests, setGuests] = useState(1);
   const [checkInDate, setCheckInDate] = useState("");

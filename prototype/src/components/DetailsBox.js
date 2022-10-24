@@ -5,7 +5,7 @@ import staricon from '../images/star_icon.png';
 // Importerar en bild.
 
 function DetailsBox(props) {
-// Komponenten tar emot props.
+// Skapar komponenten "DetailsBox", komponenten tar emot props.
 
   const [travelPriceZero, setTravelPriceZero] = useState(0);
   const [travelPriceOne, setTravelPriceOne] = useState(0);

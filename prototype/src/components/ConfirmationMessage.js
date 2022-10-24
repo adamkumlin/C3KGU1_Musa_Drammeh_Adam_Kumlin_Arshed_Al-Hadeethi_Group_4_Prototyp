@@ -2,7 +2,7 @@ import staricon from '../images/star_icon.png';
 // Importerar en bild.
 
 function ConfirmationMessage(props) {
-    // Komponenten tar emot props.
+// Skapar komponenten "About", komponenten tar emot props.
     
       if (!props.bookedHotel) {
       // Om state-variabeln "bookedHotel" är falsk, alltså om användaren inte har bokat ett hotell.
