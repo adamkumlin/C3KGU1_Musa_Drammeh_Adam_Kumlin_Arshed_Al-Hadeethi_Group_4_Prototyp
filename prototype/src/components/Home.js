@@ -66,7 +66,7 @@ function Home() {
   const [guests, setGuests] = useState(1);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
-  // Skapar fem states för sökterm, destination, check-in datum, check-out datum och antal gäster. Dessa konstanter används i komponenten "SearchFilter".
+  // Skapar fem states för sökterm, destination, incheckningsdatum, utcheckningsdatum och antal gäster. Dessa state-variabler används i komponenten "SearchFilter".
   
   const [chosenHotel, setChosenHotel] = useState(null);
   const [chosenRooms, setChosenRooms] = useState([]);
@@ -75,7 +75,7 @@ function Home() {
   const [chooseCheckInDate, setChooseCheckInDate] = useState("");
   const [chooseCheckOutDate, setChooseCheckOutDate] = useState("");
   const [checkOutStatus, setCheckOutStatus] = useState(false);
-  // Skapar sju states för valt hotell, valda rum, valt antal gäster, valt antal rum, valt incheckningsdatum, valt utcheckningsdatum och om utcheckningen har påbörjats. Dessa konstanter används i komponenten "InformationCard".
+  // Skapar sju states för valt hotell, valda rum, valt antal gäster, valt antal rum, valt incheckningsdatum, valt utcheckningsdatum och om utcheckningen har påbörjats. Dessa state-variabler används i komponenten "InformationCard".
 
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
@@ -87,7 +87,7 @@ function Home() {
   const [bookedHotel, setBookedHotel] = useState(null);
   const [bookedStatus, setBookedStatus] = useState(false);
   // Skapar nio states för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
-  // Dessa konstanter används i komponenten "DetailsBox" förutom "bookedStatus" som används i "InformationCard".
+  // Dessa state-variabler används i komponenten "DetailsBox" förutom "bookedStatus" som används i "InformationCard".
 
   function goBackRoomInformationCard() {
   // Funktionen "goBackRoomInformationCard" används för att återgå till "InformationCard" från "RoomInformationCard".

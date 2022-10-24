@@ -146,7 +146,7 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <p>Room name: {props.chosenRooms.roomName}</p>
             <p>Check-in date: {props.chooseCheckInDate}</p>
             <p>Check-out date: {props.chooseCheckOutDate}</p>
-            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) {travelPriceZero + travelPriceOne > 0 && <span>and travel</span>}</p> 
+            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) {travelPriceZero + travelPriceOne > 0 && <span>and travel</span>}</p> {/* Om "travelPriceZero" adderat med "travelPriceOne" är större än 0 så skrivs "and travel" ut. */} 
           <button onClick={validateForm}>Book</button>
           {/* Annars skapas en knapp, två h2-element, fyra sex etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
           Elementen med information om hotellen förses med informationen med hjälp av props. */}

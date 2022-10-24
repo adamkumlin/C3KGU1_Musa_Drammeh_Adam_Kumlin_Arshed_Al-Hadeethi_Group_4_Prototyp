@@ -8,11 +8,14 @@ import reportWebVitals from './reportWebVitals';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// Skapar root-elementet.
+
 root.render(
   <BrowserRouter>
   <App/>
   </BrowserRouter>
 );
+// Renderar App-komponenten i root-elementet. <BrowserRouter> används för att möjliggöra användning av React Router.
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

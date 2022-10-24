@@ -16,7 +16,7 @@ function App() {
             </Routes>
         </div>
         // Renderar en Routes-komponent som innehåller två Route-komponenter. Den första Route-komponenten har en index-path som renderar Home-komponenten. 
-        // Den andra Route-komponenten renderar About-komponenten.
+        // Den andra Route-komponenten renderar About-komponenten med path-attributet som är lika med "about". Routes-komponenten används för att förvara Route-komponenterna.
   );
 }
 export default App;
