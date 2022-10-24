@@ -49,7 +49,7 @@ function DetailsBox(props) {
   // Skapar en funktion som tar emot ett event.
 
     props.setPaymentMethod(event.target.value);
-    // Anropar funktionen "setPaymentMethod" som finns i App.js och skickar med det betalningsmetod som användaren har valt.
+    // Sätter state-variabelns värde till den betalningsmetod som användaren har valt.
   }
 
   function handleTravelCheckZero(event) {
@@ -59,40 +59,39 @@ function DetailsBox(props) {
       // Om användaren har kryssat i checkboxen.
 
       setTravelPriceZero(travelPriceZero + parseInt(props.chosenHotel.airports[0].price));
-      // Adderar på det första priset för resan till "travelPriceZero". "parseInt" används för att konvertera strängen till ett heltal.
+      // Adderar den första resans pris till "travelPriceZero". "parseInt" används för att konvertera strängen till ett heltal.
 
     } else {
 
       setTravelPriceZero(travelPriceZero - parseInt(props.chosenHotel.airports[0].price));
-      // Annars om användaren har avmarkerat checkboxen, subtraheras det första priset för resan från "travelPriceZero". 
+      // Annars om användaren har avmarkerat checkboxen så subtraheras resans pris från "travelPriceZero". 
       // "parseInt" används för att konvertera strängen till ett heltal.
     }
   }
 
   function handleTravelCheckOne(event) {
     // Skapar en funktion som tar emot ett event.
-
     if (event.target.checked) {
       // Om användaren har kryssat i checkboxen.
 
       setTravelPriceOne(travelPriceOne + parseInt(props.chosenHotel.airports[1].price));
-      // Adderar på det andra priset för resan till "travelPriceOne". "parseInt" används för att konvertera strängen till ett heltal.
+      // Adderar den andra resans pris till "travelPriceOne". "parseInt" används för att konvertera strängen till ett heltal.
 
     } else {
 
       setTravelPriceOne(travelPriceOne - parseInt(props.chosenHotel.airports[1].price));
-      // Annars om användaren har avmarkerat checkboxen, subtraheras det andra priset för resan från "travelPriceOne". 
+      // Annars om användaren har avmarkerat checkboxen så subtraheras resans pris från "travelPriceOne". 
       // "parseInt" används för att konvertera strängen till ett heltal.
     }
   }
 
   let total = props.chosenRooms.price * props.chosenRoomAmount * dayDifference + parseInt(travelPriceZero) + parseInt(travelPriceOne);
-  // Deklarerar en variabel som räknar ut totalpriset för rummen som användaren har valt. 
+  // Skapar en variabel som räknar ut totalpriset för rummen som användaren har valt. 
   // Priset per rum (props.chosenRooms.price) multipliceras med antalet rum (props.chosenRoomAmount) som sedan adderas med "travelPriceZero" och "travelPriceOne".
   // Om en resa inte är vald är värdet på "travelPriceZero" och "travelPriceOne" 0 och därför påverkas inte totalpriset.
 
   function validateForm() {
-  // Skapar en funktion som kontrollerar om användaren har fyllt i alla fält samt om användaren har skrivit in giltiga värden i fälten.
+  // Skapar en funktion som kontrollerar om användaren har fyllt i alla textfält samt om användaren har skrivit in giltiga värden i textfälten.
 
     if (!props.customerName || !props.customerPhone || !props.customerEmail || !props.customerCreditCard || !props.customerCreditCardDate || !props.customerCreditCardCVC || !props.paymentMethod) {
     // Om någon av state-variablerna "customerName", "customerPhone", "customerEmail", "customerCreditCard", "customerCreditCardDate", "customerCreditCardCVC" eller "paymentMethod" inte har något värde.
@@ -134,7 +133,7 @@ function DetailsBox(props) {
 
       props.setTotalPrice(total);
       props.confirmBooking(props.id)
-      // Annars anropas funktionen "confirmBooking" som finns i App.js och skickar med id:t på det hotell som användaren har valt. State-variabeln 
+      // Annars anropas funktionen "confirmBooking" som tar med sig id:t på det hotell som användaren har valt. State-variabeln 
       // "totalPrice" uppdateras med värdet på "total".
     }
   }
@@ -173,8 +172,8 @@ function DetailsBox(props) {
             <p>Check-out date: {props.chooseCheckOutDate}</p>
             <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) {travelPriceZero + travelPriceOne > 0 && <span>and travel</span>}</p> {/* Om "travelPriceZero" adderat med "travelPriceOne" är större än 0 så skrivs "and travel" ut. */} 
           <button onClick={validateForm}>Book</button>
-          {/* Annars skapas en knapp, två h2-element, fyra sex etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
-          Elementen med information om hotellen förses med informationen med hjälp av props. */}
+          {/* Annars returneras två knappar, två h2-element, nio etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
+          Elementen med information om hotellen förses med informationen med hjälp av props. Bakåtknappen tar användaren tillbaka till sidan där ett rum väljs. */}
         </div>
       )
     }

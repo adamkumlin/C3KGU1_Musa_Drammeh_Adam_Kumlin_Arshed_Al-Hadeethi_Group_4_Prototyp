@@ -15,7 +15,7 @@ function App() {
                 <Route path="about" element={<About />} />
             </Routes>
         </div>
-        // Renderar en Routes-komponent som innehåller två Route-komponenter. Den första Route-komponenten har en index-path som renderar Home-komponenten. 
+        // Renderar en Routes-komponent som innehåller två Route-komponenter. Den första Route-komponenten renderar Home-komponenten. 
         // Den andra Route-komponenten renderar About-komponenten med path-attributet som är lika med "about". Routes-komponenten används för att förvara Route-komponenterna.
   );
 }

@@ -9,7 +9,7 @@ function handleClick() {
 // Funktionen "handleClick" körs när användaren klickar på en knapp.
 
   props.chooseHotel(props.id)
-  // Anropar funktionen "chooseHotel" som finns i App.js och skickar med id:t på det hotell som användaren har valt.
+  // Kör funktionen "chooseHotel" och skickar med id:t på det hotell som användaren har valt.
 }
 
 if (!props.chosenHotel === "null" || props.chosenHotel) {
@@ -36,7 +36,7 @@ if (!props.chosenHotel === "null" || props.chosenHotel) {
         <img src={`${props.image}`} alt="Hotel room"/>
         <button onClick={handleClick}>Choose hotel</button>
         <p>Starting at ${props.price} per night</p>
-        {/* Skapar en div med en h2-titel, en ul-lista, text och en bild. Dessa element fylls med information om hotellen med props. */}
+        {/* Skapar en div med ett h2-element, ett ul-element, text och en bild. Dessa element fylls med information om hotellen med props. */}
       </div>
     </div>
   )

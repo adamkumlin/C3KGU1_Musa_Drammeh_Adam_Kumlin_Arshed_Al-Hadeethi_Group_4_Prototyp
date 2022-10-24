@@ -38,7 +38,7 @@ function ConfirmationMessage(props) {
                     <li>Check-out date: {props.chooseCheckOutDate}</li>
                 </ul>
             </div>
-            // Renderar en div med en h2-titel, två h3-titlar och två ul-listor. Dessa element fylls med information om hotellen med props.
+            // Renderar en div med ett h2-element, två h3-element och två ul-element. Dessa element fylls med information om hotellen med props.
           )
         }
       }

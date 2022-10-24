@@ -5,10 +5,10 @@ function RoomInformationCard(props) {
 // Komponenten tar emot props.
 
     const [buttonDisabled, setButtonDisabled] = useState(true);
-    // Skapar en state-variabel som heter "buttonDisabled" och som har värdet "true". State-variabeln används för att kontrollera om knappen ska vara inaktiverad eller inte.
+    // Skapar en state-variabel som heter "buttonDisabled" och som sätts till "true". State-variabeln används för att kontrollera om knappen ska vara inaktiverad eller inte.
 
     const [checkOutDateDisabled, setCheckOutDateDisabled] = useState(true);
-    // Skapar en state-variabel "checkOutDateDisabled" som är satt till "true".
+    // Skapar en state-variabel "checkOutDateDisabled" som sätts till "true".
 
     const validRoomAndGuestAmount = new RegExp('^[1-9]+$');
     // Skapar en variabel som innehåller ett regex-uttryck som kontrollerar om användaren har skrivit in ett giltigt antal rum och gäster.
@@ -19,43 +19,43 @@ function RoomInformationCard(props) {
     let dd = String(todaysDate.getDate());
     let mm = String(todaysDate.getMonth() + 1);
     let yyyy = todaysDate.getFullYear();
-    // Skapar variabler som innehåller dagens datum, applicerar dem på det skapade datumet.
+    // Skapar variabler som innehåller dagens datum, tillämpar dem på det skapade datumet ("todaysDate").
 
     if (dd < 10) {
-    // Om dagens datum är mindre än 10.
+    // Om dagen nummer är mindre än 10.
 
       dd = "0" + dd;
-      // Lägger till en nolla framför dagens datum.
+      // Lägger till en nolla framför dagens nummer.
     }
 
     if (mm < 10) {
-    // Om månadens datum är mindre än 10.
+    // Om månadens nummer är mindre än 10.
 
       mm = "0" + mm;
-      // Lägger till en nolla framför månadens datum.
+      // Lägger till en nolla framför månadens nummer.
     }
 
     todaysDate = `${yyyy}-${mm}-${dd}`;
-    // Ändrar datumet så det blir i formatet "yyyy-mm-dd".
+    // Lägger till variablerna till datumet i formatet "yyyy-mm-dd".
 
     function handleRoomChange(event) {
     // Skapar en funktion som tar emot ett event.
 
         props.chooseRooms(props.chosenHotel.id, event.target.value);
-        // Anropar funktionen "chooseRooms" som finns i App.js och skickar med id:t på det hotell som användaren har valt och det rum som användaren har valt.
+        // Kör funktionen "chooseRooms", skickar med id:t på det hotell som användaren har valt och det rum som användaren har valt.
 
         setButtonDisabled(false);
-        // Sätter state-variabeln "disabled" till "false" så att knappen blir aktiverad.
+        // Ändrar state-variabeln "disabled" till "false" så att knappen blir aktiverad.
     }
 
     function handleCheckInDateChange(event) {
     // Skapar en funktion som tar emot ett event.
 
       props.setChooseCheckInDate(event.target.value)
-      // Anropar sätter "chooseCheckInDate" till det datum som användaren har valt.
+      // Sätter "chooseCheckInDate" till det datum som användaren har valt.
 
       setCheckOutDateDisabled(false);
-      // Sätter state-variabeln "disabled" till "false" så att input-elementet blir aktiverat.
+      // Änrdrar state-variabeln "disabled" till "false" så att input-elementet blir aktiverat.
     }
 
     function validateRoomInformation() {
@@ -75,7 +75,9 @@ function RoomInformationCard(props) {
 
           } else if (props.chosenRoomAmount > 9) {
           // Om användaren har valt fler än 9 rum.
+              
             alert("You can only book a maximum of 9 rooms.");
+            // Skriver ut ett felmeddelande.
 
           } else if (!validRoomAndGuestAmount.test(props.chosenGuestAmount)) {
             // Om användaren har skrivit in ett ett antal gäster som inte stämmer överens med regex-uttrycket "validRoomAndGuestAmount".
@@ -96,7 +98,7 @@ function RoomInformationCard(props) {
             // Skriver ut ett felmeddelande.
 
           } else if (props.chosenGuestAmount > props.chosenRooms.guests * props.chosenRoomAmount) {
-            // Om användaren har valt fler gäster än vad som finns plats för i rummet.
+            // Om användaren har valt fler gäster än vad som finns plats för i rummet/rummen.
 
             alert("There are enough guests for this room.");
             // Skriver ut ett felmeddelande.
@@ -106,7 +108,7 @@ function RoomInformationCard(props) {
             setButtonDisabled(true);
             setCheckOutDateDisabled(true);
             props.checkOut();
-            // Annars anropas funktionen "checkOut" som finns i App.js.
+            // Annars körs funktionen "checkOut". State-variabeln "checkOutDateDisabled":s värde ändras till true, vilket inaktiverar date-element. Knappen inaktiveras också genom att state-variabeln "buttonDisabled" till "true".
           }    
     }
 
@@ -156,7 +158,7 @@ function RoomInformationCard(props) {
             <button disabled={buttonDisabled} onClick={validateRoomInformation}>Check out</button>
         </div>
         {/* Skapar en div med information om rummen (med hjälp av props), en radioknapp för att välja rummet samt en knapp för att gå vidare till nästa steg. "chooseCheckInDate"-elementet
-        ges variabeln "today" som min-attribut. "chooseCheckOutDate"-elementet ges värdet "chooseCheckOutDate" som min-attribut. Slutligen ges knappens min-attribut "buttonDisabled":s värde. */}
+        ges variabeln "todaysDate" som min-attribut. "chooseCheckOutDate"-elementet ges värdet "chooseCheckOutDate" som min-attribut. Slutligen ges knappens min-attribut "buttonDisabled":s värde. */}
     </div>
   )
 }
