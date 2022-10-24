@@ -4,8 +4,8 @@ import { useState } from "react";
 import SearchFilter from "./SearchFilter";
 // Importerar komponenten "SearchFilter".
 
-import InformationCard from "./InformationCard.js";
-// Importerar komponenten "InformationCard".
+import HotelInformationCard from "./HotelInformationCard.js";
+// Importerar komponenten "HotelInformationCard".
 
 import RoomInformationCard from "./RoomInformationCard";
 // Importerar komponenten "RoomInformationCard".
@@ -24,7 +24,7 @@ import hotelpool from "../images/hotel_pool.jpg";
 
 const hotels = [
   {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], "stars": "2",
-  "image":"../images/hotel.jpg", 
+  "image":"../assets/hotel.jpg", 
   "airports": [{"airportName": "LaGuardia Airport", "price": "39", "airportID": "0"}, {"airportName": "John F. Kennedy International Airport", "price": "49", "airportID": "1"}], "price": "79",
   "rooms": [{"guests": "1", "roomName": "Single room", "image": "../assets/hotel_room.jpeg", "price": "79", "roomID": "0"}, {"guests": "2", "roomName": "Small apartment", 
   "image": "../assets/hotel_room1.jpeg", "price": "149", "roomID": "1"}, {"guests": "3", "roomName": "Apartment", "image": "../assets/hotel_room2.jpeg", "price": "299", "roomID": "2"}]},
@@ -74,7 +74,7 @@ function Home() {
   const [chooseCheckInDate, setChooseCheckInDate] = useState("");
   const [chooseCheckOutDate, setChooseCheckOutDate] = useState("");
   const [checkOutStatus, setCheckOutStatus] = useState(false);
-  // Skapar sju state-variabler för valt hotell, valda rum, valt antal gäster, valt antal rum, valt incheckningsdatum, valt utcheckningsdatum och om utcheckningen har påbörjats. Dessa state-variabler används i komponenten "InformationCard".
+  // Skapar sju state-variabler för valt hotell, valda rum, valt antal gäster, valt antal rum, valt incheckningsdatum, valt utcheckningsdatum och om utcheckningen har påbörjats. Dessa state-variabler används i komponenten "HotelInformationCard".
 
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
@@ -88,17 +88,17 @@ function Home() {
   const [bookedHotel, setBookedHotel] = useState(null);
   const [bookedStatus, setBookedStatus] = useState(false);
   // Skapar elva state-variabler för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, utgångsmånad, cvc-nummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
-  // Dessa state-variabler används i komponenten "DetailsBox" förutom "bookedStatus" som används i "InformationCard".
+  // Dessa state-variabler används i komponenten "DetailsBox" förutom "bookedStatus" som används i "HotelInformationCard".
 
   function goBackRoomInformationCard() {
-  // Funktionen "goBackRoomInformationCard" används för att gå tillbaka till "InformationCard" från "RoomInformationCard".
+  // Funktionen "goBackRoomInformationCard" används för att gå tillbaka till "HotelInformationCard" från "RoomInformationCard".
 
     setChosenHotel(null);
     // Återställer "chosenHotel" till null.
   }
 
   function goBackDetailsBox() {
-  // Skapar en funktion som gör att användaren går tillbaka till "InformationCard"-komponenten.
+  // Skapar en funktion som gör att användaren går tillbaka till "HotelInformationCard"-komponenten.
       
     setChosenRooms([]);
     setCheckOutStatus(false);
@@ -178,13 +178,13 @@ function Home() {
           // Returnerar objektet.
   
         }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports, stars}) => (
-        // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje resultat.
+        // Mappar igenom array:en "hotels" och returnerar en "HotelInformationCard"-komponent för varje resultat.
 
-          <InformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
+          <HotelInformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
           description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports} stars={stars}
           chooseHotel={chooseHotel} chosenHotel={chosenHotel}/>
       ))}
-      {/*Renderar "InformationCard"-komponenten. Den tar med sig all information om det hotellen och en state-variabel, funktionen chooseHotel tas också med.*/}
+      {/*Renderar "HotelInformationCard"-komponenten. Den tar med sig all information om det hotellen och en state-variabel, funktionen chooseHotel tas också med.*/}
   
       <RoomInformationCard chosenHotel={chosenHotel} checkOut={checkOut} checkOutStatus={checkOutStatus}
       chosenRoomAmount={chosenRoomAmount} setChosenRoomAmount={setChosenRoomAmount} chooseRooms={chooseRooms} 

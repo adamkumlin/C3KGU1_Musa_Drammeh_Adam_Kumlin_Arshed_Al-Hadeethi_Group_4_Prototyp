@@ -115,7 +115,7 @@
   }
   /* Sätter en inline-block display (vilket gör de lättare att gruppera med input-elementen), ger den en margin till vänster. */
 
-  .InformationCard, .RoomInformationCard {
+  .HotelInformationCard, .RoomInformationCard {
     margin-top: 5rem;
     border: 2px solid #F18608;
     border-radius: 25px;
@@ -126,7 +126,7 @@
   }
   /* Ger den en margin längst upp, en border, en border-radius, en bredd, en automatisk margin till höger och vänster vilket centrerar den samt en margin längst ned. */
 
-    .InformationCard img, .RoomInformationCard img {
+    .HotelInformationCard img, .RoomInformationCard img {
       width: 300px;
       height: 300px;
       border-radius: 25px;
@@ -137,9 +137,9 @@
       width: 25px !important;
       height: 25px !important;
     }
-    /* Sätter en bredd och höjd på ikonen. Överskrider ändringarna från ".InformationCard img" med "!important". */
+    /* Sätter en bredd och höjd på ikonen. Överskrider ändringarna från ".HotelInformationCard img" med "!important". */
 
-    .InformationCard ul, .RoomInformationCard ul {
+    .HotelInformationCard ul, .RoomInformationCard ul {
       margin-left: auto;
       margin-right: auto;
       display: table;
@@ -155,7 +155,7 @@
       }
       /* Centrerar texten, tar bort list-stil och tar bort padding. Ger den en margin längst ned. */
 
-      .RoomInformationCard input, .InformationCard button, .RoomInformationCard button {
+      .RoomInformationCard input, .HotelInformationCard button, .RoomInformationCard button {
         display: block;
         margin-left: auto;
         margin-right: auto;
