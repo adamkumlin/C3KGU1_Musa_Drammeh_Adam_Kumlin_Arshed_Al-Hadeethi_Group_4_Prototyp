@@ -7,26 +7,43 @@ import staricon from '../images/star_icon.png';
 function DetailsBox(props) {
 // Komponenten tar emot props.
 
-const [travelPriceZero, setTravelPriceZero] = useState(0);
-const [travelPriceOne, setTravelPriceOne] = useState(0);
-// Skapar två state-variabler som heter "travelPriceZero" och "travelPriceOne" och som har värdet "0". 
-// State-variablerna används för räkna ut slutpriset för eventuella resor.
+  const [travelPriceZero, setTravelPriceZero] = useState(0);
+  const [travelPriceOne, setTravelPriceOne] = useState(0);
+  // Skapar två state-variabler som heter "travelPriceZero" och "travelPriceOne" och som har värdet "0". 
+  // State-variablerna används för räkna ut slutpriset för eventuella resor.
 
-const checkInDateDays = new Date(props.chooseCheckInDate);
-const checkOutDateDays = new Date(props.chooseCheckOutDate);
-// Skapar två konstanter som innehåller de olika datumen för incheckning och utcheckning.
+  const checkInDateDays = new Date(props.chooseCheckInDate);
+  const checkOutDateDays = new Date(props.chooseCheckOutDate);
+  // Skapar två konstanter som innehåller de olika datumen för incheckning och utcheckning.
 
-const oneDay = 24 * 60 * 60 * 1000;
-// Skapar en konstant som innehåller antalet millisekunder som finns i en dag.
+  const oneDay = 24 * 60 * 60 * 1000;
+  // Skapar en konstant som innehåller antalet millisekunder som finns i en dag.
 
-const dayDifference = Math.round(Math.abs((checkInDateDays - checkOutDateDays) / oneDay));
-// Skapar en konstant som innehåller antalet dagar som finns mellan inchecknings- och utcheckningsdatumet. Funktionen "Math.round" 
-// avrundar till närmaste heltal och funktionen "Math.abs" returnerar absolutbeloppet av "checkInDateDays" minus "checkOutDays" dividerat med "oneDay".
+  const dayDifference = Math.round(Math.abs((checkInDateDays - checkOutDateDays) / oneDay));
+  // Skapar en konstant som innehåller antalet dagar som finns mellan inchecknings- och utcheckningsdatumet. Funktionen "Math.round" 
+  // avrundar till närmaste heltal och funktionen "Math.abs" returnerar absolutbeloppet av "checkInDateDays" minus "checkOutDays" dividerat med "oneDay".
 
-const validName = new RegExp("[a-zA-ZåäöÅÄÖ]+$");
-const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
-const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
-// Deklarerar variabler som innehåller regex-uttryck som kontrollerar om användaren har skrivit in ett giltigt namn, e-post, telefonnummer och kreditkortsnummer.
+  const validName = new RegExp("[a-zA-ZåäöÅÄÖ]+$");
+  const validEmail = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+  const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
+  // Deklarerar variabler som innehåller regex-uttryck som kontrollerar om användaren har skrivit in ett giltigt namn, e-post, telefonnummer och kreditkortsnummer.
+
+  let todaysMonth = new Date();
+    // Skapar en en variabel som innehåller ett datum.
+
+  let mm = String(todaysMonth.getMonth() + 1);
+  let yyyy = todaysMonth.getFullYear();
+  // Skapar variabler som innehåller dagens datum, applicerar dem på det skapade datumet.
+
+  if (mm < 10) {
+  // Om månadens datum är mindre än 10.
+
+    mm = "0" + mm;
+    // Lägger till en nolla framför månadens datum.
+  }
+
+  todaysMonth = `${yyyy}-${mm}`;
+  // Ändrar datumet så det blir i formatet "yyyy-mm".
 
   function handleChange(event) {
   // Skapar en funktion som tar emot ett event.
@@ -77,8 +94,8 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
   function validateForm() {
   // Skapar en funktion som kontrollerar om användaren har fyllt i alla fält samt om användaren har skrivit in giltiga värden i fälten.
 
-    if (!props.customerName || !props.customerPhone || !props.customerEmail || !props.customerCreditCard || !props.paymentMethod) {
-    // Om någon av state-variablerna "customerName", "customerPhone", "customerEmail", "customerCreditCard" eller "paymentMethod" inte har något värde.
+    if (!props.customerName || !props.customerPhone || !props.customerEmail || !props.customerCreditCard || !props.customerCreditCardDate || !props.customerCreditCardCVC || !props.paymentMethod) {
+    // Om någon av state-variablerna "customerName", "customerPhone", "customerEmail", "customerCreditCard", "customerCreditCardDate", "customerCreditCardCVC" eller "paymentMethod" inte har något värde.
 
       alert("Please fill out all the fields.");
       // Skriver ut ett felmeddelande.
@@ -95,7 +112,6 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
       alert("The email is invalid.");
       // Skriver ut ett felmeddelande.
 
-
     } else if (!validPhoneAndCreditCard.test(props.customerPhone)) {
     // Om användaren har skrivit in ett telefonnummer som inte stämmer överens med regex-uttrycket "validPhoneAndCreditCard".
 
@@ -108,7 +124,14 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
       alert("The credit card number is invalid.");
       // Skriver ut ett felmeddelande.
 
+    } else if (!validPhoneAndCreditCard.test(props.customerCreditCardCVC) || props.customerCreditCardCVC.length !== 3) {
+    // Om användaren har skrivit in ett CVC-nummer som inte stämmer överens med regex-uttrycket "validPhoneAndCreditCard" eller om CVC-numret inte är 3 siffror långt.
+
+      alert("The credit card CVC is invalid.");
+      // Skriver ut ett felmeddelande.
+
     } else {
+
       props.setTotalPrice(total);
       props.confirmBooking(props.id)
       // Annars anropas funktionen "confirmBooking" som finns i App.js och skickar med id:t på det hotell som användaren har valt. State-variabeln 
@@ -133,6 +156,8 @@ const validPhoneAndCreditCard = new RegExp('^[0-9]+$');
             <label>Phone number<input type="number" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} placeholder="1234567890"/></label>
             <label>E-mail<input type="email" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} placeholder="example@example.com"/></label>
             <label>Credit card number<input type="number" name="creditCard" value={props.customerCreditCard} onChange={props.changeCustomerCreditCard} placeholder="1234567890"/></label>
+            <label>Credit card expiration date<input type="month" name="creditCardDate" min={todaysMonth} value={props.customerCreditCardDate} onChange={props.changeCustomerCreditCardDate}/></label>
+            <label>CVC<input type="number" name="creditCardCVC" value={props.customerCreditCardCVC} onChange={props.changeCustomerCreditCardCVC} placeholder="555"/></label>
             <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label>
             <label>Pay at the hotel<input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/></label> 
             <p>Choose travel (optional)</p>

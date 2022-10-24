@@ -81,12 +81,14 @@ function Home() {
   const [customerPhone, setCustomerPhone] = useState("");
   const [customerEmail, setCustomerEmail] = useState("");
   const [customerCreditCard, setCustomerCreditCard] = useState("");
+  const [customerCreditCardDate, setCustomerCreditCardDate] = useState("");
+  const [customerCreditCardCVC, setCustomerCreditCardCVC] = useState("");
   const [paymentMethod, setPaymentMethod] = useState();
   const [customerMessage, setCustomerMessage] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
   const [bookedHotel, setBookedHotel] = useState(null);
   const [bookedStatus, setBookedStatus] = useState(false);
-  // Skapar nio states för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
+  // Skapar elva states för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, kreditkortsnummersdatum, CVC-kod, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
   // Dessa state-variabler används i komponenten "DetailsBox" förutom "bookedStatus" som används i "InformationCard".
 
   function goBackRoomInformationCard() {
@@ -106,6 +108,9 @@ function Home() {
     setChosenRoomAmount(1);
     setChosenGuestAmount(1);
     setBookedStatus(false);
+    setCustomerCreditCard("");
+    setCustomerCreditCardDate("");
+    setCustomerCreditCardCVC("");
     setTotalPrice(0);
     //Sätter states:en till sina ursprungliga värden.
   }
@@ -192,8 +197,8 @@ function Home() {
         <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
         changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
         chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} totalPrice={totalPrice} setTotalPrice={setTotalPrice}
-        customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)}
-        paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} 
+        customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)} customerCreditCardDate={customerCreditCardDate} changeCustomerCreditCardDate={(e) => setCustomerCreditCardDate(e.target.value)}
+        paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} customerCreditCardCVC={customerCreditCardCVC} changeCustomerCreditCardCVC={(e) => setCustomerCreditCardCVC(e.target.value)}
         chosenGuestAmount={chosenGuestAmount} goBackDetailsBox={goBackDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking} customerMessage={customerMessage} changeCustomerMessage={(e) => setCustomerMessage(e.target.value)}/>
         {/* Renderar "DetailsBox"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in, 
         funktionen confirmBooking tas också med.*/}
