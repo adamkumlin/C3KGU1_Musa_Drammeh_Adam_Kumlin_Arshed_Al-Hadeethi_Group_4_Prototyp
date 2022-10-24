@@ -1,7 +1,16 @@
+@import url(https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap);
+/* Importerar ett typsnitt från Google Fonts. */
+
+* {
+  font-family: 'Kanit', sans-serif;
+}
+/* Ger alla element typsnittet "Kanit". */
 
 .NavBar h1 {
   color:#F18608;
 }
+/* Ändrar färgen. */
+
 .navBarList {
   list-style-type: none;
   padding: 0;
@@ -31,22 +40,18 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
-/* Sätter en minsta höjd på hela sidan. Ändrar till flex och till kolumner så footern alltid är längst ned på skärmen. */
-
-  .About {
-    text-align: center;
-  }
+/* Sätter en minsta höjd på hela sidan. Ändrar till flex och till kolumner så footern alltid är längst ned på skärmen. Centrerar elementen. */
   
   .navBarHeading {
     padding: 0;
     margin: 0;
     margin-top: 2rem;
     margin-left: 1rem;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color:#F18608;
   }
-  /* Tar bort padding lägger till en margin längst upp och till vänster. Ändrar typsnittet till Gill Sans och ger den en färg. */
+  /* Tar bort padding och margin, lägger till en margin längst upp och till vänster. Ger den en färg. */
 
   .Intro {
     margin-top: 10rem;
