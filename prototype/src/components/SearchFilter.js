@@ -36,7 +36,7 @@ function SearchFilter(props) {
     }
 
     todaysDate = `${yyyy}-${mm}-${dd}`;
-    // Ändrar datumet så det blir i formatet "yyyy-mm-dd".
+    // Lägger till variablerna till datumet i formatet "yyyy-mm-dd".
 
 
     function handleChange(e) {
