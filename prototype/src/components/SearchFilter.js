@@ -86,7 +86,7 @@ function SearchFilter(props) {
     return(
         <div className="SearchFilter">
             <img src={calendaricon} alt="Bild på en kalenderikon"/>
-            <label>Destination<input type="text" name="destination" value={props.searchTerm} onChange={handleChange} placeholder="New York"/>
+            <label>Destination<input type="text" name="destination" value={props.searchTerm} onChange={handleChange} placeholder="New York"/></label>
             <label>Check in<input type="date" name="checkInDate" min={todaysDate} value={props.checkInDate} onChange={handleCheckInDateChange}/></label>
             <label>Check out<input disabled={checkOutDateDisabled} type="date" min={props.checkInDate} name="checkOutDate" value={props.checkOutDate} onChange={(e) => props.setCheckOutDate(e.target.value)}/></label>
             <label>Guests<input type="number" name="guests" value={props.guests} onChange={(e) => props.setGuests(e.target.value)}  placeholder="1"/></label>

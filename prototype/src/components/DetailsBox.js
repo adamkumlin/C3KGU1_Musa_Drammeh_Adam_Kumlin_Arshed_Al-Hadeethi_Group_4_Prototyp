@@ -124,7 +124,7 @@ function DetailsBox(props) {
       // Skriver ut ett felmeddelande.
 
     } else if (!validPhoneAndCreditCard.test(props.customerCreditCardCVC) || props.customerCreditCardCVC.length !== 3) {
-    // Om användaren har skrivit in ett CVC-nummer som inte stämmer överens med regex-uttrycket "validPhoneAndCreditCard" eller om CVC-numret inte är 3 siffror långt.
+    // Om användaren har skrivit in ett CVC-nummer som inte stämmer överens med regex-uttrycket "validPhoneAndCreditCard" eller om CVC-numrets längd inte är lika med 3.
 
       alert("The credit card CVC is invalid.");
       // Skriver ut ett felmeddelande.

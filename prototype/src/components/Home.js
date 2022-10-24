@@ -88,7 +88,7 @@ function Home() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [bookedHotel, setBookedHotel] = useState(null);
   const [bookedStatus, setBookedStatus] = useState(false);
-  // Skapar elva states för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, utgångsmånad, cvc-nummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
+  // Skapar elva state-variabler för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, utgångsmånad, cvc-nummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
   // Dessa state-variabler används i komponenten "DetailsBox" förutom "bookedStatus" som används i "InformationCard".
 
   function goBackRoomInformationCard() {
