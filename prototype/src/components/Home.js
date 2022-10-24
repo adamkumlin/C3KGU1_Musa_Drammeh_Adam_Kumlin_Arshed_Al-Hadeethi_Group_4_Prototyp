@@ -58,18 +58,9 @@ const hotels = [
 // Skapar en array med fem hotell. Varje hotell har ett id, ett namn, en destination, en beskrivning, tre snabba fakta, en bild, ett pris och tre rum. Varje rum har ett rekommenderat antal gäster, ett namn, ett pris och ett id.
 
 function Home() {
-<<<<<<< Updated upstream
-  
-  const [searchTerm, setSearchTerm] = useState("");
-=======
-<<<<<<< Updated upstream
-
-=======
 // Skapar komponenten "Home".
   
   const [searchTerm, setSearchTerm] = useState("");
->>>>>>> Stashed changes
->>>>>>> Stashed changes
   const [destination, setDestination] = useState("");
   const [guests, setGuests] = useState(1);
   const [checkInDate, setCheckInDate] = useState("");

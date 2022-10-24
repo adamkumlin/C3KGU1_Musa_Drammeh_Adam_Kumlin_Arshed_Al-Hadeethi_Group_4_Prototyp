@@ -5,11 +5,8 @@ import About from "./components/About";
 // Importerar "Routes" och "Route" från "react-router-dom". Importerar också komponenterna "NavBar", "Home" och "About".
 
 function App() {
-<<<<<<< Updated upstream
-=======
 // Skapar komponenten "App". Detta är rotkomponenten för hela applikationen.
 
->>>>>>> Stashed changes
     return (
         <div className="App">
             <NavBar/>
@@ -24,10 +21,6 @@ function App() {
         // Den andra Route-komponenten renderar About-komponenten med path-attributet som är lika med "about". Routes-komponenten används för att förvara Route-komponenterna.
   );
 }
-<<<<<<< Updated upstream
-export default App;
-=======
 
 export default App;
 // Exporterar komponenten som "App".
->>>>>>> Stashed changes

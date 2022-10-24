@@ -1,6 +1,9 @@
 import React from 'react';
 // Importerar "React" från "react".
 
+import ReactDOM from 'react-dom';
+// Importerar "ReactDOM" från "react-dom".
+
 import { BrowserRouter } from 'react-router-dom';
 // Importerar "BrowserRouter" från "react-router-dom".
 

@@ -1,4 +1,4 @@
-import staricon from '../images/star_icon.png';
+import staricon from '/images/star_icon.png';
 // Importerar en bild.
 
 function ConfirmationMessage(props) {
