@@ -147,37 +147,37 @@ function DetailsBox(props) {
 
   } else {
       
-      return (
-        <div className="DetailsBox">
-            <button onClick={props.goBackDetailsBox} className="backButton">Back</button>
-            <h2>Customer details</h2>  
-            <label>Name<input type="text" name="userName" value={props.customerName} onChange={props.changeCustomerName} placeholder="John Doe"/></label>
-            <label>Phone number<input type="number" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} placeholder="1234567890"/></label>
-            <label>E-mail<input type="email" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} placeholder="example@example.com"/></label>
-            <label>Credit card number<input type="number" name="creditCard" value={props.customerCreditCard} onChange={props.changeCustomerCreditCard} placeholder="1234567890"/></label>
-            <label>Credit card expiration date<input type="month" name="creditCardDate" min={todaysMonth} value={props.customerCreditCardDate} onChange={props.changeCustomerCreditCardDate}/></label>
-            <label>CVC<input type="number" name="creditCardCVC" value={props.customerCreditCardCVC} onChange={props.changeCustomerCreditCardCVC} placeholder="555"/></label>
-            <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label>
-            <label>Pay at the hotel<input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/></label> 
-            <p>Choose travel (optional)</p>
-            <label>{props.chosenHotel.airports[0].airportName} ${props.chosenHotel.airports[0].price}<input type="checkbox" value={props.chosenHotel.airports[0].price} onChange={handleTravelCheckZero}/></label>
-            <label>{props.chosenHotel.airports[1].airportName} ${props.chosenHotel.airports[1].price}<input type="checkbox" value={props.chosenHotel.airports[1].price} onChange={handleTravelCheckOne}/></label>
-            <label className="textareaLabel">Message (optional) <textarea placeholder="Dietary requirements, estimated time of arrival..."value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
-            <h2>Hotel details</h2>
-            <p>Hotel name: {props.chosenHotel.hotelName}</p>
-            <p>{props.chosenHotel.stars} <img src={staricon} className="icon" alt="Star icon"/></p>
-            <p>Hotel destination: {props.chosenHotel.destination}</p>
-            <p>Room name: {props.chosenRooms.roomName}</p>
-            <p>Check-in date: {props.chooseCheckInDate}</p>
-            <p>Check-out date: {props.chooseCheckOutDate}</p>
-            <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) {travelPriceZero + travelPriceOne > 0 && <span>and travel</span>}</p> {/* Om "travelPriceZero" adderat med "travelPriceOne" är större än 0 så skrivs "and travel" ut. */} 
-          <button onClick={validateForm}>Book</button>
-          {/* Annars returneras två knappar, två h2-element, nio etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
-          Elementen med information om hotellen förses med informationen med hjälp av props. Bakåtknappen tar användaren tillbaka till sidan där ett rum väljs. */}
-        </div>
-      )
-    }
+    return (
+      <div className="DetailsBox">
+          <button onClick={props.goBackDetailsBox} className="backButton">Back</button>
+          <h2>Customer details</h2>  
+          <label>Name<input type="text" name="userName" value={props.customerName} onChange={props.changeCustomerName} placeholder="John Doe"/></label>
+          <label>Phone number<input type="number" name="phone" value={props.customerPhone} onChange={props.changeCustomerPhone} placeholder="1234567890"/></label>
+          <label>E-mail<input type="email" name="email" value={props.customerEmail} onChange={props.changeCustomerEmail} placeholder="example@example.com"/></label>
+          <label>Credit card number<input type="number" name="creditCard" value={props.customerCreditCard} onChange={props.changeCustomerCreditCard} placeholder="1234567890"/></label>
+          <label>Credit card expiration date<input type="month" name="creditCardDate" min={todaysMonth} value={props.customerCreditCardDate} onChange={props.changeCustomerCreditCardDate}/></label>
+          <label>CVC<input type="number" name="creditCardCVC" value={props.customerCreditCardCVC} onChange={props.changeCustomerCreditCardCVC} placeholder="555"/></label>
+          <label> Pay now with credit card<input type="radio" name="paymentMethod" value="With credit card" checked={props.paymentMethod === "With credit card"} onChange={handleChange}/></label>
+          <label>Pay at the hotel<input type="radio" name="paymentMethod" value="At the hotel" checked={props.paymentMethod === "At the hotel"} onChange={handleChange}/></label> 
+          <p>Choose travel (optional)</p>
+          <label>{props.chosenHotel.airports[0].airportName} ${props.chosenHotel.airports[0].price}<input type="checkbox" value={props.chosenHotel.airports[0].price} onChange={handleTravelCheckZero}/></label>
+          <label>{props.chosenHotel.airports[1].airportName} ${props.chosenHotel.airports[1].price}<input type="checkbox" value={props.chosenHotel.airports[1].price} onChange={handleTravelCheckOne}/></label>
+          <label className="textareaLabel">Message (optional) <textarea placeholder="Dietary requirements, estimated time of arrival..."value={props.customerMessage} onChange={props.changeCustomerMessage}/></label> 
+          <h2>Hotel details</h2>
+          <p>Hotel name: {props.chosenHotel.hotelName}</p>
+          <p>{props.chosenHotel.stars} <img src={staricon} className="icon" alt="Star icon"/></p>
+          <p>Hotel destination: {props.chosenHotel.destination}</p>
+          <p>Room name: {props.chosenRooms.roomName}</p>
+          <p>Check-in date: {props.chooseCheckInDate}</p>
+          <p>Check-out date: {props.chooseCheckOutDate}</p>
+          <p>Total price: ${total} for {props.chosenRoomAmount} room(s) for {props.chosenGuestAmount} guest(s) for {dayDifference} day(s) {travelPriceZero + travelPriceOne > 0 && <span>and travel</span>}</p> {/* Om "travelPriceZero" adderat med "travelPriceOne" är större än 0 så skrivs "and travel" ut. */} 
+        <button onClick={validateForm}>Book</button>
+        {/* Annars returneras två knappar, två h2-element, nio etiketter och input-element. Knappen anropar funktionen "validateForm" när användaren klickar på den. Dessutom skrivs en massa text ut.
+        Elementen med information om hotellen förses med informationen med hjälp av props. Bakåtknappen tar användaren tillbaka till sidan där ett rum väljs. */}
+      </div>
+    )
   }
+}
   
-  export default DetailsBox;
-  // Exporterar komponenten som "DetailsBox".
+export default DetailsBox;
+// Exporterar komponenten som "DetailsBox".

@@ -165,42 +165,42 @@ function Home() {
       {hotels.filter(function(results) {
       // Filterar array:en "hotels" med hjälp av en funktion som tar med sig ett objekt ("results").
 
-              if (destination === "" || guests > 3) {
-              // Om state-variabeln är tom eller om antalet gäster är större än tre så returneras "null" (inget värde).
-              
-                return null;
-                // Returnerar "null" (inget värde).
+        if (destination === "" || guests > 3) {
+        // Om state-variabeln är tom eller om antalet gäster är större än tre så returneras "null" (inget värde).
         
-              } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) {
-              // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet så returneras objektet med resultaten.
-        
-               return results;
-               // Returnerar objektet.
-        
-              }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports, stars}) => (
-              // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje resultat.
-
-              <InformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
-              description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports} stars={stars}
-              chooseHotel={chooseHotel} chosenHotel={chosenHotel}/>
-            ))}
-            {/*Renderar "InformationCard"-komponenten. Den tar med sig all information om det hotellen och en state-variabel, funktionen chooseHotel tas också med.*/}
+          return null;
+          // Returnerar "null" (inget värde).
   
-        <RoomInformationCard chosenHotel={chosenHotel} checkOut={checkOut} checkOutStatus={checkOutStatus}
-        chosenRoomAmount={chosenRoomAmount} setChosenRoomAmount={setChosenRoomAmount} chooseRooms={chooseRooms} 
-        chosenGuestAmount={chosenGuestAmount} setChosenGuestAmount={setChosenGuestAmount}
-        chooseCheckInDate={chooseCheckInDate} setChooseCheckInDate={setChooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} 
-        setChooseCheckOutDate={setChooseCheckOutDate} chosenRooms={chosenRooms} goBackRoomInformationCard={goBackRoomInformationCard} bookedStatus={bookedStatus}/>
-        {/* Renderar "RoomInformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter som ändrar, funktionerna chooseRooms samt checkOut tas också med .*/}
+        } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) {
+        // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet så returneras objektet med resultaten.
+  
+          return results;
+          // Returnerar objektet.
+  
+        }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports, stars}) => (
+        // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje resultat.
 
-        <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
-        changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
-        chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} totalPrice={totalPrice} setTotalPrice={setTotalPrice}
-        customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)} customerCreditCardDate={customerCreditCardDate} changeCustomerCreditCardDate={(e) => setCustomerCreditCardDate(e.target.value)}
-        paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} customerCreditCardCVC={customerCreditCardCVC} changeCustomerCreditCardCVC={(e) => setCustomerCreditCardCVC(e.target.value)}
-        chosenGuestAmount={chosenGuestAmount} goBackDetailsBox={goBackDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking} customerMessage={customerMessage} changeCustomerMessage={(e) => setCustomerMessage(e.target.value)}/>
-        {/* Renderar "DetailsBox"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in, 
-        funktionen confirmBooking tas också med.*/}
+          <InformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
+          description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports} stars={stars}
+          chooseHotel={chooseHotel} chosenHotel={chosenHotel}/>
+      ))}
+      {/*Renderar "InformationCard"-komponenten. Den tar med sig all information om det hotellen och en state-variabel, funktionen chooseHotel tas också med.*/}
+  
+      <RoomInformationCard chosenHotel={chosenHotel} checkOut={checkOut} checkOutStatus={checkOutStatus}
+      chosenRoomAmount={chosenRoomAmount} setChosenRoomAmount={setChosenRoomAmount} chooseRooms={chooseRooms} 
+      chosenGuestAmount={chosenGuestAmount} setChosenGuestAmount={setChosenGuestAmount}
+      chooseCheckInDate={chooseCheckInDate} setChooseCheckInDate={setChooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} 
+      setChooseCheckOutDate={setChooseCheckOutDate} chosenRooms={chosenRooms} goBackRoomInformationCard={goBackRoomInformationCard} bookedStatus={bookedStatus}/>
+      {/* Renderar "RoomInformationCard"-komponenten. Den tar med sig flera state-variabler och deras set-varianter som ändrar, funktionerna chooseRooms samt checkOut tas också med .*/}
+
+      <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
+      changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
+      chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} totalPrice={totalPrice} setTotalPrice={setTotalPrice}
+      customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)} customerCreditCardDate={customerCreditCardDate} changeCustomerCreditCardDate={(e) => setCustomerCreditCardDate(e.target.value)}
+      paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} customerCreditCardCVC={customerCreditCardCVC} changeCustomerCreditCardCVC={(e) => setCustomerCreditCardCVC(e.target.value)}
+      chosenGuestAmount={chosenGuestAmount} goBackDetailsBox={goBackDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking} customerMessage={customerMessage} changeCustomerMessage={(e) => setCustomerMessage(e.target.value)}/>
+      {/* Renderar "DetailsBox"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in, 
+      funktionen confirmBooking tas också med.*/}
       
       <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} customerMessage={customerMessage}
       chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} chosenGuestAmount={chosenGuestAmount} paymentMethod={paymentMethod} totalPrice={totalPrice} chosenRooms={chosenRooms}/>
