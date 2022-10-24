@@ -4,7 +4,8 @@ function Footer() {
         <div className="Footer">
             <h2>HotelsNOW</h2>
             <p>hotelsnow@hotelsnow.com</p>
-            {/* Placerar tre bilder, en paragraf och ett h1-element. */}
+            <p>Images by Vecislavas Popa, Pixabay, Max Vakhtbovych, PhotoMIX Company and Naim Benjelloun from Pexels.</p>
+            {/* Placerar tre bilder, två p-element och ett h2-element. */}
         </div>
     )
 }
