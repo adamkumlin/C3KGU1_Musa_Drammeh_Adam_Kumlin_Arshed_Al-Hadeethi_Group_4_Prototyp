@@ -19,12 +19,12 @@ import ConfirmationMessage from "./ConfirmationMessage";
 import Footer from "./Footer";
 // Importerar komponenten "Footer".
 
-import hotelpool from "images/hotelpool.jpg";
+import hotelpool from "../images/hotel_pool.jpg";
 // Importerar en bild.
 
 const hotels = [
   {"id": "0", "hotelName": "Hotel Jones", "destination": "New York City", "description": "Cheap and near the sea.", "facts": ["Cheap", "Free cancellation", "Free breakfast"], "stars": "2",
-  "image":"../assets/hotel.jpg", 
+  "image":"../images/hotel.jpg", 
   "airports": [{"airportName": "LaGuardia Airport", "price": "39", "airportID": "0"}, {"airportName": "John F. Kennedy International Airport", "price": "49", "airportID": "1"}], "price": "79",
   "rooms": [{"guests": "1", "roomName": "Single room", "image": "../assets/hotel_room.jpeg", "price": "79", "roomID": "0"}, {"guests": "2", "roomName": "Small apartment", 
   "image": "../assets/hotel_room1.jpeg", "price": "149", "roomID": "1"}, {"guests": "3", "roomName": "Apartment", "image": "../assets/hotel_room2.jpeg", "price": "299", "roomID": "2"}]},

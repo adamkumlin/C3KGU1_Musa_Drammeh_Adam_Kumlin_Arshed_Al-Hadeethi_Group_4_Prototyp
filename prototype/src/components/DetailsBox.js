@@ -1,7 +1,7 @@
 import { useState } from 'react';
 // Importerar "useState" från "react".
 
-import staricon from '/images/star_icon.png';
+import staricon from '../images/star_icon.png';
 // Importerar en bild.
 
 function DetailsBox(props) {
