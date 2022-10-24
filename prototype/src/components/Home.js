@@ -66,7 +66,7 @@ function Home() {
   const [guests, setGuests] = useState(1);
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
-  // Skapar fem states för sökterm, destination, incheckningsdatum, utcheckningsdatum och antal gäster. Dessa state-variabler används i komponenten "SearchFilter".
+  // Skapar fem state-variabler för sökterm, destination, incheckningsdatum, utcheckningsdatum och antal gäster. Dessa state-variabler används i komponenten "SearchFilter".
   
   const [chosenHotel, setChosenHotel] = useState(null);
   const [chosenRooms, setChosenRooms] = useState([]);
@@ -75,7 +75,7 @@ function Home() {
   const [chooseCheckInDate, setChooseCheckInDate] = useState("");
   const [chooseCheckOutDate, setChooseCheckOutDate] = useState("");
   const [checkOutStatus, setCheckOutStatus] = useState(false);
-  // Skapar sju states för valt hotell, valda rum, valt antal gäster, valt antal rum, valt incheckningsdatum, valt utcheckningsdatum och om utcheckningen har påbörjats. Dessa state-variabler används i komponenten "InformationCard".
+  // Skapar sju state-variabler för valt hotell, valda rum, valt antal gäster, valt antal rum, valt incheckningsdatum, valt utcheckningsdatum och om utcheckningen har påbörjats. Dessa state-variabler används i komponenten "InformationCard".
 
   const [customerName, setCustomerName] = useState("");
   const [customerPhone, setCustomerPhone] = useState("");
@@ -86,11 +86,11 @@ function Home() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [bookedHotel, setBookedHotel] = useState(null);
   const [bookedStatus, setBookedStatus] = useState(false);
-  // Skapar nio states för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
+  // Skapar nio state-variabler för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
   // Dessa state-variabler används i komponenten "DetailsBox" förutom "bookedStatus" som används i "InformationCard".
 
   function goBackRoomInformationCard() {
-  // Funktionen "goBackRoomInformationCard" används för att återgå till "InformationCard" från "RoomInformationCard".
+  // Funktionen "goBackRoomInformationCard" används för att gå tillbaka till "InformationCard" från "RoomInformationCard".
 
     setChosenHotel(null);
     // Återställer "chosenHotel" till null.
@@ -107,39 +107,39 @@ function Home() {
     setChosenGuestAmount(1);
     setBookedStatus(false);
     setTotalPrice(0);
-    //Sätter states:en till sina ursprungliga värden.
+    //Sätter state-variablerna till sina ursprungliga värden.
   }
 
   function chooseHotel(id) {
-  // Skapar en funktion som gör att användaren kan välja ett hotell. Den tar emot ett id som parameter.
+  // Skapar en funktion som gör att användaren kan välja ett hotell. Den tar emot ett id.
 
     setChosenHotel(hotels[id]);
-    // Sätter state:en "chosenHotel" till hotellet som användaren valt.
+    // Sätter state-variabeln "chosenHotel" till hotellet som användaren valt.
   }
 
   function chooseRooms(id, roomID) {
-  // Skapar en funktion som gör att användaren kan välja rum. Den tar emot två parametrar: id och roomID.
+  // Skapar en funktion som gör att användaren kan välja rum. Den tar id och roomID.
 
     setChosenRooms(hotels[id].rooms[roomID]);
-    // Sätter state:en "chosenRooms" till rummet som användaren valt.
+    // Sätter state-variabeln "chosenRooms" till rummet som användaren valt.
   }
   
   function checkOut() {
   // Skapar en funktion som gör att användaren kan gå vidare till utcheckningen.
 
     setCheckOutStatus(true);
-    // Sätter state:en "checkOutStatus" till true, vilket returnerar "DetailsBox"-komponenten.
+    // Sätter state-variabeln "checkOutStatus" till true, vilket returnerar "DetailsBox"-komponenten.
   }
 
   function confirmBooking() {
   // Skapar en funktion som gör att användaren kan bekräfta bokningen.
 
     setBookedHotel(chosenHotel);
-    // Sätter state:et "bookedHotel" till hotellet som användaren valt tidigare.
+    // Sätter state-variabeln "bookedHotel" till hotellet som användaren valt tidigare.
 
     setCheckOutStatus(false);
     setBookedStatus(true);
-    // Sätter state:et "checkOutStatus" till false och state:et "bookedStatus" till true.
+    // Sätter state-variabeln "checkOutStatus" till false och state:et "bookedStatus" till true.
   }
 
   return (
@@ -159,7 +159,7 @@ function Home() {
       {/* Renderar "SearchFilter"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in. */}
 
       {hotels.filter(function(results) {
-      // Filterar array:en "hotels" med hjälp av en funktion som tar emot ett objekt.
+      // Filterar array:en "hotels" med hjälp av en funktion som tar med sig ett objekt ("results").
 
               if (destination === "" || guests > 3) {
               // Om state-variabeln är tom eller om antalet gäster är större än tre så returneras "null" (inget värde).
@@ -168,13 +168,13 @@ function Home() {
                 // Returnerar "null" (inget värde).
         
               } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) {
-              // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet och sedan sökt på (state-variabeln "destination") så returneras objektet.
+              // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet så returneras objektet med resultaten.
         
                return results;
                // Returnerar objektet.
         
               }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports, stars}) => (
-              // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje objekt.
+              // Mappar igenom array:en "hotels" och returnerar en "InformationCard"-komponent för varje resultat.
 
               <InformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
               description={description} facts={facts} image={image} price={price} rooms={rooms} airports={airports} stars={stars}
