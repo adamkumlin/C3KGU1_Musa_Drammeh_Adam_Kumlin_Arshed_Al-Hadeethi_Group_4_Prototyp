@@ -66,7 +66,7 @@ function RoomInformationCard(props) {
     if (!props.chosenGuestAmount || !props.chosenRoomAmount || !props.chooseCheckInDate || !props.chooseCheckOutDate) {
     // Om någon av state-variablerna "chosenGuestAmount", "chosenRoomAmount", "chooseCheckInDate" eller "chooseCheckOutDate" inte har något värde.
 
-      alert("Please fill out all the fields.");
+      alert("Please fill out all fields.");
       // Skriver ut ett felmeddelande.
 
     } else if (props.chosenGuestAmount > 9) {
@@ -96,13 +96,13 @@ function RoomInformationCard(props) {
     } else if (props.chooseCheckInDate === props.chooseCheckOutDate){
       // Om chooseCheckInDate är lika med chooseCheckOutDate. Alltså om användaren har valt samma datum för in- och utcheckning.
 
-      alert("The check in and check out date can't be the same.");
+      alert("The check in and check out date cannot be the same.");
       // Skriver ut ett felmeddelande.
 
     } else if (props.chosenGuestAmount > props.chosenRooms.guests * props.chosenRoomAmount) {
       // Om användaren har valt fler gäster än vad som finns plats för i rummet/rummen.
 
-      alert("There are enough guests for this room.");
+      alert("You cannot add more guests to this room.");
       // Skriver ut ett felmeddelande.
 
     } else {
