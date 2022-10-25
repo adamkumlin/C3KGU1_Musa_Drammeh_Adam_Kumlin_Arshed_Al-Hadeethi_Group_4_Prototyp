@@ -163,7 +163,7 @@ function Home() {
       {/* Renderar "SearchFilter"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in. */}
 
       {hotels.filter(function(results) {
-      // Filterar array:en "hotels" med hjälp av en funktion som tar med sig ett objekt ("results").
+      // Filtrerar array:en "hotels" med hjälp av en funktion som tar med sig ett objekt ("results").
 
         if (destination === "" || guests > 3) {
         // Om state-variabeln är tom eller om antalet gäster är större än tre så returneras "null" (inget värde).
