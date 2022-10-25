@@ -1,3 +1,5 @@
+// Musa Drammeh, Adam Kumlin och Arshed-Al Hadeethi
+
 import { Link } from 'react-router-dom';
 // Importerar "Link" från "react-router-dom".
 

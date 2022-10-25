@@ -1,3 +1,5 @@
+// Musa Drammeh, Adam Kumlin och Arshed-Al Hadeethi
+
 import { useState } from 'react';
 // Importerar "useState" från "react".
 
@@ -61,14 +63,21 @@ function DetailsBox(props) {
       setTravelPriceZero(travelPriceZero + parseInt(props.chosenHotel.airports[0].price));
       // Adderar den första resans pris till "travelPriceZero". "parseInt" används för att konvertera strängen till ett heltal.
 
+      props.setBookedTravel(current => [...current, props.chosenHotel.airports[0]]);
+      // Den resa som användaren har valt adderas till arrayen.
+
     } else {
 
       setTravelPriceZero(travelPriceZero - parseInt(props.chosenHotel.airports[0].price));
       // Annars om användaren har avmarkerat checkboxen så subtraheras resans pris från "travelPriceZero". 
       // "parseInt" används för att konvertera strängen till ett heltal.
+
+      props.setBookedTravel(current => current.filter(travel => travel !== props.chosenHotel.airports[0]));
+      // Den resa som användaren har avcheckat raderas från arrayen med hjälp av funktionen "filter".
+
     }
   }
-
+console.log(props.bookedTravel);
   function handleTravelCheckOne(event) {
     // Skapar en funktion som tar emot ett event.
     if (event.target.checked) {
@@ -77,11 +86,17 @@ function DetailsBox(props) {
       setTravelPriceOne(travelPriceOne + parseInt(props.chosenHotel.airports[1].price));
       // Adderar den andra resans pris till "travelPriceOne". "parseInt" används för att konvertera strängen till ett heltal.
 
+      props.setBookedTravel(current => [...current, props.chosenHotel.airports[1]]);
+      // Den resa som användaren har valt adderas till arrayen.
+
     } else {
 
       setTravelPriceOne(travelPriceOne - parseInt(props.chosenHotel.airports[1].price));
       // Annars om användaren har avmarkerat checkboxen så subtraheras resans pris från "travelPriceOne". 
       // "parseInt" används för att konvertera strängen till ett heltal.
+
+      props.setBookedTravel(current => current.filter(travel => travel !== props.chosenHotel.airports[1]));
+      // Den resa som användaren har avcheckat raderas från arrayen med hjälp av funktionen "filter".
     }
   }
 
@@ -130,7 +145,6 @@ function DetailsBox(props) {
       // Skriver ut ett felmeddelande.
 
     } else {
-
       props.setTotalPrice(total);
       props.confirmBooking(props.id)
       // Annars anropas funktionen "confirmBooking" som tar med sig id:t på det hotell som användaren har valt. State-variabeln 

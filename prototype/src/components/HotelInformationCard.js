@@ -1,3 +1,5 @@
+// Musa Drammeh, Adam Kumlin och Arshed-Al Hadeethi
+
 import locationicon from '../images/location_icon.png';
 import staricon from '../images/star_icon.png';
 // Importerar två bilder.

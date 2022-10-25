@@ -1,3 +1,5 @@
+// Musa Drammeh, Adam Kumlin och Arshed-Al Hadeethi
+
 import Footer from "./Footer";
 // Importerar komponenten "Footer".
 

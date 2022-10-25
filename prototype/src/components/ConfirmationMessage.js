@@ -1,3 +1,5 @@
+// Musa Drammeh, Adam Kumlin och Arshed-Al Hadeethi
+
 import staricon from '../images/star_icon.png';
 // Importerar en bild.
 
@@ -36,6 +38,8 @@ function ConfirmationMessage(props) {
               <li>Guests: {props.chosenGuestAmount}</li>
               <li>Check-in date: {props.chooseCheckInDate}</li>
               <li>Check-out date: {props.chooseCheckOutDate}</li>
+              {props.bookedTravel[0] && <li>Travel: from {props.bookedTravel[0].airportName}</li>} {/* Om resan har ett värde (att användaren har valt en resa) skrivs det ut. */}
+              {props.bookedTravel[1] && <li>Travel: from {props.bookedTravel[1].airportName}</li>} {/* Om resan har ett värde (att användaren har valt en resa) skrivs det ut. */}
           </ul>
       </div>
       // Renderar en div med ett h2-element, två h3-element och två ul-element. Dessa element fylls med information om hotellen med props.

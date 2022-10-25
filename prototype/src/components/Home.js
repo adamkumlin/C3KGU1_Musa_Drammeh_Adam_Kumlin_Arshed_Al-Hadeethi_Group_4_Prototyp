@@ -1,3 +1,5 @@
+// Musa Drammeh, Adam Kumlin och Arshed-Al Hadeethi
+
 import { useState } from "react";
 // Importerar State.
 
@@ -85,9 +87,10 @@ function Home() {
   const [paymentMethod, setPaymentMethod] = useState();
   const [customerMessage, setCustomerMessage] = useState("");
   const [totalPrice, setTotalPrice] = useState(0);
+  const [bookedTravel, setBookedTravel] = useState([]);
   const [bookedHotel, setBookedHotel] = useState(null);
   const [bookedStatus, setBookedStatus] = useState(false);
-  // Skapar elva state-variabler för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, utgångsmånad, cvc-nummer, betalningsmetod, meddelande, totalpriset, bokat hotell och om bokningen har utförts. 
+  // Skapar tolv state-variabler för kundens namn, telefonnummer, e-postadress, kreditkortsnummer, utgångsmånad, cvc-nummer, betalningsmetod, meddelande, totalpriset, eventuellt bokade resor, bokat hotell och om bokningen har utförts. 
   // Dessa state-variabler används i komponenten "DetailsBox" förutom "bookedStatus" som används i "HotelInformationCard".
 
   function goBackRoomInformationCard() {
@@ -171,13 +174,16 @@ function Home() {
           return null;
           // Returnerar "null" (inget värde).
   
-        } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) {
+        } else if (results.destination.toLowerCase().includes(destination.toLowerCase())) 
         // Om destinationen i objektet innehåller det som användaren skrivit in i sökfältet så returneras objektet med resultaten.
   
           return results;
           // Returnerar objektet.
+          
+          else return false;
+          // Annars returneras "false".
   
-        }}).map(({id, hotelName, destination, description, facts, image, price, rooms, airports, stars}) => (
+        }).map(({id, hotelName, destination, description, facts, image, price, rooms, airports, stars}) => (
         // Mappar igenom array:en "hotels" och returnerar en "HotelInformationCard"-komponent för varje resultat.
 
           <HotelInformationCard key={id} id={id} hotelName={hotelName} destination={destination} 
@@ -195,14 +201,14 @@ function Home() {
 
       <DetailsBox customerName={customerName} changeCustomerName={(e) => setCustomerName(e.target.value)} customerPhone={customerPhone} 
       changeCustomerPhone={(e) => setCustomerPhone(e.target.value)} customerEmail={customerEmail} changeCustomerEmail={(e) => setCustomerEmail(e.target.value)} 
-      chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} totalPrice={totalPrice} setTotalPrice={setTotalPrice}
+      chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} totalPrice={totalPrice} setTotalPrice={setTotalPrice} bookedTravel={bookedTravel} setBookedTravel={setBookedTravel}
       customerCreditCard={customerCreditCard} changeCustomerCreditCard={(e) => setCustomerCreditCard(e.target.value)} customerCreditCardDate={customerCreditCardDate} changeCustomerCreditCardDate={(e) => setCustomerCreditCardDate(e.target.value)}
       paymentMethod={paymentMethod} setPaymentMethod={setPaymentMethod} chosenHotel={chosenHotel} chosenRooms={chosenRooms} chosenRoomAmount={chosenRoomAmount} customerCreditCardCVC={customerCreditCardCVC} changeCustomerCreditCardCVC={(e) => setCustomerCreditCardCVC(e.target.value)}
       chosenGuestAmount={chosenGuestAmount} goBackDetailsBox={goBackDetailsBox} checkOutStatus={checkOutStatus} confirmBooking={confirmBooking} customerMessage={customerMessage} changeCustomerMessage={(e) => setCustomerMessage(e.target.value)}/>
       {/* Renderar "DetailsBox"-komponenten. Den tar med sig flera state-variabler och funktioner som ändrar deras värde till det som användaren skrev in, 
       funktionen confirmBooking tas också med.*/}
       
-      <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} customerMessage={customerMessage}
+      <ConfirmationMessage bookedHotel={bookedHotel} customerName={customerName} customerPhone={customerPhone} customerEmail={customerEmail} customerMessage={customerMessage} bookedTravel={bookedTravel}
       chooseCheckInDate={chooseCheckInDate} chooseCheckOutDate={chooseCheckOutDate} chosenGuestAmount={chosenGuestAmount} paymentMethod={paymentMethod} totalPrice={totalPrice} chosenRooms={chosenRooms}/>
       {/* Renderar "ConfirmationMessage"-komponenten. Den tar med sig flera state-variabler. */}
 
@@ -214,4 +220,4 @@ function Home() {
 }
 
 export default Home;
-// Exporterar "App"-komponenten som "App".
+// Exporterar komponenten som "Home".

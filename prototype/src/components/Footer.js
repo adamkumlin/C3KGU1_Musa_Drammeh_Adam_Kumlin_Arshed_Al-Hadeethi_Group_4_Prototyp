@@ -1,3 +1,5 @@
+// Musa Drammeh, Adam Kumlin och Arshed-Al Hadeethi
+
 function Footer() {
 // Skapar komponenten "Footer".
 
